@@ -1,0 +1,31 @@
+CFLAGS =-Iinclude -I -O3  -pg
+#CFLAGS =-Iinclude -pg
+
+MODE = student
+
+
+all : jpegenc test_dct8x8 test_dct8  src-$(MODE)/dct8x8.s
+
+jpegenc: src-$(MODE)/dct8x8.c src-$(MODE)/dct8.c src/jpegenc.c src/main.c
+	g++ $(CFLAGS) -Isrc-$(MODE) src-$(MODE)/dct8x8.c src/jpegenc.c src/main.c -o jpegenc
+	
+test_dct8x8: src-$(MODE)/test_dct8x8.c src-$(MODE)/dct8x8.c
+	g++ $(CLAGS) -Isrc-$(MODE) src-$(MODE)/test_dct8x8.c src-$(MODE)/dct8x8.c -o test_dct8x8
+
+test_dct8: src-$(MODE)/test_dct8.c src-$(MODE)/dct8.c
+	g++ $(CLAGS) -Isrc-$(MODE) src-$(MODE)/test_dct8.c src-$(MODE)/dct8.c -o test_dct8
+
+src-$(MODE)/dct8x8.s: src-$(MODE)/dct8x8.c
+	g++ $(CFLAGS) -c -S src-$(MODE)/dct8x8.c -o src-$(MODE)/dct8x8.s
+
+run:
+	./jpegenc ./data/brueghel.bmp ./data/brueghel.jpg
+ 
+clean:
+	rm -f jpegenc test_dct src-$(MODE)/dct.s
+
+rebuild : clean all
+	
+
+	
+	
