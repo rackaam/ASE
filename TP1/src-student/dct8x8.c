@@ -3,6 +3,8 @@
 #include <math.h>
 #include "dct.h"
 
+//#define TRACE
+
 #define VAL00 (0.5/4.0)
 #define VAL0x (0.7071067/4.0)
 #define VALx0 (0.7071067/4.0)
@@ -40,8 +42,8 @@ void fast_float_dct8(float in[8], float out[8]);
 
 
 void dct8x8(short pixel[8][8], short data[8][8]) {
-	slow_float_dct8x8(pixel,data);
-//	fast_float_dct8x8(pixel,data);
+ 	slow_float_dct8x8(pixel,data);
+	//ast_float_dct8x8(pixel,data);
 }
 
 
@@ -86,7 +88,7 @@ void fast_float_dct8x8(short pixel[8][8], short data[8][8])
 		{
 			tab[j] = pixel[i][j];
 		}
-		slow_float_dct8(tab, out);
+		fast_float_dct8(tab, out);
 		for(j = 0; j < 8; j++)
 		{
 			data[i][j] = out[j];
@@ -100,10 +102,10 @@ void fast_float_dct8x8(short pixel[8][8], short data[8][8])
 		{
 			tab[j] = data[j][i];
 		}
-		slow_float_dct8(tab, out);
+		fast_float_dct8(tab, out);
 		for(j = 0; j < 8; j++)
 		{
-			data[j][i] = out[j];
+			data[i][j] = out[j];
 		}
 	}
 }
@@ -137,7 +139,16 @@ void fast_float_dct8(float in[8], float out[8]) {
 	}
 #endif
 
-	// Etage 1 Ã  complÃ©ter
+// Etage 1
+tmp[0] = in[0] + in[7];
+tmp[1] = in[1] + in[6];
+tmp[2] = in[2] + in[5];
+tmp[3] = in[3] + in[4];
+
+tmp[4] = in[3] - in[4];
+tmp[5] = in[2] - in[5];
+tmp[6] = in[1] - in[6];
+tmp[7] = in[0] - in[7];
 
 #ifdef TRACE
 	printf("\n==== Stage 1 ====\n");
@@ -146,17 +157,32 @@ void fast_float_dct8(float in[8], float out[8]) {
 	}
 #endif
 
-	// Etage 2 Ã  complÃ©ter
-
+// Etage 2
+tmp2[0] = tmp[0] + tmp[3];
+tmp2[1] = tmp[1] + tmp[2];
+tmp2[2] = tmp[1] - tmp[2];
+tmp2[3] = tmp[0] - tmp[3];
+tmp2[4] = tmp[4];
+tmp2[5] = -C4 * tmp[5] + C4 * tmp[6];
+tmp2[6] = C4 * tmp[5] + C4 * tmp[6];
+tmp2[7] = tmp[7];
 #ifdef TRACE
 	printf("\n==== Stage 2 ====\n");
 	for (i=0;i<8;i++) {
-		printf("stage2[%d] = %f\n",i,out[i]);
+		printf("stage2[%d] = %f\n",i,tmp2[i]);
 	}
 #endif
 
-	// Etage 3 Ã  complÃ©ter
+// Etage 3
+tmp[0] = C4 * tmp2[0] + C4 * tmp2[1];
+tmp[1] = C4 * tmp2[0] - C4 * tmp2[1];
+tmp[2] = C6 * tmp2[2] + C2 * tmp2[3];
+tmp[3] = (- C2 * tmp2[2]) + C6 * tmp2[3];
 
+tmp[4] = tmp2[4] + tmp2[5];
+tmp[5] = tmp2[4] - tmp2[5];
+tmp[6] = -(tmp2[6] - tmp2[7]);
+tmp[7] = tmp2[6] + tmp2[7];
 #ifdef TRACE
 	printf("\n==== Stage 3 ====\n");
 	for (i=0;i<8;i++) {
@@ -164,8 +190,16 @@ void fast_float_dct8(float in[8], float out[8]) {
 	}
 #endif
 
-	// Etage 4 Ã  complÃ©ter
+// Etage 4
+out[0] = tmp[0] / 2.0;
+out[4] = tmp[1] / 2.0;    
+out[2] = tmp[2] / 2.0;
+out[6] = tmp[3] / 2.0;   
 
+out[1] = (C7 * tmp[4] + C1 * tmp[7]) / 2.0;
+out[5] = (C3 * tmp[5] + C5 * tmp[6]) / 2.0;
+out[3] = ((-C5 * tmp[5]) + C3 * tmp[6]) / 2.0;
+out[7] = ((-C1 * tmp[4]) + C7 * tmp[7]) / 2.0;
 #ifdef TRACE
 	printf("\n==== Output ====\n");
 	for (i=0;i<8;i++) {
