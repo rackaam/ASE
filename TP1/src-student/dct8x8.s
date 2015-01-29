@@ -4,7 +4,7 @@
 	.globl	_Z17slow_float_dct8x8PA8_sS0_
 	.type	_Z17slow_float_dct8x8PA8_sS0_, @function
 _Z17slow_float_dct8x8PA8_sS0_:
-.LFB26:
+.LFB49:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -235,13 +235,13 @@ _Z17slow_float_dct8x8PA8_sS0_:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE26:
+.LFE49:
 	.size	_Z17slow_float_dct8x8PA8_sS0_, .-_Z17slow_float_dct8x8PA8_sS0_
 	.p2align 4,,15
 	.globl	dct8x8
 	.type	dct8x8, @function
 dct8x8:
-.LFB25:
+.LFB48:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -253,31 +253,160 @@ dct8x8:
 	.cfi_def_cfa 7, 8
 	jmp	_Z17slow_float_dct8x8PA8_sS0_
 	.cfi_endproc
-.LFE25:
+.LFE48:
 	.size	dct8x8, .-dct8x8
 	.p2align 4,,15
 	.globl	_Z17fast_float_dct8x8PA8_sS0_
 	.type	_Z17fast_float_dct8x8PA8_sS0_, @function
 _Z17fast_float_dct8x8PA8_sS0_:
-.LFB27:
+.LFB50:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
+	subq	$32, %rsp
 	call	mcount
-	popq	%rbp
+	movl	$4, %eax
+	movl	$4, %edx
+	movl	$4, %ecx
+	movw	%ax, (%rsi)
+	movl	$4, %eax
+	movl	$4, %edi
+	movw	%ax, 2(%rsi)
+	movl	$4, %eax
+	movl	$4, %r8d
+	movw	%ax, 18(%rsi)
+	movl	$4, %eax
+	movl	$4, %r9d
+	movw	%ax, 34(%rsi)
+	movl	$4, %eax
+	movl	$4, %r10d
+	movw	%ax, 50(%rsi)
+	movl	$4, %eax
+	movl	$4, %r11d
+	movw	%ax, 66(%rsi)
+	movl	$4, %eax
+	movw	%dx, 16(%rsi)
+	movw	%ax, 82(%rsi)
+	movl	$4, %eax
+	movw	%cx, 32(%rsi)
+	movw	%ax, 84(%rsi)
+	movl	$4, %eax
+	movw	%di, 48(%rsi)
+	movw	%ax, 100(%rsi)
+	movl	$4, %eax
+	movw	%r8w, 64(%rsi)
+	movw	%ax, 116(%rsi)
+	movl	$4, %eax
+	movw	%r9w, 80(%rsi)
+	movw	%ax, 6(%rsi)
+	movl	$4, %eax
+	movw	%r10w, 96(%rsi)
+	movw	%r11w, 112(%rsi)
+	movl	$4, %edx
+	movl	$4, %ecx
+	movl	$4, %edi
+	movl	$4, %r8d
+	movl	$4, %r9d
+	movl	$4, %r10d
+	movl	$4, %r11d
+	movw	%ax, 22(%rsi)
+	movl	$4, %eax
+	movw	%dx, 98(%rsi)
+	movw	%cx, 114(%rsi)
+	movw	%di, 4(%rsi)
+	movw	%r8w, 20(%rsi)
+	movl	$4, %edx
+	movw	%r9w, 36(%rsi)
+	movw	%r10w, 52(%rsi)
+	movl	$4, %ecx
+	movw	%r11w, 68(%rsi)
+	movw	%ax, 38(%rsi)
+	movl	$4, %edi
+	movl	$4, %r8d
+	movl	$4, %r9d
+	movl	$4, %r10d
+	movl	$4, %r11d
+	movl	$4, %eax
+	movw	%dx, 54(%rsi)
+	movw	%cx, 70(%rsi)
+	movw	%di, 86(%rsi)
+	movl	$4, %edx
+	movw	%r8w, 102(%rsi)
+	movw	%r9w, 118(%rsi)
+	movl	$4, %ecx
+	movw	%r10w, 8(%rsi)
+	movw	%r11w, 24(%rsi)
+	movl	$4, %edi
+	movw	%ax, 40(%rsi)
+	movl	$4, %eax
+	movl	$4, %r8d
+	movw	%ax, 56(%rsi)
+	movl	$4, %eax
+	movl	$4, %r9d
+	movw	%ax, 72(%rsi)
+	movl	$4, %eax
+	movl	$4, %r10d
+	movw	%ax, 88(%rsi)
+	movl	$4, %eax
+	movl	$4, %r11d
+	movw	%ax, 104(%rsi)
+	movl	$4, %eax
+	movw	%dx, 10(%rsi)
+	movw	%ax, 120(%rsi)
+	movl	$4, %eax
+	movw	%cx, 26(%rsi)
+	movw	%ax, 122(%rsi)
+	movl	$4, %eax
+	movw	%di, 42(%rsi)
+	movw	%ax, 12(%rsi)
+	movl	$4, %eax
+	movw	%r8w, 58(%rsi)
+	movw	%ax, 28(%rsi)
+	movl	$4, %eax
+	movw	%r9w, 74(%rsi)
+	movw	%ax, 44(%rsi)
+	movl	$4, %eax
+	movw	%r10w, 90(%rsi)
+	movw	%ax, 60(%rsi)
+	movl	$4, %eax
+	movw	%r11w, 106(%rsi)
+	movw	%ax, 76(%rsi)
+	movl	$4, %eax
+	movl	$4, %edx
+	movw	%ax, 78(%rsi)
+	movl	$4, %eax
+	movl	$4, %ecx
+	movw	%ax, 94(%rsi)
+	movl	$4, %eax
+	movl	$4, %edi
+	movw	%ax, 110(%rsi)
+	movl	$4, %r8d
+	movl	$4, %r9d
+	movl	$4, %r10d
+	movl	$4, %r11d
+	movl	$4, %eax
+	movw	%dx, 92(%rsi)
+	movw	%cx, 108(%rsi)
+	movw	%di, 124(%rsi)
+	movw	%r8w, 14(%rsi)
+	movw	%r9w, 30(%rsi)
+	movw	%r10w, 46(%rsi)
+	movw	%r11w, 62(%rsi)
+	movw	%ax, 126(%rsi)
+	leave
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE27:
+.LFE50:
 	.size	_Z17fast_float_dct8x8PA8_sS0_, .-_Z17fast_float_dct8x8PA8_sS0_
 	.p2align 4,,15
 	.globl	_Z15slow_float_dct8PfS_
 	.type	_Z15slow_float_dct8PfS_, @function
 _Z15slow_float_dct8PfS_:
-.LFB28:
+.LFB51:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -475,13 +604,13 @@ _Z15slow_float_dct8PfS_:
 	movss	.LC4(%rip), %xmm1
 	jmp	.L12
 	.cfi_endproc
-.LFE28:
+.LFE51:
 	.size	_Z15slow_float_dct8PfS_, .-_Z15slow_float_dct8PfS_
 	.p2align 4,,15
 	.globl	_Z15fast_float_dct8PfS_
 	.type	_Z15fast_float_dct8PfS_, @function
 _Z15fast_float_dct8PfS_:
-.LFB29:
+.LFB52:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -493,7 +622,7 @@ _Z15fast_float_dct8PfS_:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE29:
+.LFE52:
 	.size	_Z15fast_float_dct8PfS_, .-_Z15fast_float_dct8PfS_
 	.globl	Av
 	.data
@@ -588,5 +717,5 @@ Av:
 	.align 4
 .LC6:
 	.long	1056964608
-	.ident	"GCC: (GNU) 4.8.2 20131212 (Red Hat 4.8.2-7)"
+	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
 	.section	.note.GNU-stack,"",@progbits

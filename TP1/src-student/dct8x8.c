@@ -77,6 +77,35 @@ void fast_float_dct8x8(short pixel[8][8], short data[8][8])
 	int i,j;
 	
 	float tab[8];
+	float out[8];
+
+	// lignes
+	for(i = 0; i < 8; i++)
+	{
+		for(j = 0; j < 8; j++)
+		{
+			tab[j] = pixel[i][j];
+		}
+		slow_float_dct8(tab, out);
+		for(j = 0; j < 8; j++)
+		{
+			data[i][j] = out[j];
+		}
+	}
+
+	// colonnes
+	for(i = 0; i < 8; i++)
+	{
+		for(j = 0; j < 8; j++)
+		{
+			tab[j] = data[j][i];
+		}
+		slow_float_dct8(tab, out);
+		for(j = 0; j < 8; j++)
+		{
+			data[j][i] = out[j];
+		}
+	}
 }
 
 
