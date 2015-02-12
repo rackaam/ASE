@@ -10,7 +10,6 @@
 #define VALx0 (0.7071067/4.0)
 #define VALxx (1.0/4.0)
 
-
 #define C0 (2*(0.7071068))
 #define C1 (2*(0.49039))
 #define C2 (2*(0.46194))
@@ -19,6 +18,15 @@
 #define C5 (2*(0.27779))
 #define C6 (2*(0.19134))
 #define C7 (2*(0.09755))
+
+// Fixed point values
+#define C1_FP (int) ((2<<15) * (0.49039))
+#define C2_FP (int) ((2<<15) * (0.46194))
+#define C3_FP (int) ((2<<15) * (0.41573))
+#define C4_FP (int) ((2<<15) * (0.35355))
+#define C5_FP (int) ((2<<15) * (0.27779))
+#define C6_FP (int) ((2<<15) * (0.19134))
+#define C7_FP (int) ((2<<15) * (0.09755))
 
 #define Cu0  0.7071068
 
@@ -39,14 +47,13 @@ void slow_float_dct8x8(short pixel[8][8], short data[8][8]);
 void float_dct8x8(short pixel[8][8], short data[8][8]);
 void slow_float_dct8(float in[8], float out[8]);
 void fast_float_dct8(float in[8], float out[8]);
+void fast_fixed_dct8(short in[8], short out[8]);
 
 
 void dct8x8(short pixel[8][8], short data[8][8]) {
  	slow_float_dct8x8(pixel,data);
-	//ast_float_dct8x8(pixel,data);
+	//fast_float_dct8x8(pixel,data);
 }
-
-
 
 void slow_float_dct8x8(short pixel[8][8], short data[8][8])
 {
@@ -208,3 +215,58 @@ out[7] = ((-C1 * tmp[4]) + C7 * tmp[7]) / 2.0;
 #endif
 }
 
+
+void fast_fixed_dct8(short in[8], short out[8])
+{
+	int tmp[8];
+	int tmp2[8];
+
+	tmp[0] = in[0] << 15;
+	tmp[1] = in[1] << 15;
+	tmp[2] = in[2] << 15;
+	tmp[3] = in[3] << 15;
+	tmp[4] = in[4] << 15;
+	tmp[5] = in[5] << 15;
+	tmp[6] = in[6] << 15;
+	tmp[7] = in[7] << 15;
+
+	// Etage 1
+	tmp2[0] = tmp[0] + tmp[7];
+	tmp2[1] = tmp[1] + tmp[6];
+	tmp2[2] = tmp[2] + tmp[5];
+	tmp2[3] = tmp[3] + tmp[4];
+	tmp2[4] = tmp[3] - tmp[4];
+	tmp2[5] = tmp[2] - tmp[5];
+	tmp2[6] = tmp[1] - tmp[6];
+	tmp2[7] = tmp[0] - tmp[7];
+
+	// Etage 2
+	tmp[0] = tmp2[0] + tmp2[3];
+	tmp[1] = tmp2[1] + tmp2[2];
+	tmp[2] = tmp2[1] - tmp2[2];
+	tmp[3] = tmp2[0] - tmp2[3];
+	tmp[4] = tmp2[4];
+	tmp[5] = -C4_FP * (tmp2[5] >> 15) + C4_FP * (tmp2[6] >> 15);
+	tmp[6] = C4_FP * (tmp2[5] >> 15) + C4_FP * (tmp2[6] >> 15);
+	tmp[7] = tmp2[7];
+
+	// Etage 3
+	tmp2[0] = C4_FP * (tmp[0] >> 15) + C4_FP * (tmp[1] >> 15);
+	tmp2[1] = C4_FP * (tmp[0] >> 15) - C4_FP * (tmp[1] >> 15);
+	tmp2[2] = C6_FP * (tmp[2] >> 15) + C2_FP * (tmp[3] >> 15);
+	tmp2[3] = (- C2_FP * (tmp[2] >> 15)) + C6_FP * (tmp[3] >> 15);
+	tmp2[4] = tmp[4] + tmp[5];
+	tmp2[5] = tmp[4] - tmp[5];
+	tmp2[6] = -(tmp[6] - tmp[7]);
+	tmp2[7] = tmp[6] + tmp[7];
+
+	// Etage 4 + division par 2
+	out[0] = tmp2[0] >> 16;
+	out[4] = tmp2[1] >> 16;    
+	out[2] = tmp2[2] >> 16;
+	out[6] = tmp2[3] >> 16;   
+	out[1] = (C7_FP * (tmp2[4] >> 6) + C1_FP * (tmp2[7] >> 6)) >> 25;
+	out[5] = (C3_FP * (tmp2[5] >> 6) + C5_FP * (tmp2[6] >> 6)) >> 25;
+	out[3] = ((-C5_FP * (tmp2[5] >> 6)) + C3_FP * (tmp2[6] >> 6)) >> 25;
+	out[7] = ((-C1_FP * (tmp2[4] >> 6)) + C7_FP * (tmp2[7] >> 6)) >> 25;
+} 

@@ -256,153 +256,6 @@ dct8x8:
 .LFE48:
 	.size	dct8x8, .-dct8x8
 	.p2align 4,,15
-	.globl	_Z17fast_float_dct8x8PA8_sS0_
-	.type	_Z17fast_float_dct8x8PA8_sS0_, @function
-_Z17fast_float_dct8x8PA8_sS0_:
-.LFB50:
-	.cfi_startproc
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	subq	$32, %rsp
-	call	mcount
-	movl	$4, %eax
-	movl	$4, %edx
-	movl	$4, %ecx
-	movw	%ax, (%rsi)
-	movl	$4, %eax
-	movl	$4, %edi
-	movw	%ax, 2(%rsi)
-	movl	$4, %eax
-	movl	$4, %r8d
-	movw	%ax, 18(%rsi)
-	movl	$4, %eax
-	movl	$4, %r9d
-	movw	%ax, 34(%rsi)
-	movl	$4, %eax
-	movl	$4, %r10d
-	movw	%ax, 50(%rsi)
-	movl	$4, %eax
-	movl	$4, %r11d
-	movw	%ax, 66(%rsi)
-	movl	$4, %eax
-	movw	%dx, 16(%rsi)
-	movw	%ax, 82(%rsi)
-	movl	$4, %eax
-	movw	%cx, 32(%rsi)
-	movw	%ax, 84(%rsi)
-	movl	$4, %eax
-	movw	%di, 48(%rsi)
-	movw	%ax, 100(%rsi)
-	movl	$4, %eax
-	movw	%r8w, 64(%rsi)
-	movw	%ax, 116(%rsi)
-	movl	$4, %eax
-	movw	%r9w, 80(%rsi)
-	movw	%ax, 6(%rsi)
-	movl	$4, %eax
-	movw	%r10w, 96(%rsi)
-	movw	%r11w, 112(%rsi)
-	movl	$4, %edx
-	movl	$4, %ecx
-	movl	$4, %edi
-	movl	$4, %r8d
-	movl	$4, %r9d
-	movl	$4, %r10d
-	movl	$4, %r11d
-	movw	%ax, 22(%rsi)
-	movl	$4, %eax
-	movw	%dx, 98(%rsi)
-	movw	%cx, 114(%rsi)
-	movw	%di, 4(%rsi)
-	movw	%r8w, 20(%rsi)
-	movl	$4, %edx
-	movw	%r9w, 36(%rsi)
-	movw	%r10w, 52(%rsi)
-	movl	$4, %ecx
-	movw	%r11w, 68(%rsi)
-	movw	%ax, 38(%rsi)
-	movl	$4, %edi
-	movl	$4, %r8d
-	movl	$4, %r9d
-	movl	$4, %r10d
-	movl	$4, %r11d
-	movl	$4, %eax
-	movw	%dx, 54(%rsi)
-	movw	%cx, 70(%rsi)
-	movw	%di, 86(%rsi)
-	movl	$4, %edx
-	movw	%r8w, 102(%rsi)
-	movw	%r9w, 118(%rsi)
-	movl	$4, %ecx
-	movw	%r10w, 8(%rsi)
-	movw	%r11w, 24(%rsi)
-	movl	$4, %edi
-	movw	%ax, 40(%rsi)
-	movl	$4, %eax
-	movl	$4, %r8d
-	movw	%ax, 56(%rsi)
-	movl	$4, %eax
-	movl	$4, %r9d
-	movw	%ax, 72(%rsi)
-	movl	$4, %eax
-	movl	$4, %r10d
-	movw	%ax, 88(%rsi)
-	movl	$4, %eax
-	movl	$4, %r11d
-	movw	%ax, 104(%rsi)
-	movl	$4, %eax
-	movw	%dx, 10(%rsi)
-	movw	%ax, 120(%rsi)
-	movl	$4, %eax
-	movw	%cx, 26(%rsi)
-	movw	%ax, 122(%rsi)
-	movl	$4, %eax
-	movw	%di, 42(%rsi)
-	movw	%ax, 12(%rsi)
-	movl	$4, %eax
-	movw	%r8w, 58(%rsi)
-	movw	%ax, 28(%rsi)
-	movl	$4, %eax
-	movw	%r9w, 74(%rsi)
-	movw	%ax, 44(%rsi)
-	movl	$4, %eax
-	movw	%r10w, 90(%rsi)
-	movw	%ax, 60(%rsi)
-	movl	$4, %eax
-	movw	%r11w, 106(%rsi)
-	movw	%ax, 76(%rsi)
-	movl	$4, %eax
-	movl	$4, %edx
-	movw	%ax, 78(%rsi)
-	movl	$4, %eax
-	movl	$4, %ecx
-	movw	%ax, 94(%rsi)
-	movl	$4, %eax
-	movl	$4, %edi
-	movw	%ax, 110(%rsi)
-	movl	$4, %r8d
-	movl	$4, %r9d
-	movl	$4, %r10d
-	movl	$4, %r11d
-	movl	$4, %eax
-	movw	%dx, 92(%rsi)
-	movw	%cx, 108(%rsi)
-	movw	%di, 124(%rsi)
-	movw	%r8w, 14(%rsi)
-	movw	%r9w, 30(%rsi)
-	movw	%r10w, 46(%rsi)
-	movw	%r11w, 62(%rsi)
-	movw	%ax, 126(%rsi)
-	leave
-	.cfi_def_cfa 7, 8
-	ret
-	.cfi_endproc
-.LFE50:
-	.size	_Z17fast_float_dct8x8PA8_sS0_, .-_Z17fast_float_dct8x8PA8_sS0_
-	.p2align 4,,15
 	.globl	_Z15slow_float_dct8PfS_
 	.type	_Z15slow_float_dct8PfS_, @function
 _Z15slow_float_dct8PfS_:
@@ -436,10 +289,10 @@ _Z15slow_float_dct8PfS_:
 	movapd	%xmm4, %xmm10
 	movapd	%xmm4, %xmm5
 	movapd	%xmm4, %xmm3
-	jmp	.L14
+	jmp	.L13
 	.p2align 4,,10
 	.p2align 3
-.L17:
+.L16:
 	cvtsi2sd	%ebx, %xmm0
 	leal	(%rbx,%rbx,2), %r14d
 	leal	(%rbx,%rbx,4), %r15d
@@ -500,11 +353,11 @@ _Z15slow_float_dct8PfS_:
 	movsd	-88(%rbp), %xmm10
 	movsd	-96(%rbp), %xmm5
 	movsd	-104(%rbp), %xmm3
-.L14:
+.L13:
 	testl	%ebx, %ebx
-	je	.L16
+	je	.L15
 	movss	.LC5(%rip), %xmm1
-.L12:
+.L11:
 	movss	(%r12), %xmm2
 	addl	$1, %ebx
 	mulss	%xmm1, %xmm2
@@ -588,7 +441,7 @@ _Z15slow_float_dct8PfS_:
 	mulss	.LC6(%rip), %xmm0
 	movss	%xmm0, -4(%r13)
 	cmpl	$8, %ebx
-	jne	.L17
+	jne	.L16
 	addq	$72, %rsp
 	popq	%rbx
 	popq	%r12
@@ -599,10 +452,10 @@ _Z15slow_float_dct8PfS_:
 	.cfi_remember_state
 	.cfi_def_cfa 7, 8
 	ret
-.L16:
+.L15:
 	.cfi_restore_state
 	movss	.LC4(%rip), %xmm1
-	jmp	.L12
+	jmp	.L11
 	.cfi_endproc
 .LFE51:
 	.size	_Z15slow_float_dct8PfS_, .-_Z15slow_float_dct8PfS_
@@ -620,10 +473,423 @@ _Z15fast_float_dct8PfS_:
 	call	mcount
 	popq	%rbp
 	.cfi_def_cfa 7, 8
+	movss	24(%rdi), %xmm0
+	movss	20(%rdi), %xmm3
+	movss	4(%rdi), %xmm2
+	movss	8(%rdi), %xmm4
+	movaps	%xmm2, %xmm9
+	movaps	%xmm4, %xmm11
+	subss	%xmm0, %xmm2
+	movss	(%rdi), %xmm5
+	subss	%xmm3, %xmm4
+	movaps	%xmm5, %xmm8
+	movss	28(%rdi), %xmm6
+	addss	%xmm0, %xmm9
+	movss	12(%rdi), %xmm1
+	subss	%xmm6, %xmm5
+	unpcklps	%xmm2, %xmm2
+	addss	%xmm6, %xmm8
+	unpcklps	%xmm4, %xmm4
+	addss	%xmm3, %xmm11
+	movsd	.LC7(%rip), %xmm0
+	cvtps2pd	%xmm2, %xmm2
+	movaps	%xmm1, %xmm10
+	movaps	%xmm8, %xmm3
+	cvtps2pd	%xmm4, %xmm4
+	mulsd	%xmm0, %xmm2
+	movsd	.LC8(%rip), %xmm6
+	movss	16(%rdi), %xmm7
+	addss	%xmm7, %xmm10
+	mulsd	%xmm4, %xmm6
+	mulsd	%xmm0, %xmm4
+	subss	%xmm7, %xmm1
+	addsd	%xmm2, %xmm6
+	addsd	%xmm2, %xmm4
+	movaps	%xmm9, %xmm2
+	addss	%xmm10, %xmm3
+	addss	%xmm11, %xmm2
+	subss	%xmm11, %xmm9
+	unpcklpd	%xmm6, %xmm6
+	unpcklpd	%xmm4, %xmm4
+	subss	%xmm10, %xmm8
+	unpcklps	%xmm3, %xmm3
+	unpcklps	%xmm2, %xmm2
+	cvtpd2ps	%xmm4, %xmm7
+	cvtps2pd	%xmm3, %xmm3
+	unpcklps	%xmm9, %xmm9
+	cvtps2pd	%xmm2, %xmm2
+	unpcklps	%xmm8, %xmm8
+	mulsd	%xmm0, %xmm3
+	cvtps2pd	%xmm9, %xmm9
+	mulsd	%xmm0, %xmm2
+	movss	.LC6(%rip), %xmm0
+	movapd	%xmm3, %xmm4
+	cvtps2pd	%xmm8, %xmm8
+	addsd	%xmm2, %xmm4
+	subsd	%xmm2, %xmm3
+	movsd	.LC9(%rip), %xmm2
+	cvtpd2ps	%xmm6, %xmm6
+	unpcklpd	%xmm4, %xmm4
+	unpcklpd	%xmm3, %xmm3
+	cvtpd2ps	%xmm4, %xmm4
+	mulss	%xmm0, %xmm4
+	movss	%xmm4, (%rsi)
+	cvtpd2ps	%xmm3, %xmm4
+	movsd	.LC10(%rip), %xmm3
+	mulsd	%xmm8, %xmm3
+	mulss	%xmm0, %xmm4
+	movss	%xmm4, 16(%rsi)
+	movapd	%xmm9, %xmm4
+	mulsd	%xmm2, %xmm4
+	mulsd	%xmm8, %xmm2
+	movaps	%xmm5, %xmm8
+	addss	%xmm7, %xmm8
+	addsd	%xmm3, %xmm4
+	movsd	.LC11(%rip), %xmm3
+	subss	%xmm5, %xmm7
+	movss	.LC15(%rip), %xmm5
+	mulsd	%xmm9, %xmm3
+	unpcklps	%xmm8, %xmm8
+	unpcklpd	%xmm4, %xmm4
+	addsd	%xmm2, %xmm3
+	cvtps2pd	%xmm8, %xmm8
+	cvtpd2ps	%xmm4, %xmm4
+	unpcklpd	%xmm3, %xmm3
+	cvtpd2ps	%xmm3, %xmm3
+	mulss	%xmm0, %xmm4
+	movss	%xmm4, 8(%rsi)
+	mulss	%xmm0, %xmm3
+	movaps	%xmm1, %xmm0
+	movsd	.LC12(%rip), %xmm4
+	subss	%xmm6, %xmm1
+	addss	%xmm6, %xmm0
+	movss	%xmm3, 24(%rsi)
+	movsd	.LC13(%rip), %xmm3
+	unpcklps	%xmm0, %xmm0
+	mulsd	%xmm8, %xmm3
+	unpcklps	%xmm1, %xmm1
+	cvtps2pd	%xmm0, %xmm0
+	cvtps2pd	%xmm1, %xmm1
+	movapd	%xmm0, %xmm2
+	mulsd	.LC19(%rip), %xmm0
+	mulsd	%xmm4, %xmm2
+	mulsd	%xmm8, %xmm4
+	addsd	%xmm3, %xmm2
+	movsd	.LC14(%rip), %xmm3
+	addsd	%xmm4, %xmm0
+	mulsd	%xmm3, %xmm2
+	mulsd	%xmm3, %xmm0
+	unpcklpd	%xmm2, %xmm2
+	unpcklpd	%xmm0, %xmm0
+	cvtpd2ps	%xmm2, %xmm2
+	movss	%xmm2, 4(%rsi)
+	movaps	%xmm7, %xmm2
+	movsd	.LC17(%rip), %xmm7
+	xorps	%xmm5, %xmm2
+	movsd	.LC16(%rip), %xmm5
+	unpcklps	%xmm2, %xmm2
+	cvtps2pd	%xmm2, %xmm6
+	movapd	%xmm1, %xmm2
+	mulsd	.LC18(%rip), %xmm1
+	mulsd	%xmm5, %xmm2
+	mulsd	%xmm6, %xmm7
+	mulsd	%xmm6, %xmm5
+	addsd	%xmm7, %xmm2
+	addsd	%xmm5, %xmm1
+	mulsd	%xmm3, %xmm2
+	mulsd	%xmm3, %xmm1
+	unpcklpd	%xmm2, %xmm2
+	unpcklpd	%xmm1, %xmm1
+	cvtpd2ps	%xmm2, %xmm7
+	cvtpd2ps	%xmm1, %xmm5
+	cvtpd2ps	%xmm0, %xmm1
+	movss	%xmm7, 20(%rsi)
+	movss	%xmm5, 12(%rsi)
+	movss	%xmm1, 28(%rsi)
 	ret
 	.cfi_endproc
 .LFE52:
 	.size	_Z15fast_float_dct8PfS_, .-_Z15fast_float_dct8PfS_
+	.p2align 4,,15
+	.globl	_Z17fast_float_dct8x8PA8_sS0_
+	.type	_Z17fast_float_dct8x8PA8_sS0_, @function
+_Z17fast_float_dct8x8PA8_sS0_:
+.LFB50:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	subq	$112, %rsp
+	.cfi_offset 15, -24
+	.cfi_offset 14, -32
+	.cfi_offset 13, -40
+	.cfi_offset 12, -48
+	.cfi_offset 3, -56
+	call	mcount
+	xorl	%r13d, %r13d
+	movq	%rsi, %rbx
+	movq	%rdi, %r14
+	movq	%rsi, %r12
+	.p2align 4,,10
+	.p2align 3
+.L20:
+	pxor	%xmm1, %xmm1
+	leaq	-80(%rbp), %rsi
+	movdqu	(%r14), %xmm0
+	leaq	-112(%rbp), %rdi
+	addl	$1, %r13d
+	addq	$16, %r14
+	addq	$16, %r12
+	pcmpgtw	%xmm0, %xmm1
+	movdqa	%xmm0, %xmm3
+	punpckhwd	%xmm1, %xmm0
+	punpcklwd	%xmm1, %xmm3
+	cvtdq2ps	%xmm0, %xmm0
+	movaps	%xmm0, -96(%rbp)
+	cvtdq2ps	%xmm3, %xmm2
+	movaps	%xmm2, -112(%rbp)
+	call	_Z15fast_float_dct8PfS_
+	movss	-80(%rbp), %xmm8
+	cvttss2si	%xmm8, %eax
+	movss	-76(%rbp), %xmm9
+	movss	-72(%rbp), %xmm10
+	movss	-68(%rbp), %xmm11
+	movss	-64(%rbp), %xmm12
+	movss	-60(%rbp), %xmm13
+	movss	-56(%rbp), %xmm14
+	movss	-52(%rbp), %xmm15
+	movw	%ax, -16(%r12)
+	cvttss2si	%xmm9, %eax
+	movw	%ax, -14(%r12)
+	cvttss2si	%xmm10, %eax
+	movw	%ax, -12(%r12)
+	cvttss2si	%xmm11, %eax
+	movw	%ax, -10(%r12)
+	cvttss2si	%xmm12, %eax
+	movw	%ax, -8(%r12)
+	cvttss2si	%xmm13, %eax
+	movw	%ax, -6(%r12)
+	cvttss2si	%xmm14, %eax
+	movw	%ax, -4(%r12)
+	cvttss2si	%xmm15, %eax
+	movw	%ax, -2(%r12)
+	cmpl	$8, %r13d
+	jne	.L20
+	leaq	48(%rbx), %rax
+	leaq	16(%rbx), %r15
+	leaq	32(%rbx), %r14
+	movq	%rbx, %r13
+	xorl	%r12d, %r12d
+	movq	%rax, -120(%rbp)
+	leaq	64(%rbx), %rax
+	movq	%rax, -136(%rbp)
+	leaq	80(%rbx), %rax
+	movq	%rax, -152(%rbp)
+	leaq	96(%rbx), %rax
+	movq	%rax, -128(%rbp)
+	leaq	112(%rbx), %rax
+	movq	%rax, -144(%rbp)
+	.p2align 4,,10
+	.p2align 3
+.L22:
+	movswl	(%rbx,%r12), %ecx
+	movq	-120(%rbp), %rax
+	leaq	-80(%rbp), %rsi
+	leaq	-112(%rbp), %rdi
+	addq	$16, %r13
+	cvtsi2ss	%ecx, %xmm0
+	movswl	(%r15,%r12), %ecx
+	movss	%xmm0, -112(%rbp)
+	cvtsi2ss	%ecx, %xmm0
+	movswl	(%r14,%r12), %ecx
+	movss	%xmm0, -108(%rbp)
+	cvtsi2ss	%ecx, %xmm0
+	movswl	(%rax,%r12), %ecx
+	movq	-136(%rbp), %rax
+	movss	%xmm0, -104(%rbp)
+	cvtsi2ss	%ecx, %xmm0
+	movswl	(%rax,%r12), %ecx
+	movq	-152(%rbp), %rax
+	movss	%xmm0, -100(%rbp)
+	cvtsi2ss	%ecx, %xmm0
+	movswl	(%rax,%r12), %ecx
+	movq	-128(%rbp), %rax
+	movss	%xmm0, -96(%rbp)
+	cvtsi2ss	%ecx, %xmm0
+	movswl	(%rax,%r12), %ecx
+	movq	-144(%rbp), %rax
+	movss	%xmm0, -92(%rbp)
+	cvtsi2ss	%ecx, %xmm0
+	movswl	(%rax,%r12), %ecx
+	addq	$2, %r12
+	movss	%xmm0, -88(%rbp)
+	cvtsi2ss	%ecx, %xmm0
+	movss	%xmm0, -84(%rbp)
+	call	_Z15fast_float_dct8PfS_
+	movss	-80(%rbp), %xmm0
+	cvttss2si	%xmm0, %ecx
+	movss	-76(%rbp), %xmm1
+	movss	-72(%rbp), %xmm2
+	movss	-68(%rbp), %xmm3
+	movss	-64(%rbp), %xmm4
+	movss	-60(%rbp), %xmm5
+	movss	-56(%rbp), %xmm6
+	movss	-52(%rbp), %xmm7
+	movw	%cx, -16(%r13)
+	cvttss2si	%xmm1, %ecx
+	movw	%cx, -14(%r13)
+	cvttss2si	%xmm2, %ecx
+	movw	%cx, -12(%r13)
+	cvttss2si	%xmm3, %ecx
+	movw	%cx, -10(%r13)
+	cvttss2si	%xmm4, %ecx
+	movw	%cx, -8(%r13)
+	cvttss2si	%xmm5, %ecx
+	movw	%cx, -6(%r13)
+	cvttss2si	%xmm6, %ecx
+	movw	%cx, -4(%r13)
+	cvttss2si	%xmm7, %ecx
+	movw	%cx, -2(%r13)
+	cmpq	$16, %r12
+	jne	.L22
+	addq	$112, %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE50:
+	.size	_Z17fast_float_dct8x8PA8_sS0_, .-_Z17fast_float_dct8x8PA8_sS0_
+	.p2align 4,,15
+	.globl	_Z15fast_fixed_dct8PsS_
+	.type	_Z15fast_fixed_dct8PsS_, @function
+_Z15fast_fixed_dct8PsS_:
+.LFB53:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	.cfi_offset 15, -24
+	.cfi_offset 14, -32
+	.cfi_offset 13, -40
+	.cfi_offset 12, -48
+	.cfi_offset 3, -56
+	call	mcount
+	movswl	2(%rdi), %r8d
+	movswl	4(%rdi), %r9d
+	movswl	10(%rdi), %r11d
+	movswl	12(%rdi), %r10d
+	movswl	(%rdi), %ecx
+	movswl	6(%rdi), %r15d
+	movswl	8(%rdi), %r14d
+	movswl	14(%rdi), %r13d
+	sall	$15, %r8d
+	sall	$15, %r9d
+	sall	$15, %r11d
+	sall	$15, %r10d
+	leal	(%r9,%r11), %r12d
+	leal	(%r8,%r10), %edx
+	subl	%r11d, %r9d
+	subl	%r10d, %r8d
+	sarl	$15, %r9d
+	sall	$15, %r15d
+	sarl	$15, %r8d
+	sall	$15, %r14d
+	sall	$15, %r13d
+	imull	$23170, %r8d, %r10d
+	sall	$15, %ecx
+	leal	(%r15,%r14), %ebx
+	imull	$-23170, %r9d, %r11d
+	leal	(%rcx,%r13), %eax
+	addl	%r9d, %r8d
+	movl	%r15d, %edi
+	subl	%r13d, %ecx
+	leal	(%rax,%rbx), %r9d
+	subl	%ebx, %eax
+	subl	%r14d, %edi
+	addl	%r10d, %r11d
+	sarl	$15, %eax
+	imull	$23170, %r8d, %r10d
+	leal	(%rdx,%r12), %r8d
+	sarl	$15, %r9d
+	subl	%r12d, %edx
+	sarl	$15, %r8d
+	sarl	$15, %edx
+	leal	(%r9,%r8), %ebx
+	subl	%r8d, %r9d
+	imull	$23170, %r9d, %r9d
+	imull	$30273, %eax, %r8d
+	sarl	$16, %r9d
+	movw	%r9w, 8(%rsi)
+	imull	$12539, %edx, %r9d
+	imull	$23170, %ebx, %ebx
+	addl	%r9d, %r8d
+	sarl	$16, %ebx
+	sarl	$16, %r8d
+	imull	$-30273, %edx, %edx
+	movw	%r8w, 4(%rsi)
+	movw	%bx, (%rsi)
+	imull	$12539, %eax, %eax
+	popq	%rbx
+	popq	%r12
+	addl	%edx, %eax
+	leal	(%rdi,%r11), %edx
+	subl	%r11d, %edi
+	sarl	$16, %eax
+	sarl	$6, %edi
+	movw	%ax, 12(%rsi)
+	leal	(%rcx,%r10), %eax
+	sarl	$6, %edx
+	imull	$6393, %edx, %r9d
+	subl	%r10d, %ecx
+	sarl	$6, %eax
+	sarl	$6, %ecx
+	popq	%r13
+	imull	$32138, %eax, %r8d
+	imull	$-32138, %edx, %edx
+	popq	%r14
+	addl	%r9d, %r8d
+	sarl	$25, %r8d
+	imull	$27245, %edi, %r9d
+	movw	%r8w, 2(%rsi)
+	imull	$-18205, %edi, %edi
+	popq	%r15
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	imull	$18205, %ecx, %r8d
+	imull	$6393, %eax, %eax
+	addl	%r9d, %r8d
+	imull	$27245, %ecx, %ecx
+	addl	%edx, %eax
+	sarl	$25, %r8d
+	sarl	$25, %eax
+	movw	%r8w, 10(%rsi)
+	movw	%ax, 14(%rsi)
+	addl	%edi, %ecx
+	sarl	$25, %ecx
+	movw	%cx, 6(%rsi)
+	ret
+	.cfi_endproc
+.LFE53:
+	.size	_Z15fast_fixed_dct8PsS_, .-_Z15fast_fixed_dct8PsS_
 	.globl	Av
 	.data
 	.align 32
@@ -717,5 +983,62 @@ Av:
 	.align 4
 .LC6:
 	.long	1056964608
+	.section	.rodata.cst8
+	.align 8
+.LC7:
+	.long	769658139
+	.long	1072078992
+	.align 8
+.LC8:
+	.long	769658139
+	.long	-1075404656
+	.align 8
+.LC9:
+	.long	1094014070
+	.long	1071152596
+	.align 8
+.LC10:
+	.long	3391993372
+	.long	1072533612
+	.align 8
+.LC11:
+	.long	3391993372
+	.long	-1074950036
+	.align 8
+.LC12:
+	.long	1807322238
+	.long	1070135561
+	.align 8
+.LC13:
+	.long	3172091046
+	.long	1072652940
+	.align 8
+.LC14:
+	.long	0
+	.long	1071644672
+	.section	.rodata.cst16,"aM",@progbits,16
+	.align 16
+.LC15:
+	.long	2147483648
+	.long	0
+	.long	0
+	.long	0
+	.section	.rodata.cst8
+	.align 8
+.LC16:
+	.long	8246337
+	.long	1072339794
+	.align 8
+.LC17:
+	.long	3041524040
+	.long	1071761231
+	.align 8
+.LC18:
+	.long	3041524040
+	.long	-1075722417
+	.align 8
+.LC19:
+	.long	3172091046
+	.long	-1074830708
 	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
 	.section	.note.GNU-stack,"",@progbits
