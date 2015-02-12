@@ -44,15 +44,17 @@ float Av[8][8] = {
 #define PI 3.1416
 
 void slow_float_dct8x8(short pixel[8][8], short data[8][8]);
-void float_dct8x8(short pixel[8][8], short data[8][8]);
+void fast_float_dct8x8(short pixel[8][8], short data[8][8]);
+void fast_fixed_dct8x8(short pixel[8][8], short data[8][8]);
 void slow_float_dct8(float in[8], float out[8]);
 void fast_float_dct8(float in[8], float out[8]);
 void fast_fixed_dct8(short in[8], short out[8]);
 
 
 void dct8x8(short pixel[8][8], short data[8][8]) {
- 	slow_float_dct8x8(pixel,data);
+ 	//slow_float_dct8x8(pixel,data);
 	//fast_float_dct8x8(pixel,data);
+	fast_fixed_dct8x8(pixel, data);
 }
 
 void slow_float_dct8x8(short pixel[8][8], short data[8][8])
@@ -117,6 +119,41 @@ void fast_float_dct8x8(short pixel[8][8], short data[8][8])
 	}
 }
 
+void fast_fixed_dct8x8(short pixel[8][8], short data[8][8])
+{
+	int i,j;
+
+	short tab[8];
+	short out[8];
+
+	// lignes
+	for(i = 0; i < 8; i++)
+	{
+		for(j = 0; j < 8; j++)
+		{
+			tab[j] = pixel[i][j];
+		}
+		fast_fixed_dct8(tab, out);
+		for(j = 0; j < 8; j++)
+		{
+			data[i][j] = out[j];
+		}
+	}
+
+	// colonnes
+	for(i = 0; i < 8; i++)
+	{
+		for(j = 0; j < 8; j++)
+		{
+			tab[j] = data[j][i];
+		}
+		fast_fixed_dct8(tab, out);
+		for(j = 0; j < 8; j++)
+		{
+			data[i][j] = out[j];
+		}
+	}
+}
 
 void slow_float_dct8(float in[8], float out[8]) 
 {

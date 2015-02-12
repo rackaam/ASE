@@ -238,28 +238,10 @@ _Z17slow_float_dct8x8PA8_sS0_:
 .LFE49:
 	.size	_Z17slow_float_dct8x8PA8_sS0_, .-_Z17slow_float_dct8x8PA8_sS0_
 	.p2align 4,,15
-	.globl	dct8x8
-	.type	dct8x8, @function
-dct8x8:
-.LFB48:
-	.cfi_startproc
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	call	mcount
-	popq	%rbp
-	.cfi_def_cfa 7, 8
-	jmp	_Z17slow_float_dct8x8PA8_sS0_
-	.cfi_endproc
-.LFE48:
-	.size	dct8x8, .-dct8x8
-	.p2align 4,,15
 	.globl	_Z15slow_float_dct8PfS_
 	.type	_Z15slow_float_dct8PfS_, @function
 _Z15slow_float_dct8PfS_:
-.LFB51:
+.LFB52:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -289,10 +271,10 @@ _Z15slow_float_dct8PfS_:
 	movapd	%xmm4, %xmm10
 	movapd	%xmm4, %xmm5
 	movapd	%xmm4, %xmm3
-	jmp	.L13
+	jmp	.L12
 	.p2align 4,,10
 	.p2align 3
-.L16:
+.L15:
 	cvtsi2sd	%ebx, %xmm0
 	leal	(%rbx,%rbx,2), %r14d
 	leal	(%rbx,%rbx,4), %r15d
@@ -353,11 +335,11 @@ _Z15slow_float_dct8PfS_:
 	movsd	-88(%rbp), %xmm10
 	movsd	-96(%rbp), %xmm5
 	movsd	-104(%rbp), %xmm3
-.L13:
+.L12:
 	testl	%ebx, %ebx
-	je	.L15
+	je	.L14
 	movss	.LC5(%rip), %xmm1
-.L11:
+.L10:
 	movss	(%r12), %xmm2
 	addl	$1, %ebx
 	mulss	%xmm1, %xmm2
@@ -441,7 +423,7 @@ _Z15slow_float_dct8PfS_:
 	mulss	.LC6(%rip), %xmm0
 	movss	%xmm0, -4(%r13)
 	cmpl	$8, %ebx
-	jne	.L16
+	jne	.L15
 	addq	$72, %rsp
 	popq	%rbx
 	popq	%r12
@@ -452,18 +434,18 @@ _Z15slow_float_dct8PfS_:
 	.cfi_remember_state
 	.cfi_def_cfa 7, 8
 	ret
-.L15:
+.L14:
 	.cfi_restore_state
 	movss	.LC4(%rip), %xmm1
-	jmp	.L11
+	jmp	.L10
 	.cfi_endproc
-.LFE51:
+.LFE52:
 	.size	_Z15slow_float_dct8PfS_, .-_Z15slow_float_dct8PfS_
 	.p2align 4,,15
 	.globl	_Z15fast_float_dct8PfS_
 	.type	_Z15fast_float_dct8PfS_, @function
 _Z15fast_float_dct8PfS_:
-.LFB52:
+.LFB53:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -608,7 +590,7 @@ _Z15fast_float_dct8PfS_:
 	movss	%xmm1, 28(%rsi)
 	ret
 	.cfi_endproc
-.LFE52:
+.LFE53:
 	.size	_Z15fast_float_dct8PfS_, .-_Z15fast_float_dct8PfS_
 	.p2align 4,,15
 	.globl	_Z17fast_float_dct8x8PA8_sS0_
@@ -639,7 +621,7 @@ _Z17fast_float_dct8x8PA8_sS0_:
 	movq	%rsi, %r12
 	.p2align 4,,10
 	.p2align 3
-.L20:
+.L19:
 	pxor	%xmm1, %xmm1
 	leaq	-80(%rbp), %rsi
 	movdqu	(%r14), %xmm0
@@ -681,7 +663,7 @@ _Z17fast_float_dct8x8PA8_sS0_:
 	cvttss2si	%xmm15, %eax
 	movw	%ax, -2(%r12)
 	cmpl	$8, %r13d
-	jne	.L20
+	jne	.L19
 	leaq	48(%rbx), %rax
 	leaq	16(%rbx), %r15
 	leaq	32(%rbx), %r14
@@ -698,7 +680,7 @@ _Z17fast_float_dct8x8PA8_sS0_:
 	movq	%rax, -144(%rbp)
 	.p2align 4,,10
 	.p2align 3
-.L22:
+.L21:
 	movswl	(%rbx,%r12), %ecx
 	movq	-120(%rbp), %rax
 	leaq	-80(%rbp), %rsi
@@ -758,7 +740,7 @@ _Z17fast_float_dct8x8PA8_sS0_:
 	cvttss2si	%xmm7, %ecx
 	movw	%cx, -2(%r13)
 	cmpq	$16, %r12
-	jne	.L22
+	jne	.L21
 	addq	$112, %rsp
 	popq	%rbx
 	popq	%r12
@@ -775,7 +757,7 @@ _Z17fast_float_dct8x8PA8_sS0_:
 	.globl	_Z15fast_fixed_dct8PsS_
 	.type	_Z15fast_fixed_dct8PsS_, @function
 _Z15fast_fixed_dct8PsS_:
-.LFB53:
+.LFB54:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -888,8 +870,264 @@ _Z15fast_fixed_dct8PsS_:
 	movw	%cx, 6(%rsi)
 	ret
 	.cfi_endproc
-.LFE53:
+.LFE54:
 	.size	_Z15fast_fixed_dct8PsS_, .-_Z15fast_fixed_dct8PsS_
+	.p2align 4,,15
+	.globl	_Z17fast_fixed_dct8x8PA8_sS0_
+	.type	_Z17fast_fixed_dct8x8PA8_sS0_, @function
+_Z17fast_fixed_dct8x8PA8_sS0_:
+.LFB51:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	subq	$80, %rsp
+	.cfi_offset 15, -24
+	.cfi_offset 14, -32
+	.cfi_offset 13, -40
+	.cfi_offset 12, -48
+	.cfi_offset 3, -56
+	call	mcount
+	movl	$8, %r12d
+	movq	%rsi, %r13
+	movq	%rdi, %r14
+	movq	%rsi, %rbx
+	.p2align 4,,10
+	.p2align 3
+.L25:
+	movdqu	(%r14), %xmm0
+	leaq	-64(%rbp), %rsi
+	leaq	-80(%rbp), %rdi
+	addq	$16, %r14
+	addq	$16, %rbx
+	movdqa	%xmm0, -80(%rbp)
+	call	_Z15fast_fixed_dct8PsS_
+	movzwl	-64(%rbp), %eax
+	movw	%ax, -16(%rbx)
+	movzwl	-62(%rbp), %eax
+	movw	%ax, -14(%rbx)
+	movzwl	-60(%rbp), %eax
+	movw	%ax, -12(%rbx)
+	movzwl	-58(%rbp), %eax
+	movw	%ax, -10(%rbx)
+	movzwl	-56(%rbp), %eax
+	movw	%ax, -8(%rbx)
+	movzwl	-54(%rbp), %eax
+	movw	%ax, -6(%rbx)
+	movzwl	-52(%rbp), %eax
+	movw	%ax, -4(%rbx)
+	movzwl	-50(%rbp), %eax
+	movw	%ax, -2(%rbx)
+	subl	$1, %r12d
+	jne	.L25
+	leaq	16(%r13), %r10
+	leaq	32(%r13), %r9
+	leaq	48(%r13), %r8
+	leaq	64(%r13), %rcx
+	leaq	80(%r13), %rdx
+	leaq	96(%r13), %r15
+	leaq	112(%r13), %r14
+	movq	%r13, %r12
+	xorl	%ebx, %ebx
+	.p2align 4,,10
+	.p2align 3
+.L27:
+	movzwl	0(%r13,%rbx), %eax
+	leaq	-64(%rbp), %rsi
+	leaq	-80(%rbp), %rdi
+	movq	%r10, -120(%rbp)
+	movq	%r9, -112(%rbp)
+	addq	$16, %r12
+	movq	%r8, -104(%rbp)
+	movq	%rcx, -96(%rbp)
+	movq	%rdx, -88(%rbp)
+	movw	%ax, -80(%rbp)
+	movzwl	(%r10,%rbx), %eax
+	movw	%ax, -78(%rbp)
+	movzwl	(%r9,%rbx), %eax
+	movw	%ax, -76(%rbp)
+	movzwl	(%r8,%rbx), %eax
+	movw	%ax, -74(%rbp)
+	movzwl	(%rcx,%rbx), %eax
+	movw	%ax, -72(%rbp)
+	movzwl	(%rdx,%rbx), %eax
+	movw	%ax, -70(%rbp)
+	movzwl	(%r15,%rbx), %eax
+	movw	%ax, -68(%rbp)
+	movzwl	(%r14,%rbx), %eax
+	addq	$2, %rbx
+	movw	%ax, -66(%rbp)
+	call	_Z15fast_fixed_dct8PsS_
+	movzwl	-64(%rbp), %eax
+	movq	-88(%rbp), %rdx
+	movq	-96(%rbp), %rcx
+	movq	-104(%rbp), %r8
+	movq	-112(%rbp), %r9
+	movq	-120(%rbp), %r10
+	movw	%ax, -16(%r12)
+	movzwl	-62(%rbp), %eax
+	movw	%ax, -14(%r12)
+	movzwl	-60(%rbp), %eax
+	movw	%ax, -12(%r12)
+	movzwl	-58(%rbp), %eax
+	movw	%ax, -10(%r12)
+	movzwl	-56(%rbp), %eax
+	movw	%ax, -8(%r12)
+	movzwl	-54(%rbp), %eax
+	movw	%ax, -6(%r12)
+	movzwl	-52(%rbp), %eax
+	movw	%ax, -4(%r12)
+	movzwl	-50(%rbp), %eax
+	movw	%ax, -2(%r12)
+	cmpq	$16, %rbx
+	jne	.L27
+	addq	$80, %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE51:
+	.size	_Z17fast_fixed_dct8x8PA8_sS0_, .-_Z17fast_fixed_dct8x8PA8_sS0_
+	.p2align 4,,15
+	.globl	dct8x8
+	.type	dct8x8, @function
+dct8x8:
+.LFB48:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	subq	$80, %rsp
+	.cfi_offset 15, -24
+	.cfi_offset 14, -32
+	.cfi_offset 13, -40
+	.cfi_offset 12, -48
+	.cfi_offset 3, -56
+	call	mcount
+	movl	$8, %r12d
+	movq	%rsi, %r13
+	movq	%rdi, %r14
+	movq	%rsi, %rbx
+	.p2align 4,,10
+	.p2align 3
+.L30:
+	movdqu	(%r14), %xmm0
+	leaq	-64(%rbp), %rsi
+	leaq	-80(%rbp), %rdi
+	addq	$16, %r14
+	addq	$16, %rbx
+	movdqa	%xmm0, -80(%rbp)
+	call	_Z15fast_fixed_dct8PsS_
+	movzwl	-64(%rbp), %eax
+	movw	%ax, -16(%rbx)
+	movzwl	-62(%rbp), %eax
+	movw	%ax, -14(%rbx)
+	movzwl	-60(%rbp), %eax
+	movw	%ax, -12(%rbx)
+	movzwl	-58(%rbp), %eax
+	movw	%ax, -10(%rbx)
+	movzwl	-56(%rbp), %eax
+	movw	%ax, -8(%rbx)
+	movzwl	-54(%rbp), %eax
+	movw	%ax, -6(%rbx)
+	movzwl	-52(%rbp), %eax
+	movw	%ax, -4(%rbx)
+	movzwl	-50(%rbp), %eax
+	movw	%ax, -2(%rbx)
+	subl	$1, %r12d
+	jne	.L30
+	leaq	16(%r13), %r10
+	leaq	32(%r13), %r9
+	leaq	48(%r13), %r8
+	leaq	64(%r13), %rcx
+	leaq	80(%r13), %rdx
+	leaq	96(%r13), %r15
+	leaq	112(%r13), %r14
+	movq	%r13, %r12
+	xorl	%ebx, %ebx
+	.p2align 4,,10
+	.p2align 3
+.L32:
+	movzwl	0(%r13,%rbx), %eax
+	leaq	-64(%rbp), %rsi
+	leaq	-80(%rbp), %rdi
+	movq	%r10, -120(%rbp)
+	movq	%r9, -112(%rbp)
+	addq	$16, %r12
+	movq	%r8, -104(%rbp)
+	movq	%rcx, -96(%rbp)
+	movq	%rdx, -88(%rbp)
+	movw	%ax, -80(%rbp)
+	movzwl	(%r10,%rbx), %eax
+	movw	%ax, -78(%rbp)
+	movzwl	(%r9,%rbx), %eax
+	movw	%ax, -76(%rbp)
+	movzwl	(%r8,%rbx), %eax
+	movw	%ax, -74(%rbp)
+	movzwl	(%rcx,%rbx), %eax
+	movw	%ax, -72(%rbp)
+	movzwl	(%rdx,%rbx), %eax
+	movw	%ax, -70(%rbp)
+	movzwl	(%r15,%rbx), %eax
+	movw	%ax, -68(%rbp)
+	movzwl	(%r14,%rbx), %eax
+	addq	$2, %rbx
+	movw	%ax, -66(%rbp)
+	call	_Z15fast_fixed_dct8PsS_
+	movzwl	-64(%rbp), %eax
+	movq	-88(%rbp), %rdx
+	movq	-96(%rbp), %rcx
+	movq	-104(%rbp), %r8
+	movq	-112(%rbp), %r9
+	movq	-120(%rbp), %r10
+	movw	%ax, -16(%r12)
+	movzwl	-62(%rbp), %eax
+	movw	%ax, -14(%r12)
+	movzwl	-60(%rbp), %eax
+	movw	%ax, -12(%r12)
+	movzwl	-58(%rbp), %eax
+	movw	%ax, -10(%r12)
+	movzwl	-56(%rbp), %eax
+	movw	%ax, -8(%r12)
+	movzwl	-54(%rbp), %eax
+	movw	%ax, -6(%r12)
+	movzwl	-52(%rbp), %eax
+	movw	%ax, -4(%r12)
+	movzwl	-50(%rbp), %eax
+	movw	%ax, -2(%r12)
+	cmpq	$16, %rbx
+	jne	.L32
+	addq	$80, %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE48:
+	.size	dct8x8, .-dct8x8
 	.globl	Av
 	.data
 	.align 32
