@@ -20,13 +20,13 @@
 #define C7 (2*(0.09755))
 
 // Fixed point values
-#define C1_FP (int) ((2<<15) * (0.49039))
-#define C2_FP (int) ((2<<15) * (0.46194))
-#define C3_FP (int) ((2<<15) * (0.41573))
-#define C4_FP (int) ((2<<15) * (0.35355))
-#define C5_FP (int) ((2<<15) * (0.27779))
-#define C6_FP (int) ((2<<15) * (0.19134))
-#define C7_FP (int) ((2<<15) * (0.09755))
+#define C1_FP (int) ((2<<10) * (0.49039))
+#define C2_FP (int) ((2<<10) * (0.46194))
+#define C3_FP (int) ((2<<10) * (0.41573))
+#define C4_FP (int) ((2<<10) * (0.35355))
+#define C5_FP (int) ((2<<10) * (0.27779))
+#define C6_FP (int) ((2<<10) * (0.19134))
+#define C7_FP (int) ((2<<10) * (0.09755))
 
 #define Cu0  0.7071068
 
@@ -114,7 +114,8 @@ void fast_float_dct8x8(short pixel[8][8], short data[8][8])
 		fast_float_dct8(tab, out);
 		for(j = 0; j < 8; j++)
 		{
-			data[i][j] = out[j];
+			data[j][i] = out[j];
+			printf("%d\n", data[j][i]);
 		}
 	}
 }
@@ -150,7 +151,7 @@ void fast_fixed_dct8x8(short pixel[8][8], short data[8][8])
 		fast_fixed_dct8(tab, out);
 		for(j = 0; j < 8; j++)
 		{
-			data[i][j] = out[j];
+			data[j][i] = out[j];
 		}
 	}
 }
@@ -176,80 +177,80 @@ void fast_float_dct8(float in[8], float out[8]) {
 	float tmp[8];
 	float tmp2[8];
 
-#ifdef TRACE
-	printf("\n==== Input ====\n");
-	for (i=0;i<8;i++) {
-		printf("input[%d] = %f\n",i,in[i]);
-	}
-#endif
+	#ifdef TRACE
+		printf("\n==== Input ====\n");
+		for (i=0;i<8;i++) {
+			printf("input[%d] = %f\n",i,in[i]);
+		}
+	#endif
 
-// Etage 1
-tmp[0] = in[0] + in[7];
-tmp[1] = in[1] + in[6];
-tmp[2] = in[2] + in[5];
-tmp[3] = in[3] + in[4];
+	// Etage 1
+	tmp[0] = in[0] + in[7];
+	tmp[1] = in[1] + in[6];
+	tmp[2] = in[2] + in[5];
+	tmp[3] = in[3] + in[4];
 
-tmp[4] = in[3] - in[4];
-tmp[5] = in[2] - in[5];
-tmp[6] = in[1] - in[6];
-tmp[7] = in[0] - in[7];
+	tmp[4] = in[3] - in[4];
+	tmp[5] = in[2] - in[5];
+	tmp[6] = in[1] - in[6];
+	tmp[7] = in[0] - in[7];
 
-#ifdef TRACE
-	printf("\n==== Stage 1 ====\n");
-	for (i=0;i<8;i++) {
-		printf("stage1[%d] = %f\n",i,tmp[i]);
-	}
-#endif
+	#ifdef TRACE
+		printf("\n==== Stage 1 ====\n");
+		for (i=0;i<8;i++) {
+			printf("stage1[%d] = %f\n",i,tmp[i]);
+		}
+	#endif
 
-// Etage 2
-tmp2[0] = tmp[0] + tmp[3];
-tmp2[1] = tmp[1] + tmp[2];
-tmp2[2] = tmp[1] - tmp[2];
-tmp2[3] = tmp[0] - tmp[3];
-tmp2[4] = tmp[4];
-tmp2[5] = -C4 * tmp[5] + C4 * tmp[6];
-tmp2[6] = C4 * tmp[5] + C4 * tmp[6];
-tmp2[7] = tmp[7];
-#ifdef TRACE
-	printf("\n==== Stage 2 ====\n");
-	for (i=0;i<8;i++) {
-		printf("stage2[%d] = %f\n",i,tmp2[i]);
-	}
-#endif
+	// Etage 2
+	tmp2[0] = tmp[0] + tmp[3];
+	tmp2[1] = tmp[1] + tmp[2];
+	tmp2[2] = tmp[1] - tmp[2];
+	tmp2[3] = tmp[0] - tmp[3];
+	tmp2[4] = tmp[4];
+	tmp2[5] = -C4 * tmp[5] + C4 * tmp[6];
+	tmp2[6] = C4 * tmp[5] + C4 * tmp[6];
+	tmp2[7] = tmp[7];
+	#ifdef TRACE
+		printf("\n==== Stage 2 ====\n");
+		for (i=0;i<8;i++) {
+			printf("stage2[%d] = %f\n",i,tmp2[i]);
+		}
+	#endif
 
-// Etage 3
-tmp[0] = C4 * tmp2[0] + C4 * tmp2[1];
-tmp[1] = C4 * tmp2[0] - C4 * tmp2[1];
-tmp[2] = C6 * tmp2[2] + C2 * tmp2[3];
-tmp[3] = (- C2 * tmp2[2]) + C6 * tmp2[3];
+	// Etage 3
+	tmp[0] = C4 * tmp2[0] + C4 * tmp2[1];
+	tmp[1] = C4 * tmp2[0] - C4 * tmp2[1];
+	tmp[2] = C6 * tmp2[2] + C2 * tmp2[3];
+	tmp[3] = (- C2 * tmp2[2]) + C6 * tmp2[3];
 
-tmp[4] = tmp2[4] + tmp2[5];
-tmp[5] = tmp2[4] - tmp2[5];
-tmp[6] = -(tmp2[6] - tmp2[7]);
-tmp[7] = tmp2[6] + tmp2[7];
-#ifdef TRACE
-	printf("\n==== Stage 3 ====\n");
-	for (i=0;i<8;i++) {
-		printf("stage3[%d] = %f\n",i,tmp[i]);
-	}
-#endif
+	tmp[4] = tmp2[4] + tmp2[5];
+	tmp[5] = tmp2[4] - tmp2[5];
+	tmp[6] = -(tmp2[6] - tmp2[7]);
+	tmp[7] = tmp2[6] + tmp2[7];
+	#ifdef TRACE
+		printf("\n==== Stage 3 ====\n");
+		for (i=0;i<8;i++) {
+			printf("stage3[%d] = %f\n",i,tmp[i]);
+		}
+	#endif
 
-// Etage 4
-out[0] = tmp[0] / 2.0;
-out[4] = tmp[1] / 2.0;    
-out[2] = tmp[2] / 2.0;
-out[6] = tmp[3] / 2.0;   
+	// Etage 4
+	out[0] = tmp[0] / 2.0;
+	out[4] = tmp[1] / 2.0;    
+	out[2] = tmp[2] / 2.0;
+	out[6] = tmp[3] / 2.0;   
 
-out[1] = (C7 * tmp[4] + C1 * tmp[7]) / 2.0;
-out[5] = (C3 * tmp[5] + C5 * tmp[6]) / 2.0;
-out[3] = ((-C5 * tmp[5]) + C3 * tmp[6]) / 2.0;
-out[7] = ((-C1 * tmp[4]) + C7 * tmp[7]) / 2.0;
-#ifdef TRACE
-	printf("\n==== Output ====\n");
-	for (i=0;i<8;i++) {
-		printf("output[%d] = %f\n",i,out[i]);
-	}
-#endif
+	out[1] = (C7 * tmp[4] + C1 * tmp[7]) / 2.0;
+	out[5] = (C3 * tmp[5] + C5 * tmp[6]) / 2.0;
+	out[3] = ((-C5 * tmp[5]) + C3 * tmp[6]) / 2.0;
+	out[7] = ((-C1 * tmp[4]) + C7 * tmp[7]) / 2.0;
+	#ifdef TRACE
+		printf("\n==== Output ====\n");
+		for (i=0;i<8;i++) {
+			printf("output[%d] = %f\n",i,out[i]);
+		}
+	#endif
 }
 
 
@@ -283,15 +284,15 @@ void fast_fixed_dct8(short in[8], short out[8])
 	tmp[2] = tmp2[1] - tmp2[2];
 	tmp[3] = tmp2[0] - tmp2[3];
 	tmp[4] = tmp2[4];
-	tmp[5] = -C4_FP * (tmp2[5] >> 15) + C4_FP * (tmp2[6] >> 15);
-	tmp[6] = C4_FP * (tmp2[5] >> 15) + C4_FP * (tmp2[6] >> 15);
+	tmp[5] = -C4_FP * (tmp2[5] >> 10) + C4_FP * (tmp2[6] >> 10);
+	tmp[6] = C4_FP * (tmp2[5] >> 10) + C4_FP * (tmp2[6] >> 10);
 	tmp[7] = tmp2[7];
 
 	// Etage 3
-	tmp2[0] = C4_FP * (tmp[0] >> 15) + C4_FP * (tmp[1] >> 15);
-	tmp2[1] = C4_FP * (tmp[0] >> 15) - C4_FP * (tmp[1] >> 15);
-	tmp2[2] = C6_FP * (tmp[2] >> 15) + C2_FP * (tmp[3] >> 15);
-	tmp2[3] = (- C2_FP * (tmp[2] >> 15)) + C6_FP * (tmp[3] >> 15);
+	tmp2[0] = C4_FP * (tmp[0] >> 10) + C4_FP * (tmp[1] >> 10);
+	tmp2[1] = C4_FP * (tmp[0] >> 10) - C4_FP * (tmp[1] >> 10);
+	tmp2[2] = C6_FP * (tmp[2] >> 10) + C2_FP * (tmp[3] >> 10);
+	tmp2[3] = (- C2_FP * (tmp[2] >> 10)) + C6_FP * (tmp[3] >> 10);
 	tmp2[4] = tmp[4] + tmp[5];
 	tmp2[5] = tmp[4] - tmp[5];
 	tmp2[6] = -(tmp[6] - tmp[7]);
@@ -302,8 +303,8 @@ void fast_fixed_dct8(short in[8], short out[8])
 	out[4] = tmp2[1] >> 16;    
 	out[2] = tmp2[2] >> 16;
 	out[6] = tmp2[3] >> 16;   
-	out[1] = (C7_FP * (tmp2[4] >> 6) + C1_FP * (tmp2[7] >> 6)) >> 25;
-	out[5] = (C3_FP * (tmp2[5] >> 6) + C5_FP * (tmp2[6] >> 6)) >> 25;
-	out[3] = ((-C5_FP * (tmp2[5] >> 6)) + C3_FP * (tmp2[6] >> 6)) >> 25;
-	out[7] = ((-C1_FP * (tmp2[4] >> 6)) + C7_FP * (tmp2[7] >> 6)) >> 25;
+	out[1] = (C7_FP * (tmp2[4] >> 6) + C1_FP * (tmp2[7] >> 6)) >> 20;
+	out[5] = (C3_FP * (tmp2[5] >> 6) + C5_FP * (tmp2[6] >> 6)) >> 20;
+	out[3] = ((-C5_FP * (tmp2[5] >> 6)) + C3_FP * (tmp2[6] >> 6)) >> 20;
+	out[7] = ((-C1_FP * (tmp2[4] >> 6)) + C7_FP * (tmp2[7] >> 6)) >> 20;
 } 
