@@ -57,6 +57,10 @@ void dct8x8(short pixel[8][8], short data[8][8]) {
 	fast_fixed_dct8x8(pixel, data);
 }
 
+/**
+*Réalise une transformé DCT unidimensionnelle sur 8 points.
+*Paramètres: pixel , data (pointeurs sur des tableaux de 8 flottants)
+*/
 void slow_float_dct8x8(short pixel[8][8], short data[8][8])
 {
 	int i,j,u, v;
@@ -83,6 +87,11 @@ void slow_float_dct8x8(short pixel[8][8], short data[8][8])
 	}
 }
 
+/*
+*Implemente la dct8x8 dans sa version décomposé en lignes colonnes.
+*Utilise la fonction slow_fast_dct8
+*Paramètres: short pixel[8][8], short data[8][8]
+*/
 void fast_float_dct8x8(short pixel[8][8], short data[8][8])
 {
 	int i,j;
@@ -119,6 +128,11 @@ void fast_float_dct8x8(short pixel[8][8], short data[8][8])
 	}
 }
 
+/*
+*Implemente la dct8x8 dans sa version décomposé en lignes colonnes.
+*Utilise la fonction slow_fast_dct8
+*Paramètres: short pixel[8][8], short data[8][8]
+*/
 void fast_fixed_dct8x8(short pixel[8][8], short data[8][8])
 {
 	int i,j;
@@ -155,6 +169,10 @@ void fast_fixed_dct8x8(short pixel[8][8], short data[8][8])
 	}
 }
 
+/**
+*Réalise une transformé DCT unidimensionnelle sur 8 points.
+*Paramètres: in , out (pointeurs sur des tableaux de 8 flottants)
+*/
 void slow_float_dct8(float in[8], float out[8]) 
 {
 	int u, i;
@@ -171,6 +189,11 @@ void slow_float_dct8(float in[8], float out[8])
 	}
 }
 
+/*
+*Réalise une transformé DCT unidimensionelle sur 8 points
+*selon l'alogorithme de Chen.
+*Paramètres: float in[8], float out[8]
+*/
 void fast_float_dct8(float in[8], float out[8]) {
 	int k,n,i;
 	float tmp[8];
@@ -252,12 +275,17 @@ out[7] = ((-C1 * tmp[4]) + C7 * tmp[7]) / 2.0;
 #endif
 }
 
-
+/*
+*Réalise une transformé DCT unidimensionelle sur 8 points
+*selon l'alogorithme de Chen. (Version en arithmétique virgule fixe)
+*Format de codage pour entrée et sortie Q15,0
+*Paramètres: float in[8], float out[8]
+*/
 void fast_fixed_dct8(short in[8], short out[8])
 {
 	int tmp[8];
 	int tmp2[8];
-
+    
 	tmp[0] = in[0] << 15;
 	tmp[1] = in[1] << 15;
 	tmp[2] = in[2] << 15;
