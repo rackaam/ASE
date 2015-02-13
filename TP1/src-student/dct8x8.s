@@ -4,7 +4,7 @@
 	.globl	_Z17slow_float_dct8x8PA8_sS0_
 	.type	_Z17slow_float_dct8x8PA8_sS0_, @function
 _Z17slow_float_dct8x8PA8_sS0_:
-.LFB49:
+.LFB26:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -235,13 +235,13 @@ _Z17slow_float_dct8x8PA8_sS0_:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE49:
+.LFE26:
 	.size	_Z17slow_float_dct8x8PA8_sS0_, .-_Z17slow_float_dct8x8PA8_sS0_
 	.p2align 4,,15
 	.globl	_Z15slow_float_dct8PfS_
 	.type	_Z15slow_float_dct8PfS_, @function
 _Z15slow_float_dct8PfS_:
-.LFB52:
+.LFB29:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -439,13 +439,13 @@ _Z15slow_float_dct8PfS_:
 	movss	.LC4(%rip), %xmm1
 	jmp	.L10
 	.cfi_endproc
-.LFE52:
+.LFE29:
 	.size	_Z15slow_float_dct8PfS_, .-_Z15slow_float_dct8PfS_
 	.p2align 4,,15
 	.globl	_Z15fast_float_dct8PfS_
 	.type	_Z15fast_float_dct8PfS_, @function
 _Z15fast_float_dct8PfS_:
-.LFB53:
+.LFB30:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -590,7 +590,7 @@ _Z15fast_float_dct8PfS_:
 	movss	%xmm1, 28(%rsi)
 	ret
 	.cfi_endproc
-.LFE53:
+.LFE30:
 	.size	_Z15fast_float_dct8PfS_, .-_Z15fast_float_dct8PfS_
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC20:
@@ -600,7 +600,7 @@ _Z15fast_float_dct8PfS_:
 	.globl	_Z17fast_float_dct8x8PA8_sS0_
 	.type	_Z17fast_float_dct8x8PA8_sS0_, @function
 _Z17fast_float_dct8x8PA8_sS0_:
-.LFB50:
+.LFB27:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -717,10 +717,10 @@ _Z17fast_float_dct8x8PA8_sS0_:
 	movss	%xmm0, -96(%rbp)
 	cvtsi2ss	%edx, %xmm0
 	movswl	-16(%rax,%rcx), %edx
-	movq	-160(%rbp), %rcx
-	movswl	-16(%rax,%rcx), %eax
 	movss	%xmm0, -92(%rbp)
 	cvtsi2ss	%edx, %xmm0
+	movq	-160(%rbp), %rdx
+	movswl	-16(%rax,%rdx), %eax
 	movss	%xmm0, -88(%rbp)
 	cvtsi2ss	%eax, %xmm0
 	movss	%xmm0, -84(%rbp)
@@ -730,13 +730,12 @@ _Z17fast_float_dct8x8PA8_sS0_:
 .L23:
 	movss	-80(%rbp,%r15), %xmm0
 	xorl	%eax, %eax
-	cvttss2si	%xmm0, %edx
-	movl	$.LC20, %esi
-	movl	$1, %edi
-	movw	%dx, (%rbx,%r15,4)
-	movswl	%dx, %edx
+	cvttss2si	%xmm0, %esi
+	movl	$.LC20, %edi
+	movw	%si, (%rbx,%r15,4)
+	movswl	%si, %esi
 	addq	$4, %r15
-	call	__printf_chk
+	call	printf
 	cmpq	$32, %r15
 	jne	.L23
 	addl	$1, %r13d
@@ -753,13 +752,13 @@ _Z17fast_float_dct8x8PA8_sS0_:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE50:
+.LFE27:
 	.size	_Z17fast_float_dct8x8PA8_sS0_, .-_Z17fast_float_dct8x8PA8_sS0_
 	.p2align 4,,15
 	.globl	_Z15fast_fixed_dct8PsS_
 	.type	_Z15fast_fixed_dct8PsS_, @function
 _Z15fast_fixed_dct8PsS_:
-.LFB54:
+.LFB31:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -872,13 +871,13 @@ _Z15fast_fixed_dct8PsS_:
 	movw	%cx, 6(%rsi)
 	ret
 	.cfi_endproc
-.LFE54:
+.LFE31:
 	.size	_Z15fast_fixed_dct8PsS_, .-_Z15fast_fixed_dct8PsS_
 	.p2align 4,,15
 	.globl	_Z17fast_fixed_dct8x8PA8_sS0_
 	.type	_Z17fast_fixed_dct8x8PA8_sS0_, @function
 _Z17fast_fixed_dct8x8PA8_sS0_:
-.LFB51:
+.LFB28:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -1002,13 +1001,13 @@ _Z17fast_fixed_dct8x8PA8_sS0_:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE51:
+.LFE28:
 	.size	_Z17fast_fixed_dct8x8PA8_sS0_, .-_Z17fast_fixed_dct8x8PA8_sS0_
 	.p2align 4,,15
 	.globl	dct8x8
 	.type	dct8x8, @function
 dct8x8:
-.LFB48:
+.LFB25:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -1131,7 +1130,7 @@ dct8x8:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE48:
+.LFE25:
 	.size	dct8x8, .-dct8x8
 	.globl	Av
 	.data
@@ -1283,5 +1282,5 @@ Av:
 .LC19:
 	.long	3172091046
 	.long	-1074830708
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (GNU) 4.8.2 20131212 (Red Hat 4.8.2-7)"
 	.section	.note.GNU-stack,"",@progbits

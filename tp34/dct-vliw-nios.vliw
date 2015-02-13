@@ -1,0 +1,132 @@
+/* 
+ *  Algorithme du prof Chen sur VLIW-NIOS (virgule-fixe) 
+ *
+ *  Binome : Karadoc de Vannes && Perceval le Gallois
+ */
+	.data
+:C1		.hword 16069 
+:C2		.hword 15136 
+:C3		.hword 13622 
+:C4		.hword 11585 
+:C5		.hword 9102 
+:C6		.hword 6269
+:C7		.hword 3196 
+
+:xin	.hword 0
+		.hword 0
+		.hword 0
+		.hword 0
+		.hword 0
+		.hword 0
+		.hword 0
+		.hword 0
+
+
+:xout		.hword 0
+		.hword 0
+		.hword 0
+		.hword 0
+		.hword 0
+		.hword 0
+		.hword 0
+		.hword 0
+
+	.text
+:main
+	addi r2,r0,xin
+	nop
+	nop
+	nop;;
+	
+	jal dct nop nop nop;;
+
+	nop nop nop nop;;
+
+	trap nop nop nop;; 
+
+:dct
+
+	nop nop nop nop;;
+	
+	/* a completer */
+
+	/*-------ETAGE 1----------*/
+	movia 	r1,	0
+	movia	r2,	xin /* r2 <-@xin */ 
+	ldw		r3,	0(r2)
+	ldw 	r4, 28(r2)
+	add 	r5, r3, r4 /* tmp_0 = ixixn[0] + ixin[7] ds r5*/
+	
+	ldw		r5,	4(r2)
+	ldw 	r6, 24(r2)
+	add 	r7, r6, r5/* tmp_1 = ixixn[1] + ixin[6] ds r7*/
+
+	ldw		r7,	8(r2)
+	ldw 	r8, 20(r2)
+	add 	r9, r7, r8 /* tmp_2 = ixixn[2] + ixin[5] ds r9*/
+
+	ldw		r10,	12(r2)
+	ldw 	r11, 16(r2)
+	add 	r12, r10, r11 /* tmp_3 = ixixn[3] + ixin[4] ds r12*/
+
+	ldw		r13,	(r2)
+	ldw 	r14, 20(r2)
+	sub 	r15, r13, r14 /* tmp_4 = ixixn[3] - ixin[4] ds r15*/
+
+	ldw		r16, 8(r2)
+	ldw 	r17, 20(r2)
+	sub 	r18, r3, r4 /* tmp_5 = ixixn[2] - ixin[5] ds r18*/
+
+
+	ldw		r19, 4(r2)
+	ldw 	r20, 24(r2)
+	sub 	r21, r19, r20/* tmp_6 = ixixn[1] - ixin[6] ds r21*/
+
+	ldw		r22, 0(r2)
+	ldw 	r23, 28(r2)
+	sub 	r24, r22, r23/* tmp_7 = ixixn[0] - ixin[7] ds r24*/
+
+
+	/*-------ETAGE 2----------*/
+	add 	r4,  r5, r12 /*tmp2_0 = tmp_0 + tmp_3 */
+	add 	r6,  r7, r9  /*tmp2_1*/
+	sub 	r8,  r7, r9	/*tmp2_2*/
+	sub 	r10, r5, r12 /*tmp2_3*/
+	slli 	r14, r15, 14 /*tmp2_4*/
+	sub 	r16, r18, r21 /*tmp6 - tmp5 */
+	muli 	r17, r16, C4  /*c4 * (tmp6 - tmp5) */
+	add 	r19, r18, r21 /*tmp6 - tmp5 */
+	muli 	r20, r19, C4  /*c4 * (tmp6 - tmp5) */
+	slli 	r22, r24, 14
+
+    /*-------ETAGE 3----------*/
+	addi 	r5, r4, r8
+	muli	r7, r5, C4 /*tmp3_0   r7*/
+	sub 	r9, r4, r6
+	muli	r10, r9, C4 /*tmp3_1   r10*/
+	muli 	r12, r10, C2 
+	muli 	r11, r8, C6
+	addi	r13, r12, r11 /*tmp3_2  r13*/
+	muli 	r15, r10, C6 
+	muli 	r18, r8, C2
+	addi	r21, r15, r18 /*tmp3_3  r13*/
+	add 	r24, r14, r17 
+	srai 	r25, r24, 14  /*tmp3_4 r24*/
+	sub  	r26, r14, r16 
+	srai 	r27, r26, 14 /*tmp3_5 r27*/
+	sub 	r28, r20, r22
+	srai 	r29, r28, 14	/*tmp3_6*/	
+	add 	r30, r20, r22
+	srai 	r31, r30, 14
+
+	/*--------------ETAGE 4------------------*/
+	
+	
+
+	/* retour de sous-programme */
+	jr r31 nop nop nop;;
+
+	nop nop nop nop;;
+	
+
+
