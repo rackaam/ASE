@@ -286,7 +286,8 @@ void fast_fixed_dct8(short in[8], short out[8])
 {
 	int tmp[8];
 	int tmp2[8];
-    
+	
+    //Q_15_15
 	tmp[0] = in[0] << 15;
 	tmp[1] = in[1] << 15;
 	tmp[2] = in[2] << 15;
