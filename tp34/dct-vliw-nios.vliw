@@ -1,0 +1,163 @@
+/* 
+ *  Algorithme de Chen sur VLIW-NIOS (virgule-fixe) 
+ *
+ *  Binome : AAAAA - BBBBBB
+
+ */
+	.data
+
+// :xin		
+// 		.hword 10
+// 		.hword 3
+// 		.hword 25
+// 		.hword 33
+// 		.hword 21
+// 		.hword 30
+// 		.hword 3
+// 		.hword 4
+:xin		
+		.hword 1
+		.hword 13
+		.hword 5
+		.hword 45
+		.hword 24
+		.hword 9
+		.hword 12
+		.hword 24
+
+
+:xout		
+	  	.hword 12
+		.hword 22
+		.hword 128
+		.hword 256
+		.hword 512
+		.hword 1024
+		.hword 2048
+		.hword 4096
+
+:C1		.hword 16069 
+:C2		.hword 15136 
+:C3		.hword 13622 
+:C4		.hword 11585
+:C5		.hword 9102 
+:C6		.hword 6269
+:C7		.hword 3196 
+
+	.text
+:main
+	addi r2,r0,xin
+	nop
+	nop
+	nop;;
+	
+	jal dct nop nop nop;;
+
+	addi r4,r0,xout nop 	nop 	nop;;
+	addi r5,r0,8  	nop 	nop 	nop;;
+	addi r2,r0,42   nop 	nop 	nop;;
+	nop				nop 	nop 	nop;;
+    trap  			nop 	nop 	nop;;
+	addi r2,r0,0  	nop 	nop 	nop;;
+	nop nop nop nop;;
+
+	trap nop nop nop;; 
+
+:dct
+
+	addi r6,r0,xin nop nop nop;;
+
+	nop nop nop nop;;
+
+	nop ldh r7,0(r6)		nop nop;;
+	nop ldh r14,14(r6)		nop nop;;
+	nop ldh r8,2(r6)		nop nop;;
+	nop ldh r13,12(r6)		nop nop;;
+	nop ldh r9,4(r6)		nop nop;;
+	nop ldh r12,10(r6)		nop nop;;
+	nop ldh r10,6(r6)		nop nop;;
+	nop ldh r11,8(r6)		nop nop;;
+
+	/* Etage 1 r15 -> r22 */ 
+	add r15,r7,r14		nop nop nop;;
+	add r16,r8,r13		nop nop nop;;
+	add r17,r9,r12		nop nop nop;;
+	add r18,r10,r11		nop nop nop;;
+	sub r19,r10,r11		nop nop nop;;
+	sub r20,r9,r12		nop nop nop;;
+	sub r21,r8,r13		nop nop nop;;
+	sub r22,r7,r14		nop nop nop;;
+
+	/* Etage 2 r7 -> r14 */
+	add r7,r15,r18		nop nop nop;;
+	add r8,r16,r17		nop nop nop;;
+	sub r9,r16,r17		nop nop nop;;
+	sub r10,r15,r18		nop nop nop;;
+	slli r11,r19,14  	nop nop nop;;
+	sub r12,r21,r20		nop nop nop;;
+	add r13,r21,r20		nop nop nop;;
+	nop nop nop 		muli r12,r12,11585;;
+	nop nop nop 		muli r13,r13,11585;;
+	slli r14,r22,14 	nop nop nop;;
+
+	/* Etage 3 r15 -> r22 */
+	add r15,r7,r8 		nop nop nop;;
+	sub r16,r7,r8 		nop nop nop;;
+	nop nop nop 		muli r15,r15,11585;;
+	nop nop nop 		muli r16,r16,11585;;
+	nop nop nop 		muli r23,r9,6269;; 	// C6 * tmp2_2
+	nop nop nop 		muli r24,r10,15136;; 	// C2 * tmp2_3
+	nop nop nop 		muli r25,r10,6269;; 	// C6 * tmp2_3
+	nop nop nop 		muli r26,r9,15136;; 	// C2 * tmp2_2
+	add r19,r11,r12 	nop nop nop;;
+	sub r20,r11,r12 	nop nop nop;;
+	sub r21,r14,r13 	nop nop nop;;
+	add r22,r14,r13 	nop nop nop;;
+	srai r19,r19,14 	nop nop nop;;
+	srai r20,r20,14 	nop nop nop;;
+	srai r21,r21,14 	nop nop nop;;
+	srai r22,r22,14 	nop nop nop;;
+	add r17,r23,r24 	nop nop nop;;
+	sub r18,r25,r26 	nop nop nop;;
+
+	// /* Etage 4 r7 -> r14 */
+	nop nop nop 	muli r23,r19,3196;;
+	nop nop nop 	muli r24,r22,16069;;
+	nop nop nop		muli r25,r20,13622;;
+	nop nop nop		muli r26,r21,9102;;
+	nop nop nop		muli r27,r20,9102;;
+	nop nop nop		muli r28,r21,13622;;
+	nop nop nop		muli r29,r19,16069;;
+	nop nop nop		muli r30,r22,3196;;
+	srai r7,r15,15 		nop nop nop;;
+	srai r11,r16,15 	nop nop nop;;
+	srai r9,r17,15 		nop nop nop;;
+	srai r13,r18,15 	nop nop nop;;
+	add r8,r23,r24 		nop nop nop;;
+	add r12,r25,r26 	nop nop nop;;
+	sub r10,r28,r27 	nop nop nop;;
+	sub r14,r30,r29 	nop nop nop;;
+	nop nop nop nop;;
+	nop nop nop nop;;
+	srai r8,r8,15 		nop nop nop;;
+	srai r12,r12,15 	nop nop nop;;
+	srai r10,r10,15 	nop nop nop;;
+	srai r14,r14,15 	nop nop nop;;
+
+	addi r6,r0,xout nop nop nop;;
+	nop nop nop nop;;
+	nop sth r7,0(r6) nop nop;;
+	nop sth r8,2(r6) nop nop;;
+	nop sth r9,4(r6) nop nop;;
+	nop sth r10,6(r6) nop nop;;
+	nop sth r11,8(r6) nop nop;;
+	nop sth r12,10(r6) nop nop;;
+	nop sth r13,12(r6) nop nop;;
+	nop sth r14,14(r6) nop nop;;
+
+	jr r31 nop nop nop;;
+
+	nop nop nop nop;;
+	
+
+
