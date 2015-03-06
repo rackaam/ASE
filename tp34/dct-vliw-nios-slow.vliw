@@ -79,31 +79,46 @@
 	nop ldh r11,8(r6)		nop nop;;
 
 	/* Etage 1 r15 -> r22 */ 
-	add r15,r7,r14		nop sub r22,r7,r14	nop;;
-	add r16,r8,r13		nop sub r21,r8,r13	nop;;
-	add r17,r9,r12		nop sub r20,r9,r12 	nop;;
-	add r18,r10,r11		nop sub r19,r10,r11	nop;;
+	add r15,r7,r14		nop nop nop;;
+	add r16,r8,r13		nop nop nop;;
+	add r17,r9,r12		nop nop nop;;
+	add r18,r10,r11		nop nop nop;;
+	sub r19,r10,r11		nop nop nop;;
+	sub r20,r9,r12		nop nop nop;;
+	sub r21,r8,r13		nop nop nop;;
+	sub r22,r7,r14		nop nop nop;;
 
 	/* Etage 2 r7 -> r14 */
-	add r8,r16,r17		nop sub r12,r21,r20 	nop;;
-	add r13,r21,r20		nop sub r10,r15,r18	 	nop;;
-	slli r11,r19,14  	nop sub r9,r16,r17 		muli r12,r12,11585;;
-	add r7,r15,r18		nop slli r14,r22,14 	muli r13,r13,11585;;
-
-	nop nop nop nop;;
-	nop nop nop nop;;
-	nop nop nop nop;;
+	add r7,r15,r18		nop nop nop;;
+	add r8,r16,r17		nop nop nop;;
+	sub r9,r16,r17		nop nop nop;;
+	sub r10,r15,r18		nop nop nop;;
+	slli r11,r19,14  	nop nop nop;;
+	sub r12,r21,r20		nop nop nop;;
+	add r13,r21,r20		nop nop nop;;
+	nop nop nop 		muli r12,r12,11585;;
+	nop nop nop 		muli r13,r13,11585;;
+	slli r14,r22,14 	nop nop nop;;
 
 	/* Etage 3 r15 -> r22 */
-	add r19,r11,r12	nop		sub r20,r11,r12		muli r23,r9,6269;;
-	add r15,r7,r8 	nop		sub r21,r14,r13 	muli r24,r10,15136;;
-	sub r16,r7,r8	nop		add r22,r14,r13		muli r25,r10,6269;;
-	srai r19,r19,14	nop		srai r20,r20,14		muli r26,r9,15136;;
-	srai r21,r21,14	nop		srai r22,r22,14		muli r16,r16,11585;;
-	add r17,r23,r24	nop		nop					muli r15,r15,11585;;
-	nop				nop		nop					nop;;
-	nop				nop		sub r18,r25,r26		nop;;
-	nop nop nop nop;;
+	add r15,r7,r8 		nop nop nop;;
+	sub r16,r7,r8 		nop nop nop;;
+	nop nop nop 		muli r15,r15,11585;;
+	nop nop nop 		muli r16,r16,11585;;
+	nop nop nop 		muli r23,r9,6269;; 	// C6 * tmp2_2
+	nop nop nop 		muli r24,r10,15136;; 	// C2 * tmp2_3
+	nop nop nop 		muli r25,r10,6269;; 	// C6 * tmp2_3
+	nop nop nop 		muli r26,r9,15136;; 	// C2 * tmp2_2
+	add r19,r11,r12 	nop nop nop;;
+	sub r20,r11,r12 	nop nop nop;;
+	sub r21,r14,r13 	nop nop nop;;
+	add r22,r14,r13 	nop nop nop;;
+	srai r19,r19,14 	nop nop nop;;
+	srai r20,r20,14 	nop nop nop;;
+	srai r21,r21,14 	nop nop nop;;
+	srai r22,r22,14 	nop nop nop;;
+	add r17,r23,r24 	nop nop nop;;
+	sub r18,r25,r26 	nop nop nop;;
 
 	// /* Etage 4 r7 -> r14 */
 	nop nop nop 	muli r23,r19,3196;;
