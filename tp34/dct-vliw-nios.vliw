@@ -46,10 +46,7 @@
 
 	.text
 :main
-	addi r2,r0,xin
-	nop
-	nop
-	nop;;
+	addi r2,r0,xin		nop				nop					nop;;
 	
 	jal dct nop nop nop;;
 
@@ -65,18 +62,14 @@
 
 :dct
 
-	addi r6,r0,xin 		nop 			nop 				nop;;
-
-	nop 				nop 			nop 				nop;;
-
-	nop 				ldh r7,0(r6)	nop 				nop;;
-	nop					ldh r14,14(r6)	nop					nop;;
-	nop 				ldh r8,2(r6)	nop 				nop;;
-	nop 				ldh r13,12(r6)	nop					nop;;
-	nop 				ldh r9,4(r6)	nop 				nop;;
-	nop 				ldh r12,10(r6)	nop 				nop;;
-	nop 				ldh r10,6(r6)	nop 				nop;;
-	nop 				ldh r11,8(r6)	nop 				nop;;
+	nop 				ldh r7,0(r2)	nop 				nop;;
+	nop					ldh r14,14(r2)	nop					nop;;
+	nop 				ldh r8,2(r2)	nop 				nop;;
+	nop 				ldh r13,12(r2)	nop					nop;;
+	nop 				ldh r9,4(r2)	nop 				nop;;
+	nop 				ldh r12,10(r2)	nop 				nop;;
+	nop 				ldh r10,6(r2)	nop 				nop;;
+	nop 				ldh r11,8(r2)	nop 				nop;;
 
 	/* Etage 1 r15 -> r22 */ 
 	add r15,r7,r14		nop 			sub r22,r7,r14		nop;;
