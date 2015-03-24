@@ -49,11 +49,11 @@ L1:
 			ym1 = y1[i][j];
 		}
 	}
-	
+	/*
 	printf("\n\nL1 y1 float:\n");
 	for(i = 14; i < 25; i++)
 		printf("%.0f ", y1[i][5]);
-	printf("\n\n");
+	printf("\n\n");*/
 
 L2:
 	for (i = 0; i < width; i++) {
@@ -66,22 +66,23 @@ L2:
 			yp1 = y2[i][j];
 		}
 	}
-	
+	/*
 	printf("L2 y2 float:\n");
 	for(i = 14; i < 25; i++)
 		printf("%.0f ", y2[i][5]);
 	printf("\n\n");
-
+	*/
 L3:
 	for (i = 0; i < width; i++)
 		for (j = 0; j < height; j++)
 			t[i][j] = (c1 * (y1[i][j] + y2[i][j])) ;
-			
+		
+	/*		
 	printf("L3 t float:\n");
 	for(i = 14; i < 25; i++)
 		printf("%.0f ", t[i][5]);
 	printf("\n\n");
-	
+	*/
 L4:
 	for (j = 0; j < height; j++) {
 		tm1 = 0, ym1 = 0, ym2 = 0;
@@ -92,12 +93,12 @@ L4:
 			ym1 = y1[i][j];
 		}
 	}
-	
+	/*
 	printf("L4 y1 float:\n");
 	for(i = 14; i < 25; i++)
 		printf("%.0f ", y1[i][5]);
 	printf("\n\n");
-	
+	*/
 L5:
 	for (j = 0; j < height; j++) {
 		tp1 = 0, tp2 = 0, yp1 = 0, yp2 = 0;
@@ -109,12 +110,12 @@ L5:
 			yp1 = y2[i][j];
 		}
 	}
-	
+	/*
 	printf("L5 y2 float:\n");
 	for(i = 14; i < 25; i++)
 		printf("%.0f ", y2[i][5]);
 	printf("\n\n");
-	
+	*/
 L6:
 	for (i = 0; i < width; i++) {
 		for (j = 0; j < height; j++) {
@@ -126,11 +127,12 @@ L6:
 			}
 		}
 	}
-	
+	/*
 	printf("L6 out float:\n");
 	for(i = 14; i < 25; i++)
 		printf("%d ", out[i][5]);
 	printf("\n\n");
+	*/
 }
 
 /*  versions virgule fixe */
@@ -159,7 +161,7 @@ void deriche_fused(int width, int height) {
 	b2 = (int) (256 * (-0.606531));
 	c1 = c2 = (int) (256);
 
-	printf("\nfixed fast\n");
+	//printf("\nfixed fast\n");
 }
 
 void deriche_slow(int width, int height) {
@@ -196,12 +198,12 @@ FL1:
 			ym1 = fy1[i][j];
 		}
 	}	
-	
+	/*
 	printf("\n\nFL1 fy1:\n");
 	for(i = 14; i < 25; i++)
 		printf("%d ", fy1[i][5] >> 8);
 	printf("\n\n");
-	
+	*/
 FL2:
 	for (i = 0; i < width; i++) {
 		yp1 = 0, yp2 = 0, xp1 = 0, xp2 = 0;
@@ -217,22 +219,22 @@ FL2:
 			yp1 = fy2[i][j];
 		}
 	}
-	
+	/*
 	printf("FL2 fy2:\n");
 	for(i = 14; i < 25; i++)
 		printf("%d ", fy2[i][5] >> 8);
 	printf("\n\n");
-	
+	*/
 FL3:
 	for (i = 0; i < width; i++)
 		for (j = 0; j < height; j++)
 			ft[i][j] = (c1 * (fy1[i][j] + fy2[i][j])) >> 8;
-	
+	/*
 	printf("FL3 ft:\n");
 	for(i = 14; i < 25; i++)
 		printf("%d ", ft[i][5] >> 8);
 	printf("\n\n");
-
+	*/
 FL4:
 	for (j = 0; j < height; j++) {
 		tm1 = 0, ym1 = 0, ym2 = 0;
@@ -243,12 +245,12 @@ FL4:
 			ym1 = fy1[i][j];
 		}
 	}
-	
+	/*
 	printf("FL4 fy1:\n");
 	for(i = 14; i < 25; i++)
 		printf("%d ", fy1[i][5] >> 8);
 	printf("\n\n");
-
+	*/
 FL5:
 	for (j = 0; j < height; j++) {
 		tp1 = 0, tp2 = 0, yp1 = 0, yp2 = 0;
@@ -260,12 +262,12 @@ FL5:
 			yp1 = fy2[i][j];
 		}
 	}
-	
+	/*
 	printf("FL5 fy2:\n");
 	for(i = 14; i < 25; i++)
 		printf("%d ", fy2[i][5] >> 8);
 	printf("\n\n");
-	
+	*/
 		
 FL6:
 	for (i = 0; i < width; i++) {
@@ -278,11 +280,12 @@ FL6:
 			}
 		}
 	}
-	
+	/*
 	printf("FL6 out:\n");
 	for(i = 14; i < 25; i++)
 		printf("%d ", out[i][5]);
 	printf("\n\n");
+	*/
 }
 
 

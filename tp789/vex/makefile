@@ -19,13 +19,13 @@ slow: clean edge_detect
 	export VEXCFG=$(CACHE_CFG)
 	./edge_detect ../data/satellite.pgm ./deriche-satellite.pgm fixed_slow
 	cp ta.log.000 tp_ase.log.slow  
-	grep "Total Cycles" tp_ase.log.001
+	grep "Total Cycles" tp_ase.log.000
 		
 float: clean edge_detect 
 	export VEXCFG=$(CACHE_CFG)
 	./edge_detect ../data/satellite.pgm ./deriche-satellite.pgm float_slow
 	cp ta.log.000 tp_ase.log.float  
-	grep "Total Cycles" tp_ase.log.001
+	grep "Total Cycles" tp_ase.log.000
 
 #objs/deriche.o:  $(SRC)/deriche.c  $(MM_FILE)
 #	$(VEX_DIR)/bin/cc $(CFLAGS) -fmm=$(MM_FILE) -DVEX -c -o $@ $(SRC)/deriche.c 
