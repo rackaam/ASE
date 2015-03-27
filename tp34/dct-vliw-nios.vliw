@@ -69,67 +69,52 @@
 
 	nop nop nop nop;;
 
-	nop ldh r7,0(r6)		nop nop;;
-	nop ldh r14,14(r6)		nop nop;;
-	nop ldh r8,2(r6)		nop nop;;
-	nop ldh r13,12(r6)		nop nop;;
-	nop ldh r9,4(r6)		nop nop;;
-	nop ldh r12,10(r6)		nop nop;;
-	nop ldh r10,6(r6)		nop nop;;
-	nop ldh r11,8(r6)		nop nop;;
+	nop 				ldh r7,0(r6)	nop 				nop;;
+	nop					ldh r14,14(r6)	nop					nop;;
+	nop 				ldh r8,2(r6)	nop 				nop;;
+	nop 				ldh r13,12(r6)	nop					nop;;
+	nop 				ldh r9,4(r6)	nop 				nop;;
+	nop 				ldh r12,10(r6)	nop 				nop;;
+	nop 				ldh r10,6(r6)	nop 				nop;;
+	nop 				ldh r11,8(r6)	nop 				nop;;
 
 	/* Etage 1 r15 -> r22 */ 
-	add r15,r7,r14		nop sub r22,r7,r14	nop;;
-	add r16,r8,r13		nop sub r21,r8,r13	nop;;
-	add r17,r9,r12		nop sub r20,r9,r12 	nop;;
-	add r18,r10,r11		nop sub r19,r10,r11	nop;;
+	add r15,r7,r14		nop 			sub r22,r7,r14		nop;;
+	add r16,r8,r13		nop 			sub r21,r8,r13		nop;;
+	add r17,r9,r12		nop 			sub r20,r9,r12 		nop;;
+	add r18,r10,r11		nop 			sub r19,r10,r11		nop;;
 
 	/* Etage 2 r7 -> r14 */
-	add r8,r16,r17		nop sub r12,r21,r20 	nop;;
-	add r13,r21,r20		nop sub r10,r15,r18	 	nop;;
-	slli r11,r19,14  	nop sub r9,r16,r17 		muli r12,r12,11585;;
-	add r7,r15,r18		nop slli r14,r22,14 	muli r13,r13,11585;;
-
+	add r8,r16,r17		nop 			sub r12,r21,r20 	nop;;
+	add r13,r21,r20		nop 			sub r10,r15,r18	 	nop;;
+	slli r11,r19,14  	nop 			sub r9,r16,r17 		muli r12,r12,11585;;
+	add r7,r15,r18		nop 			slli r14,r22,14 	muli r13,r13,11585;;
 	nop nop nop nop;;
 
 	/* Etage 3 r15 -> r22 */
-	add r19,r11,r12	nop		sub r20,r11,r12		muli r23,r9,6269;;
-	add r15,r7,r8 	nop		sub r21,r14,r13 	muli r24,r10,15136;;
-	sub r16,r7,r8	nop		add r22,r14,r13		muli r25,r10,6269;;
-	srai r19,r19,14	nop		srai r20,r20,14		muli r26,r9,15136;;
-	srai r21,r21,14	nop		srai r22,r22,14		muli r15,r15,11585;;
-	add r17,r23,r24	nop		nop					muli r16,r16,11585;;
-	nop				nop		sub r18,r25,r26		muli r23,r19,3196;; // Etage 4
-	nop				nop		nop					muli r24,r22,16069;;
+	add r19,r11,r12		nop				sub r20,r11,r12		muli r23,r9,6269;;
+	add r15,r7,r8 		nop				sub r21,r14,r13		muli r24,r10,15136;;
+	sub r16,r7,r8		nop				add r22,r14,r13		muli r25,r10,6269;;
+	srai r19,r19,14		nop				srai r20,r20,14		muli r26,r9,15136;;
+	srai r21,r21,14		nop				srai r22,r22,14		muli r15,r15,11585;;
+	add r17,r23,r24		nop				addi r6,r0,xout		muli r16,r16,11585;; 	// xout
+	nop					nop				sub r18,r25,r26		muli r23,r19,3196;; 	// Etage 4
+	nop					nop				nop					muli r24,r22,16069;;
 
 	/* Etage 4 r7 -> r14 */
-	srai r7,r15,15		nop srai r9,r17,15 		muli r25,r20,13622;;
-	srai r11,r16,15 	nop srai r13,r18,15		muli r26,r21,9102;;
-	add r8,r23,r24 		nop nop					muli r27,r20,9102;;
-	nop 				nop nop					muli r28,r21,13622;;
-	add r12,r25,r26		nop srai r8,r8,15 		muli r29,r19,16069;;
-	nop	 				nop nop					muli r30,r22,3196;;
-	
-	// todo
-	sub r10,r28,r27 	nop nop nop;;
-	nop nop nop nop;;
-	sub r14,r30,r29 	nop nop nop;;
-	nop nop nop nop;;
-	nop nop nop nop;;
-	srai r12,r12,15 	nop nop nop;;
-	srai r10,r10,15 	nop nop nop;;
-	srai r14,r14,15 	nop nop nop;;
-
-	addi r6,r0,xout nop nop nop;;
-	nop nop nop nop;;
-	nop sth r7,0(r6) nop nop;;
-	nop sth r8,2(r6) nop nop;;
-	nop sth r9,4(r6) nop nop;;
-	nop sth r10,6(r6) nop nop;;
-	nop sth r11,8(r6) nop nop;;
-	nop sth r12,10(r6) nop nop;;
-	nop sth r13,12(r6) nop nop;;
-	nop sth r14,14(r6) nop nop;;
+	srai r7,r15,15		nop 			srai r9,r17,15 		muli r25,r20,13622;;
+	srai r11,r16,15 	nop 			srai r13,r18,15		muli r26,r21,9102;;
+	add r8,r23,r24 		sth r7,0(r6) 	nop					muli r27,r20,9102;;
+	nop 				sth r9,4(r6) 	nop					muli r28,r21,13622;;
+	add r12,r25,r26		sth r11,8(r6) 	srai r8,r8,15 		muli r29,r19,16069;;
+	nop	 				sth r13,12(r6) 	nop					muli r30,r22,3196;;
+	sub r10,r28,r27 	sth r8,2(r6) 	srai r12,r12,15 	nop;;
+	nop 				nop 			nop 				nop;;
+	sub r14,r30,r29 	sth r12,10(r6) 	srai r10,r10,15 	nop;;
+	nop 				nop 			nop 				nop;;
+	srai r14,r14,15 	sth r10,6(r6)	nop 				nop;;
+	nop 				nop			 	nop 				nop;;
+	nop 				sth r14,14(r6) 	nop 				nop;;
 
 	jr r31 nop nop nop;;
 
