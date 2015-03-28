@@ -22,7 +22,6 @@ int ft[MAX_WIDTH][MAX_HEIGHT];
 void deriche_float(int width, int height) {
 	int i, j;
 
-
 	float xm1, tm1, ym1, ym2;
 	float xp1, xp2;
 	float tp1, tp2;

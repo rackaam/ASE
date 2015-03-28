@@ -1,4 +1,4 @@
-VEX_DIR ?= /opt/vex-3.43
+VEX_DIR ?= /home/matthias/vex-3.43
 #MM_FILE ?= ./vex_MachineModel.mm
 MM_FILE ?= ./risc.mm
 #VEXCFG ?= ./vex_cache.cfg
@@ -11,21 +11,21 @@ all: help
 
 fast: clean edge_detect 
 	export VEXCFG=$(CACHE_CFG)
-	./edge_detect ../data/satellite.pgm ./deriche-satellite.pgm fixed_fast
+	./edge_detect ../data/satellite.pgm ./deriche-satellite-fast.pgm fixed_fast
 	cp ta.log.000 tp_ase.log.fast
-	grep "Total Cycles" tp_ase.log.000
+	grep "Total Cycles" tp_ase.log.fast
 
 slow: clean edge_detect 
 	export VEXCFG=$(CACHE_CFG)
-	./edge_detect ../data/satellite.pgm ./deriche-satellite.pgm fixed_slow
+	./edge_detect ../data/satellite.pgm ./deriche-satellite-slow.pgm fixed_slow
 	cp ta.log.000 tp_ase.log.slow  
-	grep "Total Cycles" tp_ase.log.001
+	grep "Total Cycles" tp_ase.log.slow
 		
 float: clean edge_detect 
 	export VEXCFG=$(CACHE_CFG)
-	./edge_detect ../data/satellite.pgm ./deriche-satellite.pgm float_slow
+	./edge_detect ../data/satellite.pgm ./deriche-satellite-float.pgm float_slow
 	cp ta.log.000 tp_ase.log.float  
-	grep "Total Cycles" tp_ase.log.001
+	grep "Total Cycles" tp_ase.log.float
 
 #objs/deriche.o:  $(SRC)/deriche.c  $(MM_FILE)
 #	$(VEX_DIR)/bin/cc $(CFLAGS) -fmm=$(MM_FILE) -DVEX -c -o $@ $(SRC)/deriche.c 
@@ -53,7 +53,7 @@ set_cache_cfg:
 	export VEXCFG=$(CACHE_CFG)
 
 clean:
-	rm -f edge_detect *.out *.o ta.log.* *.pgm *.cs.c *.s
+	rm -f edge_detect *.out *.o ta.log.* *.cs.c *.s
 
 help:
 	@echo "Usage: make cmd... [variable=value]..."

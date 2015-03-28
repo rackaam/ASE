@@ -3,7 +3,7 @@
 .comment "Copyright (C) 1990-2010 Hewlett-Packard Company"
 .comment "VEX C compiler version 3.43 (20110131 release)"
 .comment ""
-.comment "-dir /opt/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./risc.mm -DVEX -o edge_detect"
+.comment "-dir /home/matthias/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./risc.mm -DVEX -o edge_detect"
 .sversion 3.43
 .rta 2
 .section .bss

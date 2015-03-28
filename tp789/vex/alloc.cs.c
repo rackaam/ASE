@@ -2,7 +2,7 @@
 /* "Copyright (C) 1990-2010 Hewlett-Packard Company" */
 /* "VEX C compiler version 3.43 (20110131 release)" */
 /* "" */
-/* "-dir /opt/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./risc.mm -DVEX -o edge_detect" */
+/* "-dir /home/matthias/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./risc.mm -DVEX -o edge_detect" */
 
 /********************************************/
 /*         SYSTEM HEADER                    */
