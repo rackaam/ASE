@@ -191,9 +191,6 @@ extern sim_asm4_t sim_asm_op4(int, ...);
 unsigned int qt[1575000];
 unsigned int qy2[1575000];
 unsigned int qy1[1575000];
-unsigned int ft[1575000];
-unsigned int fy2[1575000];
-unsigned int fy1[1575000];
 unsigned int t[1575000];
 unsigned int y2[1575000];
 unsigned int y1[1575000];
@@ -3120,7 +3117,7 @@ extern  deriche_fused( unsigned int arg0, unsigned int arg1 )
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_19, ((unsigned int) fy2 + (unsigned int) -4)); /* line 857 */
+   MOV(reg_r0_19, ((unsigned int) qy2 + (unsigned int) -4)); /* line 857 */
 } /* line 857 */
   sim_icache_fetch(459 + t_thisfile.offset, 1);
 {
@@ -3156,7 +3153,7 @@ extern  deriche_fused( unsigned int arg0, unsigned int arg1 )
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_20, (unsigned int) fy1); /* line 869 */
+   MOV(reg_r0_20, (unsigned int) qy1); /* line 869 */
 } /* line 869 */
   sim_icache_fetch(468 + t_thisfile.offset, 1);
 {
@@ -3750,19 +3747,19 @@ LABEL(l_L26X3);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_10, (unsigned int) fy2); /* line 1067 */
+   MOV(reg_r0_10, (unsigned int) qy2); /* line 1067 */
 } /* line 1067 */
   sim_icache_fetch(567 + t_thisfile.offset, 2);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_9, (unsigned int) fy1); /* line 1069 */
+   MOV(reg_r0_9, (unsigned int) qy1); /* line 1069 */
 } /* line 1069 */
   sim_icache_fetch(569 + t_thisfile.offset, 2);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_8, (unsigned int) ft); /* line 1071 */
+   MOV(reg_r0_8, (unsigned int) qt); /* line 1071 */
 } /* line 1071 */
   sim_icache_fetch(571 + t_thisfile.offset, 1);
 {
@@ -4164,25 +4161,25 @@ LABEL(l_L30X3);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_20, (unsigned int) ft); /* line 1201 */
+   MOV(reg_r0_20, (unsigned int) qt); /* line 1201 */
 } /* line 1201 */
   sim_icache_fetch(633 + t_thisfile.offset, 2);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_19, (unsigned int) fy1); /* line 1203 */
+   MOV(reg_r0_19, (unsigned int) qy1); /* line 1203 */
 } /* line 1203 */
   sim_icache_fetch(635 + t_thisfile.offset, 2);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_17, ((unsigned int) fy2 + (unsigned int) -4200)); /* line 1205 */
+   MOV(reg_r0_17, ((unsigned int) qy2 + (unsigned int) -4200)); /* line 1205 */
 } /* line 1205 */
   sim_icache_fetch(637 + t_thisfile.offset, 2);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_16, ((unsigned int) ft + (unsigned int) -4200)); /* line 1207 */
+   MOV(reg_r0_16, ((unsigned int) qt + (unsigned int) -4200)); /* line 1207 */
 } /* line 1207 */
   sim_icache_fetch(639 + t_thisfile.offset, 1);
 {
@@ -4776,13 +4773,13 @@ LABEL(l_L34X3);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_11, (unsigned int) fy2); /* line 1405 */
+   MOV(reg_r0_11, (unsigned int) qy2); /* line 1405 */
 } /* line 1405 */
   sim_icache_fetch(743 + t_thisfile.offset, 2);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_10, (unsigned int) fy1); /* line 1407 */
+   MOV(reg_r0_10, (unsigned int) qy1); /* line 1407 */
 } /* line 1407 */
   sim_icache_fetch(745 + t_thisfile.offset, 2);
 {
@@ -5547,7 +5544,7 @@ extern  deriche_slow( unsigned int arg0, unsigned int arg1 )
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_10, (unsigned int) fy1); /* line 1653 */
+   MOV(reg_r0_10, (unsigned int) qy1); /* line 1653 */
 } /* line 1653 */
   sim_icache_fetch(854 + t_thisfile.offset, 1);
 {
@@ -6069,7 +6066,7 @@ LABEL(l_L50X3);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_13, ((unsigned int) fy2 + (unsigned int) -12)); /* line 1823 */
+   MOV(reg_r0_13, ((unsigned int) qy2 + (unsigned int) -12)); /* line 1823 */
 } /* line 1823 */
   sim_icache_fetch(937 + t_thisfile.offset, 1);
 {
@@ -6659,19 +6656,19 @@ LABEL(l_L54X3);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_10, (unsigned int) fy2); /* line 2021 */
+   MOV(reg_r0_10, (unsigned int) qy2); /* line 2021 */
 } /* line 2021 */
   sim_icache_fetch(1033 + t_thisfile.offset, 2);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_8, (unsigned int) fy1); /* line 2023 */
+   MOV(reg_r0_8, (unsigned int) qy1); /* line 2023 */
 } /* line 2023 */
   sim_icache_fetch(1035 + t_thisfile.offset, 2);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_7, (unsigned int) ft); /* line 2025 */
+   MOV(reg_r0_7, (unsigned int) qt); /* line 2025 */
 } /* line 2025 */
   sim_icache_fetch(1037 + t_thisfile.offset, 1);
 {
@@ -7073,13 +7070,13 @@ LABEL(l_L62X3);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_12, (unsigned int) ft); /* line 2155 */
+   MOV(reg_r0_12, (unsigned int) qt); /* line 2155 */
 } /* line 2155 */
   sim_icache_fetch(1099 + t_thisfile.offset, 2);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_11, (unsigned int) fy1); /* line 2157 */
+   MOV(reg_r0_11, (unsigned int) qy1); /* line 2157 */
 } /* line 2157 */
   sim_icache_fetch(1101 + t_thisfile.offset, 1);
 {
@@ -7577,7 +7574,7 @@ LABEL(l_L66X3);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_13, ((unsigned int) fy2 + (unsigned int) -12600)); /* line 2319 */
+   MOV(reg_r0_13, ((unsigned int) qy2 + (unsigned int) -12600)); /* line 2319 */
 } /* line 2319 */
   sim_icache_fetch(1186 + t_thisfile.offset, 1);
 {
@@ -7595,7 +7592,7 @@ LABEL(l_L66X3);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_12, ((unsigned int) ft + (unsigned int) -12600)); /* line 2325 */
+   MOV(reg_r0_12, ((unsigned int) qt + (unsigned int) -12600)); /* line 2325 */
 } /* line 2325 */
   sim_icache_fetch(1190 + t_thisfile.offset, 1);
 {
@@ -8111,13 +8108,13 @@ LABEL(l_L70X3);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_11, (unsigned int) fy2); /* line 2493 */
+   MOV(reg_r0_11, (unsigned int) qy2); /* line 2493 */
 } /* line 2493 */
   sim_icache_fetch(1279 + t_thisfile.offset, 2);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   MOV(reg_r0_10, (unsigned int) fy1); /* line 2495 */
+   MOV(reg_r0_10, (unsigned int) qy1); /* line 2495 */
 } /* line 2495 */
   sim_icache_fetch(1281 + t_thisfile.offset, 2);
 {

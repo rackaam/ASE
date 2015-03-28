@@ -15,10 +15,6 @@ float y1[MAX_WIDTH][MAX_HEIGHT];
 float y2[MAX_WIDTH][MAX_HEIGHT];
 float t[MAX_WIDTH][MAX_HEIGHT];
 
-int fy1[MAX_WIDTH][MAX_HEIGHT];
-int fy2[MAX_WIDTH][MAX_HEIGHT];
-int ft[MAX_WIDTH][MAX_HEIGHT];
-
 void deriche_float(int width, int height) {
 	int i, j;
 
@@ -169,46 +165,46 @@ void deriche_fused(int width, int height) {
 			int b1Xym1 = (b1 * ym1) >> 8;
 			int b2Xym2 = (b2 * ym2) >> 8;
 			int a3Xxp1, a1Xxp2, b1Xyp1, b2Xyp2;
-			fy1[i][j] = a1Xin + a2Xxm1 + b1Xym1 + b2Xym2;	
+			qy1[i][j] = a1Xin + a2Xxm1 + b1Xym1 + b2Xym2;	
 			xm1 = in[i][j];
 			ym2 = ym1;
-			ym1 = fy1[i][j];
+			ym1 = qy1[i][j];
 			
 			a3Xxp1 = a3 * xp1;
 			a1Xxp2 = a1 * xp2;
 			b1Xyp1 = (b1 * yp1) >> 8;
 			b2Xyp2 = (b2 * yp2) >> 8;
-			fy2[i][reverse_j] = a3Xxp1 + a1Xxp2 + b1Xyp1 + b2Xyp2;
+			qy2[i][reverse_j] = a3Xxp1 + a1Xxp2 + b1Xyp1 + b2Xyp2;
 			xp2 = xp1;
 			xp1 = in[i][reverse_j];
 			yp2 = yp1;
-			yp1 = fy2[i][reverse_j];
+			yp1 = qy2[i][reverse_j];
 		}
 	}
 	
 	for (i = 0; i < width; i++)
 		for (j = 0; j < height; j++)
-			ft[i][j] = (c1 * (fy1[i][j] + fy2[i][j])) >> 8;
+			qt[i][j] = (c1 * (qy1[i][j] + qy2[i][j])) >> 8;
 	
 	for (j = 0; j < height; j++) {
 		tm1 = 0, ym1 = 0, ym2 = 0, tp1 = 0, tp2 = 0, yp1 = 0, yp2 = 0;
 		for (i = 0, reverse_i = width - 1; i < width; i++, reverse_i--) {
-			fy1[i][j] = (a5 * ft[i][j] + a6 * tm1 + b1 * ym1 + b2 * ym2) >> 8;
-			tm1 = ft[i][j];
+			qy1[i][j] = (a5 * qt[i][j] + a6 * tm1 + b1 * ym1 + b2 * ym2) >> 8;
+			tm1 = qt[i][j];
 			ym2 = ym1;
-			ym1 = fy1[i][j];
+			ym1 = qy1[i][j];
 			
-			fy2[reverse_i][j] = (a7 * tp1 + a8 * tp2 + b1 * yp1 + b2 * yp2) >> 8 ;
+			qy2[reverse_i][j] = (a7 * tp1 + a8 * tp2 + b1 * yp1 + b2 * yp2) >> 8 ;
 			tp2 = tp1;
-			tp1 = ft[reverse_i][j];
+			tp1 = qt[reverse_i][j];
 			yp2 = yp1;
-			yp1 = fy2[reverse_i][j];
+			yp1 = qy2[reverse_i][j];
 		}
 	}
 
 	for (i = 0; i < width; i++) {
 		for (j = 0; j < height; j++) {
-			out[i][j] = (c2 * (fy1[i][j] + fy2[i][j])) >> 16;
+			out[i][j] = (c2 * (qy1[i][j] + qy2[i][j])) >> 16;
 			if (out[i][j] > 25) {
 				out[i][j] = 0;
 			} else {
@@ -246,16 +242,16 @@ FL1:
 			int a2Xxm1 = a2 * xm1;
 			int b1Xym1 = (b1 * ym1) >> 8;
 			int b2Xym2 = (b2 * ym2) >> 8;
-			fy1[i][j] = a1Xin + a2Xxm1 + b1Xym1 + b2Xym2;	
+			qy1[i][j] = a1Xin + a2Xxm1 + b1Xym1 + b2Xym2;	
 			xm1 = in[i][j];
 			ym2 = ym1;
-			ym1 = fy1[i][j];
+			ym1 = qy1[i][j];
 		}
 	}	
 	/*
-	printf("\n\nFL1 fy1:\n");
+	printf("\n\nFL1 qy1:\n");
 	for(i = 14; i < 25; i++)
-		printf("%d ", fy1[i][5] >> 8);
+		printf("%d ", qy1[i][5] >> 8);
 	printf("\n\n");
 	*/
 FL2:
@@ -266,67 +262,67 @@ FL2:
 			int a1Xxp2 = a1 * xp2;
 			int b1Xyp1 = (b1 * yp1) >> 8;
 			int b2Xyp2 = (b2 * yp2) >> 8;
-			fy2[i][j] = a3Xxp1 + a1Xxp2 + b1Xyp1 + b2Xyp2;
+			qy2[i][j] = a3Xxp1 + a1Xxp2 + b1Xyp1 + b2Xyp2;
 			xp2 = xp1;
 			xp1 = in[i][j];
 			yp2 = yp1;
-			yp1 = fy2[i][j];
+			yp1 = qy2[i][j];
 		}
 	}
 	/*
-	printf("FL2 fy2:\n");
+	printf("FL2 qy2:\n");
 	for(i = 14; i < 25; i++)
-		printf("%d ", fy2[i][5] >> 8);
+		printf("%d ", qy2[i][5] >> 8);
 	printf("\n\n");
 	*/
 FL3:
 	for (i = 0; i < width; i++)
 		for (j = 0; j < height; j++)
-			ft[i][j] = (c1 * (fy1[i][j] + fy2[i][j])) >> 8;
+			qt[i][j] = (c1 * (qy1[i][j] + qy2[i][j])) >> 8;
 	/*
-	printf("FL3 ft:\n");
+	printf("FL3 qt:\n");
 	for(i = 14; i < 25; i++)
-		printf("%d ", ft[i][5] >> 8);
+		printf("%d ", qt[i][5] >> 8);
 	printf("\n\n");
 	*/
 FL4:
 	for (j = 0; j < height; j++) {
 		tm1 = 0, ym1 = 0, ym2 = 0;
 		for (i = 0; i < width; i++) {
-			fy1[i][j] = (a5 * ft[i][j] + a6 * tm1 + b1 * ym1 + b2 * ym2) >> 8;
-			tm1 = ft[i][j];
+			qy1[i][j] = (a5 * qt[i][j] + a6 * tm1 + b1 * ym1 + b2 * ym2) >> 8;
+			tm1 = qt[i][j];
 			ym2 = ym1;
-			ym1 = fy1[i][j];
+			ym1 = qy1[i][j];
 		}
 	}
 	/*
-	printf("FL4 fy1:\n");
+	printf("FL4 qy1:\n");
 	for(i = 14; i < 25; i++)
-		printf("%d ", fy1[i][5] >> 8);
+		printf("%d ", qy1[i][5] >> 8);
 	printf("\n\n");
 	*/
 FL5:
 	for (j = 0; j < height; j++) {
 		tp1 = 0, tp2 = 0, yp1 = 0, yp2 = 0;
 		for (i = width - 1; i >= 0; i--) {
-			fy2[i][j] = (a7 * tp1 + a8 * tp2 + b1 * yp1 + b2 * yp2) >> 8 ;
+			qy2[i][j] = (a7 * tp1 + a8 * tp2 + b1 * yp1 + b2 * yp2) >> 8 ;
 			tp2 = tp1;
-			tp1 = ft[i][j];
+			tp1 = qt[i][j];
 			yp2 = yp1;
-			yp1 = fy2[i][j];
+			yp1 = qy2[i][j];
 		}
 	}
 	/*
-	printf("FL5 fy2:\n");
+	printf("FL5 qy2:\n");
 	for(i = 14; i < 25; i++)
-		printf("%d ", fy2[i][5] >> 8);
+		printf("%d ", qy2[i][5] >> 8);
 	printf("\n\n");
 	*/
 		
 FL6:
 	for (i = 0; i < width; i++) {
 		for (j = 0; j < height; j++) {
-			out[i][j] = (c2 * (fy1[i][j] + fy2[i][j])) >> 16;
+			out[i][j] = (c2 * (qy1[i][j] + qy2[i][j])) >> 16;
 			if (out[i][j] > 25) {
 				out[i][j] = 0;
 			} else {
