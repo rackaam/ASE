@@ -1,75 +1,71 @@
-Total Cycles:                           334551671 (1672.76 msec)
-Execution Cycles:                       127711118 ( 38.17%)
-Stall Cycles:                           206840553 ( 61.83%)
-Nops:                                     4775935 (  1.43%)
-Executed operations:                    156285823
+Total Cycles:                           333905685 (1669.53 msec)
+Execution Cycles:                       127368254 ( 38.14%)
+Stall Cycles:                           206537431 ( 61.86%)
+Nops:                                     4767215 (  1.43%)
+Executed operations:                    155914243
 
-Executed branches:                       21226857 ( 13.58% ops)(16.62% insts)
-Not taken branches:                      11155138 (  7.14% ops)( 8.73% insts)(52.55% br)
-Taken branches:                          10071719 (  6.44% ops)( 7.89% insts)(47.45% br)
-  Taken uncond branches:                  7007750 (  4.48% ops)( 5.49% insts)(33.01% br)
-  Taken cond branches:                    3063969 (  1.96% ops)( 2.40% insts)(14.43% br)
-Size of Loaded Code:                        30848 Bytes
+Executed branches:                       21074843 ( 13.52% ops)(16.55% insts)
+Not taken branches:                      11291538 (  7.24% ops)( 8.87% insts)(53.58% br)
+Taken branches:                           9783305 (  6.27% ops)( 7.68% insts)(46.42% br)
+  Taken uncond branches:                  6862912 (  4.40% ops)( 5.39% insts)(32.56% br)
+  Taken cond branches:                    2920393 (  1.87% ops)( 2.29% insts)(13.86% br)
+Size of Loaded Code:                         4928 Bytes
 
 Instruction Memory Operations:
-  Accesses:                             128494106
-    Hits (Hit Rate):                    128493969 (100.00%)
-    Misses (Miss Rate):                       137 (  0.00%)
+  Accesses:                             127761996
+    Hits (Hit Rate):                    127761964 (100.00%)
+    Misses (Miss Rate):                        32 (  0.00%)
 Instruction Memory Stall Cycles
-  Total (in cycles):                     33266819 (100.00%)
-    Due to Misses:                           2740 (  0.01%)
-    Due to Bus Conflicts:                33264079 ( 99.99%)
+  Total (in cycles):                     33264601 (100.00%)
+    Due to Misses:                            640 (  0.00%)
+    Due to Bus Conflicts:                33263961 (100.00%)
 
 Data Memory Operations:                     Cache          
-  Accesses:                              23673433 (100.00%)
-    Hits (Hit Rate):                     19020454 ( 80.35%)
-    Misses (Miss Rate):                   4652979 ( 19.65%)
-  Write Backs (% of Misses):              2065929 ( 44.40%)
+  Accesses:                              23644056 (100.00%)
+    Hits (Hit Rate):                     18991452 ( 80.32%)
+    Misses (Miss Rate):                   4652604 ( 19.68%)
+  Write Backs (% of Misses):              2067269 ( 44.43%)
 Data Memory Stall Cycles
-  Total (in cycles):                    168252636 (100.00%)
-    Due to Misses:                      167507244 ( 99.56%)
-    Due to Bus Conflicts:                  745392 (  0.44%)
+  Total (in cycles):                    168240146 (100.00%)
+    Due to Misses:                      167493744 ( 99.56%)
+    Due to Bus Conflicts:                  746402 (  0.44%)
 
-Percentage Bus Bandwidth Consumed:          53.78%
+Percentage Bus Bandwidth Consumed:          53.88%
 
 
 Avg. IPC (no stalls):   1.22
 Avg. IPC (with stalls): 0.47
 
-  cycle counter =    127711118
-  total ops     =    156285823
-   width[ 0] =         3868
-   width[ 1] =    156125918
-   width[ 2] =        51872
-   width[ 3] =        13743
-   width[ 4] =         3733
+  cycle counter =    127368254
+  total ops     =    155914243
+   width[ 0] =         3180
+   width[ 1] =    155818848
+   width[ 2] =        33992
+   width[ 3] =         8469
+   width[ 4] =          501
 
 Flat profile (cycles)
        Total   Total%        Insts   Insts%       Dcache  Dcache%       Icache  Icache% Function
-       29971     0.01        22457     0.02         3996     0.00          800     0.00 _vfprintf_r
-       20593     0.01        15831     0.01         2160     0.00          220     0.00 __sfvwrite
-        6438     0.00         4709     0.00          324     0.00           20     0.00 mbtowc
-        4818     0.00         2906     0.00         1008     0.00          200     0.00 _bcopy
-        3505     0.00         1950     0.00         1296     0.00           40     0.00 printf
-        3140     0.00         2964     0.00           -0    -0.00          100     0.00 _i_udiv
-        3104     0.00         2888     0.00           -0    -0.00          120     0.00 _i_urem
-        2849     0.00         2035     0.00          216     0.00           40     0.00 __wrap_memmove
-        2608     0.00         2131     0.00           36     0.00           60     0.00 __wrap_memchr
-        2324     0.00         1872     0.00            0     0.00           20     0.00 __sprint
-        1895     0.00         1180     0.00          432     0.00          120     0.00 fflush
-        1202     0.00          400     0.00          648     0.00           60     0.00 _write_r
-        1094     0.00          702     0.00          216     0.00           20     0.00 vfprintf
-        1047     0.00          624     0.00          216     0.00           40     0.00 localeconv
-         801     0.00          440     0.00          216     0.00           60     0.00 __swrite
-         254     0.00          156     0.00            0     0.00           20     0.00 _localeconv_r
            0     0.00            0     0.00            0     0.00            0     0.00 (null)
            0     0.00            0     0.00            0     0.00           -0    -0.00 fprintf
+           0     0.00            0     0.00            0     0.00           -0    -0.00 vfprintf
+           0     0.00            0     0.00            0     0.00           -0    -0.00 _vfprintf_r
+           0     0.00            0     0.00            0     0.00           -0    -0.00 localeconv
+           0     0.00            0     0.00            0     0.00           -0    -0.00 _localeconv_r
            0     0.00            0     0.00            0     0.00           -0    -0.00 __sinit
            0     0.00            0     0.00            0     0.00           -0    -0.00 std
            0     0.00            0     0.00            0     0.00           -0    -0.00 __swsetup
            0     0.00            0     0.00            0     0.00           -0    -0.00 __smakebuf
            0     0.00            0     0.00            0     0.00           -0    -0.00 __sbprintf
+           0     0.00            0     0.00            0     0.00           -0    -0.00 mbtowc
            0     0.00            0     0.00            0     0.00           -0    -0.00 __wrap_strlen
+           0     0.00            0     0.00            0     0.00           -0    -0.00 __sprint
+           0     0.00            0     0.00            0     0.00           -0    -0.00 __sfvwrite
+           0     0.00            0     0.00            0     0.00           -0    -0.00 __wrap_memmove
+           0     0.00            0     0.00            0     0.00           -0    -0.00 _bcopy
+           0     0.00            0     0.00            0     0.00           -0    -0.00 fflush
+           0     0.00            0     0.00            0     0.00           -0    -0.00 __swrite
+           0     0.00            0     0.00            0     0.00           -0    -0.00 _write_r
            0     0.00            0     0.00            0     0.00           -0    -0.00 __wrap_strcmp
            0     0.00            0     0.00            0     0.00           -0    -0.00 fopen
            0     0.00            0     0.00            0     0.00           -0    -0.00 _fopen_r
@@ -87,18 +83,22 @@ Flat profile (cycles)
            0     0.00            0     0.00            0     0.00           -0    -0.00 _fstat_r
            0     0.00            0     0.00            0     0.00           -0    -0.00 __sread
            0     0.00            0     0.00            0     0.00           -0    -0.00 _read_r
+           0     0.00            0     0.00            0     0.00           -0    -0.00 printf
+           0     0.00            0     0.00            0     0.00           -0    -0.00 __wrap_memchr
            0     0.00            0     0.00            0     0.00           -0    -0.00 sscanf
            0     0.00            0     0.00            0     0.00           -0    -0.00 eofread
            0     0.00            0     0.00            0     0.00           -0    -0.00 strtoul
            0     0.00            0     0.00            0     0.00           -0    -0.00 _strtoul_r
+           0     0.00            0     0.00            0     0.00           -0    -0.00 _i_udiv
+           0     0.00            0     0.00            0     0.00           -0    -0.00 _i_urem
            0     0.00            0     0.00            0     0.00           -0    -0.00 __srget
            0     0.00            0     0.00            0     0.00           -0    -0.00 fclose
            0     0.00            0     0.00            0     0.00           -0    -0.00 __sclose
            0     0.00            0     0.00            0     0.00           -0    -0.00 _close_r
-   334466028     167496480           800  (others not profiled)
+   333905685     167493744           640  (others not profiled)
 
-Simulation time  =    17.6994 s
-Simulation speed =     8.8300 MOPS
+Simulation time  =    20.3259 s
+Simulation speed =     7.6707 MOPS
 
 
 ta_init using <run_dir>/vex.cfg

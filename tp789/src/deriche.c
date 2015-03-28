@@ -142,7 +142,7 @@ int qy2[MAX_WIDTH][MAX_HEIGHT];
 int qt[MAX_WIDTH][MAX_HEIGHT];
 
 void deriche_fused(int width, int height) {
-	int i, j;
+	int i, j, reverse_i, reverse_j;
 
 	int xm1, tm1, ym1, ym2;
 	int xp1, xp2;
@@ -160,7 +160,62 @@ void deriche_fused(int width, int height) {
 	b2 = (int) (256 * (-0.606531));
 	c1 = c2 = (int) (256);
 
-	//printf("\nfixed fast\n");
+	for (i = 0; i < width; i++) {
+		ym1 = 0, ym2 = 0, xm1 = 0, yp1 = 0, yp2 = 0, xp1 = 0, xp2 = 0;
+		for (j = 0, reverse_j = height - 1; j < height; j++, reverse_j--) {
+			// les 4 en Q23,8
+			int a1Xin = a1 * in[i][j];
+			int a2Xxm1 = a2 * xm1;
+			int b1Xym1 = (b1 * ym1) >> 8;
+			int b2Xym2 = (b2 * ym2) >> 8;
+			int a3Xxp1, a1Xxp2, b1Xyp1, b2Xyp2;
+			fy1[i][j] = a1Xin + a2Xxm1 + b1Xym1 + b2Xym2;	
+			xm1 = in[i][j];
+			ym2 = ym1;
+			ym1 = fy1[i][j];
+			
+			a3Xxp1 = a3 * xp1;
+			a1Xxp2 = a1 * xp2;
+			b1Xyp1 = (b1 * yp1) >> 8;
+			b2Xyp2 = (b2 * yp2) >> 8;
+			fy2[i][reverse_j] = a3Xxp1 + a1Xxp2 + b1Xyp1 + b2Xyp2;
+			xp2 = xp1;
+			xp1 = in[i][reverse_j];
+			yp2 = yp1;
+			yp1 = fy2[i][reverse_j];
+		}
+	}
+	
+	for (i = 0; i < width; i++)
+		for (j = 0; j < height; j++)
+			ft[i][j] = (c1 * (fy1[i][j] + fy2[i][j])) >> 8;
+	
+	for (j = 0; j < height; j++) {
+		tm1 = 0, ym1 = 0, ym2 = 0, tp1 = 0, tp2 = 0, yp1 = 0, yp2 = 0;
+		for (i = 0, reverse_i = width - 1; i < width; i++, reverse_i--) {
+			fy1[i][j] = (a5 * ft[i][j] + a6 * tm1 + b1 * ym1 + b2 * ym2) >> 8;
+			tm1 = ft[i][j];
+			ym2 = ym1;
+			ym1 = fy1[i][j];
+			
+			fy2[reverse_i][j] = (a7 * tp1 + a8 * tp2 + b1 * yp1 + b2 * yp2) >> 8 ;
+			tp2 = tp1;
+			tp1 = ft[reverse_i][j];
+			yp2 = yp1;
+			yp1 = fy2[reverse_i][j];
+		}
+	}
+
+	for (i = 0; i < width; i++) {
+		for (j = 0; j < height; j++) {
+			out[i][j] = (c2 * (fy1[i][j] + fy2[i][j])) >> 16;
+			if (out[i][j] > 25) {
+				out[i][j] = 0;
+			} else {
+				out[i][j] = 255;
+			}
+		}
+	}
 }
 
 void deriche_slow(int width, int height) {
