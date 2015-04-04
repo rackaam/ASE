@@ -1,6 +1,6 @@
 VEX_DIR ?= /home/matthias/vex-3.43
 #MM_FILE ?= ./vex_MachineModel.mm
-MM_FILE ?= ./risc.mm
+MM_FILE ?= ./vliw4.mm
 #VEXCFG ?= ./vex_cache.cfg
 CFLAGS = -I../include/ -ms -mas_g -mas_t -O2
 #-fmmdump
@@ -26,6 +26,12 @@ float: clean edge_detect
 	./edge_detect ../data/satellite.pgm ./deriche-satellite-float.pgm float_slow
 	cp ta.log.000 tp_ase.log.float  
 	grep "Total Cycles" tp_ase.log.float
+
+array: clean edge_detect 
+	export VEXCFG=$(CACHE_CFG)
+	./edge_detect ../data/satellite.pgm ./deriche-satellite-array.pgm fixed_array
+	cp ta.log.000 tp_ase.log.array  
+	grep "Total Cycles" tp_ase.log.array
 
 #objs/deriche.o:  $(SRC)/deriche.c  $(MM_FILE)
 #	$(VEX_DIR)/bin/cc $(CFLAGS) -fmm=$(MM_FILE) -DVEX -c -o $@ $(SRC)/deriche.c 
