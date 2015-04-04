@@ -2,7 +2,7 @@
 /* "Copyright (C) 1990-2010 Hewlett-Packard Company" */
 /* "VEX C compiler version 3.43 (20110131 release)" */
 /* "" */
-/* "-dir /home/matthias/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./vliw4.mm -DVEX -o edge_detect" */
+/* "-dir /home/matthias/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./vliw2.mm -DVEX -o edge_detect" */
 
 /********************************************/
 /*         SYSTEM HEADER                    */
@@ -394,52 +394,57 @@ LABEL(l_L0X3);
 } /* line 68 */
 l_lr_4: ;/* line 68 */
 LABEL(l_lr_4);
-  sim_icache_fetch(29 + t_thisfile.offset, 4);
+  sim_icache_fetch(29 + t_thisfile.offset, 2);
 {
    ADD_CYCLES(1);
-   INC_BUNDLE_CNT(4);
+   INC_BUNDLE_CNT(2);
    STW(mem_trace_st(reg_r0_59,0,4), reg_r0_3); /* line 70 */
    ADD(reg_r0_57, reg_r0_57, (unsigned int) 1); /* line 71 */
-   ADD(reg_r0_59, reg_r0_59, (unsigned int) 4); /* line 72 */
+} /* line 71 */
+  sim_icache_fetch(31 + t_thisfile.offset, 2);
+{
+   ADD_CYCLES(1);
+   INC_BUNDLE_CNT(2);
+   ADD(reg_r0_59, reg_r0_59, (unsigned int) 4); /* line 73 */
    GOTO(l_L0X3);   INC_BTU_CNT();
    INC_STALL_CNT();
    goto l_L0X3;
-} /* line 73 */
-l_L1X3: ;/* line 76 */
+} /* line 74 */
+l_L1X3: ;/* line 77 */
 LABEL(l_L1X3);
   sim_icache_fetch(33 + t_thisfile.offset, 1);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   LDW(reg_l0_0, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 77 */
-} /* line 77 */
+   LDW(reg_l0_0, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 78 */
+} /* line 78 */
   sim_icache_fetch(34 + t_thisfile.offset, 1);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   LDW(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 44),0,4)); /* line 79 */
-} /* line 79 */
+   LDW(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 44),0,4)); /* line 80 */
+} /* line 80 */
   sim_icache_fetch(35 + t_thisfile.offset, 1);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   LDW(reg_r0_59, mem_trace_ld((reg_r0_1 + (unsigned int) 28),0,4)); /* line 81 */
-} /* line 81 */
+   LDW(reg_r0_59, mem_trace_ld((reg_r0_1 + (unsigned int) 28),0,4)); /* line 82 */
+} /* line 82 */
   sim_icache_fetch(36 + t_thisfile.offset, 1);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   LDW(reg_r0_58, mem_trace_ld((reg_r0_1 + (unsigned int) 24),0,4)); /* line 83 */
-} /* line 83 */
+   LDW(reg_r0_58, mem_trace_ld((reg_r0_1 + (unsigned int) 24),0,4)); /* line 84 */
+} /* line 84 */
   sim_icache_fetch(37 + t_thisfile.offset, 2);
 {
    ADD_CYCLES(1);
    INC_BUNDLE_CNT(1);
-   LDW(reg_r0_57, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 85 */
+   LDW(reg_r0_57, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 86 */
    INC_NOP_CNT((unsigned int) 1);
-   XNOP((unsigned int) 1); /* line 86 */
+   XNOP((unsigned int) 1); /* line 87 */
    ADD_CYCLES(1);
-} /* line 86 */
+} /* line 87 */
   sim_icache_fetch(39 + t_thisfile.offset, 1);
 {
    ADD_CYCLES(1);
@@ -449,7 +454,7 @@ LABEL(l_L1X3);
    reg_r0_1 = reg_r0_1 + (unsigned int) 64; /* pop frame */
    t_labelnum = reg_l0_0;
    goto labelfinder;
-} /* line 89 */
+} /* line 90 */
   reg_l0_0 = t_client_rpc;
   return reg_r0_3;
 

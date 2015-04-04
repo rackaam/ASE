@@ -1,6 +1,6 @@
 VEX_DIR ?= /home/matthias/vex-3.43
 #MM_FILE ?= ./vex_MachineModel.mm
-MM_FILE ?= ./vliw4.mm
+MM_FILE ?= ./vliw2.mm
 #VEXCFG ?= ./vex_cache.cfg
 CFLAGS = -I../include/ -ms -mas_g -mas_t -O2
 #-fmmdump

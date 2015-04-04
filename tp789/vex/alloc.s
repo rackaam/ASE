@@ -3,7 +3,7 @@
 .comment "Copyright (C) 1990-2010 Hewlett-Packard Company"
 .comment "VEX C compiler version 3.43 (20110131 release)"
 .comment ""
-.comment "-dir /home/matthias/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./vliw4.mm -DVEX -o edge_detect"
+.comment "-dir /home/matthias/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./vliw2.mm -DVEX -o edge_detect"
 .sversion 3.43
 .rta 2
 .section .bss
@@ -69,9 +69,10 @@ L0?3:
 ;;								## 3
 	c0    stw 0[$r0.59] = $r0.3   ## bblock 5, line 52, t36, t7
 	c0    add $r0.57 = $r0.57, 1   ## bblock 5, line 0,  t37,  t37,  1(I32)
+;;								## 4
 	c0    add $r0.59 = $r0.59, 4   ## bblock 5, line 0,  t36,  t36,  4(I32)
 	c0    goto L0?3 ## goto
-;;								## 4
+;;								## 5
 .trace 4
 L1?3:
 	c0    ldw $l0.0 = 0x10[$r0.1]  ## restore ## t16

@@ -3,7 +3,7 @@
 .comment "Copyright (C) 1990-2010 Hewlett-Packard Company"
 .comment "VEX C compiler version 3.43 (20110131 release)"
 .comment ""
-.comment "-dir /home/matthias/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./vliw4.mm -DVEX -o edge_detect"
+.comment "-dir /home/matthias/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./vliw2.mm -DVEX -o edge_detect"
 .sversion 3.43
 .rta 2
 .section .bss
@@ -17,72 +17,81 @@
 isqrt::
 .trace 4
 	      ## auto_size == 0
-	c0    mov $r0.5 = $r0.0   ## bblock 0, line 35,  t42(I16),  0(I32)
 	c0    mov $r0.6 = (~0x5)   ## bblock 0, line 0,  t86,  (~0x5)(I32)
 ;;								## 0
+	c0    mov $r0.5 = $r0.0   ## bblock 0, line 35,  t42(I16),  0(I32)
 	c0    mov $r0.4 = $r0.0   ## bblock 0, line 36,  t41,  0(SI32)
-	c0    mov $r0.2 = $r0.3   ## t38
 ;;								## 1
+	c0    mov $r0.2 = $r0.3   ## t38
+;;								## 2
 .trace 1
 L0?3:
 	c0    and $r0.3 = $r0.2, 192   ## bblock 1, line 43,  t59,  t38,  192(I32)
-	c0    shl $r0.2 = $r0.2, 2   ## bblock 1, line 44,  t65,  t38,  2(SI32)
 	c0    shl $r0.5 = $r0.5, 1   ## bblock 1, line 45,  t63,  t42(I16),  1(SI32)
-	c0    cmplt $b0.0 = $r0.6, $r0.0   ## bblock 1, line 41-2,  t99(I1),  t86,  0(SI32)
 ;;								## 0
 	c0    shru $r0.3 = $r0.3, 6   ## bblock 1, line 43,  t5(I26),  t59,  6(SI32)
-	c0    and $r0.8 = $r0.2, 192   ## bblock 1, line 43-1,  t68,  t65,  192(I32)
 	c0    zxth $r0.7 = $r0.5   ## bblock 1, line 45,  t53(I16),  t63
-	c0    add $r0.5 = $r0.5, 1   ## bblock 1, line 49,  t58,  t63,  1(SI32)
 ;;								## 1
 	c0    sh2add $r0.4 = $r0.4, $r0.3   ## bblock 1, line 43,  t64,  t41,  t5(I26)
-	c0    shru $r0.8 = $r0.8, 6   ## bblock 1, line 43-1,  t69(I26),  t68,  6(SI32)
 	c0    sh1add $r0.3 = $r0.7, 1   ## bblock 1, line 46,  t51,  t53(I16),  1(SI32)
-	c0    zxth $r0.5 = $r0.5   ## bblock 1, line 49,  t55(I16),  t58
 ;;								## 2
-	c0    shl $r0.2 = $r0.2, 2   ## bblock 1, line 44-1,  t72,  t65,  2(SI32)
-	c0    cmpgeu $b0.1 = $r0.4, $r0.3   ## bblock 1, line 47,  t56(I1),  t64,  t51
-	c0    sub $r0.3 = $r0.4, $r0.3   ## bblock 1, line 48,  t57,  t64,  t51
-	c0    add $r0.6 = $r0.6, 3   ## [spec] bblock 5, line 0,  t86,  t86,  3(I32)
+	c0    cmpgeu $b0.0 = $r0.4, $r0.3   ## bblock 1, line 47,  t56(I1),  t64,  t51
+	c0    add $r0.5 = $r0.5, 1   ## bblock 1, line 49,  t58,  t63,  1(SI32)
 ;;								## 3
-	c0    slct $r0.3 = $b0.1, $r0.3, $r0.4   ## bblock 1, line 48,  t60,  t56(I1),  t57,  t64
-	c0    slct $r0.5 = $b0.1, $r0.5, $r0.7   ## bblock 1, line 49,  t61(I16),  t56(I1),  t55(I16),  t53(I16)
-	c0    and $r0.7 = $r0.2, 192   ## [spec] bblock 5, line 43-2,  t4,  t72,  192(I32)
-	c0    shl $r0.2 = $r0.2, 2   ## [spec] bblock 5, line 44-2,  t38,  t72,  2(SI32)
+	c0    sub $r0.3 = $r0.4, $r0.3   ## bblock 1, line 48,  t57,  t64,  t51
+	c0    zxth $r0.5 = $r0.5   ## bblock 1, line 49,  t55(I16),  t58
 ;;								## 4
-	c0    sh2add $r0.3 = $r0.3, $r0.8   ## bblock 1, line 43-1,  t71,  t60,  t69(I26)
-	c0    shl $r0.5 = $r0.5, 1   ## bblock 1, line 45-1,  t73,  t61(I16),  1(SI32)
-	c0    shru $r0.7 = $r0.7, 6   ## [spec] bblock 5, line 43-2,  t52(I26),  t4,  6(SI32)
+	c0    slct $r0.3 = $b0.0, $r0.3, $r0.4   ## bblock 1, line 48,  t60,  t56(I1),  t57,  t64
+	c0    slct $r0.5 = $b0.0, $r0.5, $r0.7   ## bblock 1, line 49,  t61(I16),  t56(I1),  t55(I16),  t53(I16)
 ;;								## 5
-	c0    zxth $r0.8 = $r0.5   ## bblock 1, line 45-1,  t74(I16),  t73
-	c0    add $r0.5 = $r0.5, 1   ## bblock 1, line 49-1,  t79,  t73,  1(SI32)
+	c0    shl $r0.2 = $r0.2, 2   ## bblock 1, line 44,  t65,  t38,  2(SI32)
+	c0    shl $r0.5 = $r0.5, 1   ## bblock 1, line 45-1,  t73,  t61(I16),  1(SI32)
 ;;								## 6
-	c0    sh1add $r0.9 = $r0.8, 1   ## bblock 1, line 46-1,  t76,  t74(I16),  1(SI32)
-	c0    zxth $r0.5 = $r0.5   ## bblock 1, line 49-1,  t80(I16),  t79
+	c0    and $r0.8 = $r0.2, 192   ## bblock 1, line 43-1,  t68,  t65,  192(I32)
+	c0    zxth $r0.7 = $r0.5   ## bblock 1, line 45-1,  t74(I16),  t73
 ;;								## 7
-	c0    cmpgeu $b0.1 = $r0.3, $r0.9   ## bblock 1, line 47-1,  t77(I1),  t71,  t76
-	c0    sub $r0.9 = $r0.3, $r0.9   ## bblock 1, line 48-1,  t78,  t71,  t76
+	c0    shru $r0.8 = $r0.8, 6   ## bblock 1, line 43-1,  t69(I26),  t68,  6(SI32)
+	c0    sh1add $r0.9 = $r0.7, 1   ## bblock 1, line 46-1,  t76,  t74(I16),  1(SI32)
 ;;								## 8
-	c0    slct $r0.9 = $b0.1, $r0.9, $r0.3   ## bblock 1, line 48-1,  t81,  t77(I1),  t78,  t71
-	c0    slct $r0.5 = $b0.1, $r0.5, $r0.8   ## bblock 1, line 49-1,  t82(I16),  t77(I1),  t80(I16),  t74(I16)
-	c0    brf $b0.0, L1?3   ## bblock 1, line 41-2,  t99(I1)
+	c0    sh2add $r0.3 = $r0.3, $r0.8   ## bblock 1, line 43-1,  t71,  t60,  t69(I26)
+	c0    add $r0.5 = $r0.5, 1   ## bblock 1, line 49-1,  t79,  t73,  1(SI32)
 ;;								## 9
-	c0    sh2add $r0.9 = $r0.9, $r0.7   ## bblock 5, line 43-2,  t49,  t81,  t52(I26)
-	c0    shl $r0.5 = $r0.5, 1   ## bblock 5, line 45-2,  t12,  t82(I16),  1(SI32)
+	c0    cmpgeu $b0.0 = $r0.3, $r0.9   ## bblock 1, line 47-1,  t77(I1),  t71,  t76
+	c0    sub $r0.9 = $r0.3, $r0.9   ## bblock 1, line 48-1,  t78,  t71,  t76
 ;;								## 10
-	c0    zxth $r0.3 = $r0.5   ## bblock 5, line 45-2,  t50(I16),  t12
-	c0    add $r0.5 = $r0.5, 1   ## bblock 5, line 49-2,  t46,  t12,  1(SI32)
+	c0    slct $r0.9 = $b0.0, $r0.9, $r0.3   ## bblock 1, line 48-1,  t81,  t77(I1),  t78,  t71
+	c0    zxth $r0.5 = $r0.5   ## bblock 1, line 49-1,  t80(I16),  t79
 ;;								## 11
-	c0    sh1add $r0.7 = $r0.3, 1   ## bblock 5, line 46-2,  t40,  t50(I16),  1(SI32)
-	c0    zxth $r0.5 = $r0.5   ## bblock 5, line 49-2,  t47(I16),  t46
+	c0    shl $r0.2 = $r0.2, 2   ## bblock 1, line 44-1,  t72,  t65,  2(SI32)
+	c0    slct $r0.5 = $b0.0, $r0.5, $r0.7   ## bblock 1, line 49-1,  t82(I16),  t77(I1),  t80(I16),  t74(I16)
 ;;								## 12
-	c0    cmpgeu $b0.0 = $r0.9, $r0.7   ## bblock 5, line 47-2,  t44(I1),  t49,  t40
-	c0    sub $r0.7 = $r0.9, $r0.7   ## bblock 5, line 48-2,  t45,  t49,  t40
+	c0    cmplt $b0.0 = $r0.6, $r0.0   ## bblock 1, line 41-2,  t99(I1),  t86,  0(SI32)
+	c0    and $r0.3 = $r0.2, 192   ## [spec] bblock 5, line 43-2,  t4,  t72,  192(I32)
 ;;								## 13
-	c0    slct $r0.4 = $b0.0, $r0.7, $r0.9   ## bblock 5, line 48-2,  t41,  t44(I1),  t45,  t49
-	c0    slct $r0.5 = $b0.0, $r0.5, $r0.3   ## bblock 5, line 49-2,  t42(I16),  t44(I1),  t47(I16),  t50(I16)
-	c0    goto L0?3 ## goto
+	c0    shru $r0.3 = $r0.3, 6   ## [spec] bblock 5, line 43-2,  t52(I26),  t4,  6(SI32)
+	c0    shl $r0.7 = $r0.5, 1   ## [spec] bblock 5, line 45-2,  t12,  t82(I16),  1(SI32)
 ;;								## 14
+	c0    sh2add $r0.9 = $r0.9, $r0.3   ## [spec] bblock 5, line 43-2,  t49,  t81,  t52(I26)
+	c0    brf $b0.0, L1?3   ## bblock 1, line 41-2,  t99(I1)
+;;								## 15
+	c0    zxth $r0.3 = $r0.7   ## bblock 5, line 45-2,  t50(I16),  t12
+	c0    add $r0.7 = $r0.7, 1   ## bblock 5, line 49-2,  t46,  t12,  1(SI32)
+;;								## 16
+	c0    sh1add $r0.8 = $r0.3, 1   ## bblock 5, line 46-2,  t40,  t50(I16),  1(SI32)
+	c0    zxth $r0.7 = $r0.7   ## bblock 5, line 49-2,  t47(I16),  t46
+;;								## 17
+	c0    cmpgeu $b0.0 = $r0.9, $r0.8   ## bblock 5, line 47-2,  t44(I1),  t49,  t40
+	c0    sub $r0.8 = $r0.9, $r0.8   ## bblock 5, line 48-2,  t45,  t49,  t40
+;;								## 18
+	c0    slct $r0.4 = $b0.0, $r0.8, $r0.9   ## bblock 5, line 48-2,  t41,  t44(I1),  t45,  t49
+	c0    slct $r0.5 = $b0.0, $r0.7, $r0.3   ## bblock 5, line 49-2,  t42(I16),  t44(I1),  t47(I16),  t50(I16)
+;;								## 19
+	c0    shl $r0.2 = $r0.2, 2   ## bblock 5, line 44-2,  t38,  t72,  2(SI32)
+	c0    add $r0.6 = $r0.6, 3   ## bblock 5, line 0,  t86,  t86,  3(I32)
+	      ## goto
+;;
+	c0    goto L0?3 ## goto
+;;								## 20
 .trace 3
 L1?3:
 .return ret($r0.3:u32)
@@ -177,7 +186,6 @@ L3?3:
 ;;								## 30
 .trace 8
 	c0    add $r0.4 = $r0.1, 0x14   ## [spec] bblock 5, line 105,  t56,  t86,  offset(width?1.6)=0x14(P32)
-	c0    add $r0.5 = $r0.1, 0x10   ## [spec] bblock 5, line 105,  t57,  t86,  offset(height?1.6)=0x10(P32)
 	c0    stw 0x24[$r0.1] = $r0.2  ## spill ## t100
 ;;								## 0
 	c0    ldw $r0.7 = 0x20[$r0.1]  ## restore ## t99
@@ -223,7 +231,7 @@ L9?3:
 ;;
 	c0    goto L7?3 ## goto
 ;;								## 8
-.trace 10
+.trace 9
 L10?3:
 	c0    ldw.d $r0.3 = 0x14[$r0.1]   ## [spec] bblock 15, line 123, t74, t86
 ;;								## 0
@@ -264,9 +272,9 @@ L12?3:
 	c0    mov $r0.3 = 1   ## 1(SI32)
 ;;								## 7
 	c0    add $r0.4 = $r0.1, 0x14   ## bblock 5, line 105,  t56,  t86,  offset(width?1.6)=0x14(P32)
-	c0    add $r0.5 = $r0.1, 0x10   ## bblock 5, line 105,  t57,  t86,  offset(height?1.6)=0x10(P32)
 	c0    ldw $r0.2 = 0x20[$r0.1]  ## restore ## t99
 ;;								## 8
+	c0    add $r0.5 = $r0.1, 0x10   ## bblock 5, line 105,  t57,  t86,  offset(height?1.6)=0x10(P32)
 	c0    mov $r0.6 = (in + 0)   ## addr(in?1.0)(P32)
 	      xnop 1
 ;;								## 10
@@ -288,18 +296,17 @@ L5?3:
 	c0    call $l0.0 = strcmp   ## bblock 23, line 87,  raddr(strcmp)(P32),  t28,  addr(_?1STRINGVAR.4)(P32)
 ;;								## 5
 	c0    cmpeq $b0.0 = $r0.3, $r0.0   ## bblock 24, line 87,  t112(I1),  t25,  0(SI32)
-	c0    mov $r0.2 = 2   ## [spec] bblock 31, line 88,  t100,  2(SI32)
 	c0    add $r0.4 = $r0.1, 0x14   ## [spec] bblock 5, line 105,  t56,  t86,  offset(width?1.6)=0x14(P32)
-	c0    add $r0.5 = $r0.1, 0x10   ## [spec] bblock 5, line 105,  t57,  t86,  offset(height?1.6)=0x10(P32)
 ;;								## 6
-	c0    stw 0x24[$r0.1] = $r0.2  ## spill ## [spec] t100
+	c0    mov $r0.2 = 2   ## [spec] bblock 31, line 88,  t100,  2(SI32)
 ;;								## 7
+	c0    stw 0x24[$r0.1] = $r0.2  ## spill ## [spec] t100
 	c0    brf $b0.0, L13?3   ## bblock 24, line 87,  t112(I1)
 ;;								## 8
 	c0    ldw $r0.7 = 0x20[$r0.1]  ## restore ## t99
 	c0    goto L6?3 ## goto
 ;;								## 9
-.trace 9
+.trace 10
 L13?3:
 	c0    mov $r0.4 = (_?1STRINGPACKET.5 + 0)   ## addr(_?1STRINGVAR.5)(P32)
 	c0    ldw $r0.2 = 0x20[$r0.1]  ## restore ## t99
@@ -312,12 +319,11 @@ L13?3:
 	c0    call $l0.0 = strcmp   ## bblock 25, line 89,  raddr(strcmp)(P32),  t34,  addr(_?1STRINGVAR.5)(P32)
 ;;								## 5
 	c0    cmpeq $b0.0 = $r0.3, $r0.0   ## bblock 26, line 89,  t113(I1),  t31,  0(SI32)
-	c0    mov $r0.2 = 3   ## [spec] bblock 30, line 90,  t100,  3(SI32)
 	c0    add $r0.4 = $r0.1, 0x14   ## [spec] bblock 5, line 105,  t56,  t86,  offset(width?1.6)=0x14(P32)
-	c0    add $r0.5 = $r0.1, 0x10   ## [spec] bblock 5, line 105,  t57,  t86,  offset(height?1.6)=0x10(P32)
 ;;								## 6
-	c0    stw 0x24[$r0.1] = $r0.2  ## spill ## [spec] t100
+	c0    mov $r0.2 = 3   ## [spec] bblock 30, line 90,  t100,  3(SI32)
 ;;								## 7
+	c0    stw 0x24[$r0.1] = $r0.2  ## spill ## [spec] t100
 	c0    brf $b0.0, L14?3   ## bblock 26, line 89,  t113(I1)
 ;;								## 8
 	c0    ldw $r0.7 = 0x20[$r0.1]  ## restore ## t99
@@ -337,7 +343,6 @@ L14?3:
 ;;								## 5
 	c0    cmpne $b0.0 = $r0.3, $r0.0   ## bblock 28, line 92,  t114(I1),  t37,  0(I32)
 	c0    add $r0.4 = $r0.1, 0x14   ## [spec] bblock 5, line 105,  t56,  t86,  offset(width?1.6)=0x14(P32)
-	c0    add $r0.5 = $r0.1, 0x10   ## [spec] bblock 5, line 105,  t57,  t86,  offset(height?1.6)=0x10(P32)
 ;;								## 6
 	c0    slct $r0.2 = $b0.0, $r0.0, 4   ## bblock 28, line 92,  t100,  t114(I1),  0(SI32),  4(SI32)
 ;;								## 7
@@ -349,13 +354,13 @@ L14?3:
 .trace 2
 L4?3:
 	c0    add $r0.4 = $r0.1, 0x14   ## [spec] bblock 5, line 105,  t56,  t86,  offset(width?1.6)=0x14(P32)
-	c0    add $r0.5 = $r0.1, 0x10   ## [spec] bblock 5, line 105,  t57,  t86,  offset(height?1.6)=0x10(P32)
 	c0    ldw $r0.7 = 0x20[$r0.1]  ## restore ## t99
 ;;								## 0
 L6?3:
-	c0    mov $r0.6 = (in + 0)   ## addr(in?1.0)(P32)
+	c0    add $r0.5 = $r0.1, 0x10   ## [spec] bblock 5, line 105,  t57,  t86,  offset(height?1.6)=0x10(P32)
 	c0    ldw $r0.2 = 0x24[$r0.1]  ## restore ## t100
-	      xnop 1
+;;								## 1
+	c0    mov $r0.6 = (in + 0)   ## addr(in?1.0)(P32)
 ;;								## 2
 	c0    ldw.d $r0.3 = 4[$r0.7]   ## [spec] bblock 5, line 105, t55, t99
 ;;								## 3
