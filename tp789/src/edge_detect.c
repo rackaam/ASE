@@ -92,6 +92,8 @@ int main(int argc, char **argv) {
 			mode = 4;
 		} else if (strcmp(argv[3], "fixed_short")==0) {
 			mode = 5;
+		} else if (strcmp(argv[3], "fixed_simd")==0) {
+			mode = 6;
 		}
 	}
 
@@ -126,6 +128,9 @@ int main(int argc, char **argv) {
 		break;
 	case 5:
 		deriche_short(width, height);
+		break;
+	case 6:
+		deriche_simd(width, height);
 		break;
 	}
 

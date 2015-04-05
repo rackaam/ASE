@@ -1,47 +1,47 @@
-Total Cycles:                           125981908 (629.91 msec)
-Execution Cycles:                        69669403 ( 55.30%)
-Stall Cycles:                            56312505 ( 44.70%)
-Nops:                                     7131859 (  5.66%)
-Executed operations:                    158432451
+Total Cycles:                           131763352 (658.817 msec)
+Execution Cycles:                        75450080 ( 57.26%)
+Stall Cycles:                            56313272 ( 42.74%)
+Nops:                                     7131851 (  5.41%)
+Executed operations:                    169206257
 
-Executed branches:                       18187336 ( 11.48% ops)(26.11% insts)
-Not taken branches:                       8124519 (  5.13% ops)(11.66% insts)(44.67% br)
-Taken branches:                          10062817 (  6.35% ops)(14.44% insts)(55.33% br)
-  Taken uncond branches:                  7133922 (  4.50% ops)(10.24% insts)(39.22% br)
-  Taken cond branches:                    2928895 (  1.85% ops)( 4.20% insts)(16.10% br)
-Size of Loaded Code:                        11200 Bytes
+Executed branches:                       18188512 ( 10.75% ops)(24.11% insts)
+Not taken branches:                       8124826 (  4.80% ops)(10.77% insts)(44.67% br)
+Taken branches:                          10063686 (  5.95% ops)(13.34% insts)(55.33% br)
+  Taken uncond branches:                  7135106 (  4.22% ops)( 9.46% insts)(39.23% br)
+  Taken cond branches:                    2928580 (  1.73% ops)( 3.88% insts)(16.10% br)
+Size of Loaded Code:                        11136 Bytes
 
 Instruction Memory Operations:
-  Accesses:                              73348433
-    Hits (Hit Rate):                     73348407 (100.00%)
+  Accesses:                              80157796
+    Hits (Hit Rate):                     80157770 (100.00%)
     Misses (Miss Rate):                        26 (  0.00%)
 Instruction Memory Stall Cycles
-  Total (in cycles):                     28535419 (100.00%)
+  Total (in cycles):                     28535396 (100.00%)
     Due to Misses:                            520 (  0.00%)
-    Due to Bus Conflicts:                28534899 (100.00%)
+    Due to Bus Conflicts:                28534876 (100.00%)
 
 Data Memory Operations:                     Cache          
-  Accesses:                              20482668 (100.00%)
-    Hits (Hit Rate):                     19858758 ( 96.95%)
+  Accesses:                              20482665 (100.00%)
+    Hits (Hit Rate):                     19858755 ( 96.95%)
     Misses (Miss Rate):                    623910 (  3.05%)
   Write Backs (% of Misses):               283368 ( 45.42%)
 Data Memory Stall Cycles
-  Total (in cycles):                     22464914 (100.00%)
+  Total (in cycles):                     22464829 (100.00%)
     Due to Misses:                       22460760 ( 99.98%)
-    Due to Bus Conflicts:                    4154 (  0.02%)
+    Due to Bus Conflicts:                    4069 (  0.02%)
 
-Percentage Bus Bandwidth Consumed:          19.18%
+Percentage Bus Bandwidth Consumed:          18.34%
 
 
-Avg. IPC (no stalls):   2.27
-Avg. IPC (with stalls): 1.26
+Avg. IPC (no stalls):   2.24
+Avg. IPC (with stalls): 1.28
 
-  cycle counter =     69669403
-  total ops     =    158432451
-   width[ 0] =         1649
-   width[ 1] =     23718610
-   width[ 2] =     67343197
-   width[ 3] =         8481
+  cycle counter =     75450080
+  total ops     =    169206257
+   width[ 0] =         1648
+   width[ 1] =     24506087
+   width[ 2] =     72336366
+   width[ 3] =         8478
    width[ 4] =          501
 
 Flat profile (cycles)
@@ -95,10 +95,10 @@ Flat profile (cycles)
            0     0.00            0     0.00            0     0.00            0     0.00 fclose
            0     0.00            0     0.00            0     0.00            0     0.00 __sclose
            0     0.00            0     0.00            0     0.00            0     0.00 _close_r
-   125981908      22460760           520  (others not profiled)
+   131763352      22460760           520  (others not profiled)
 
-Simulation time  =    11.3332 s
-Simulation speed =    13.9795 MOPS
+Simulation time  =    13.8663 s
+Simulation speed =    12.2027 MOPS
 
 
 ta_init using <run_dir>/vex.cfg

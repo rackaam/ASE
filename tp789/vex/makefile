@@ -39,6 +39,12 @@ short: clean edge_detect
 	cp ta.log.000 tp_ase.log.short  
 	grep "Total Cycles" tp_ase.log.short
 
+simd: clean edge_detect
+	export VEXCFG=$(CACHE_CFG)
+	./edge_detect ../data/satellite.pgm ./deriche-satellite-simd.pgm fixed_simd
+	cp ta.log.000 tp_ase.log.simd  
+	grep "Total Cycles" tp_ase.log.simd
+
 #objs/deriche.o:  $(SRC)/deriche.c  $(MM_FILE)
 #	$(VEX_DIR)/bin/cc $(CFLAGS) -fmm=$(MM_FILE) -DVEX -c -o $@ $(SRC)/deriche.c 
 #
@@ -53,7 +59,7 @@ short: clean edge_detect
 #
 
 edge_detect:  $(SRC)/pgm.c $(SRC)/alloc.c $(SRC)/edge_detect.c $(SRC)/deriche.c   $(MM_FILE)
-	$(VEX_DIR)/bin/cc $(CFLAGS) -fmm=$(MM_FILE) -DVEX -o $@ $(SRC)/pgm.c $(SRC)/alloc.c $(SRC)/edge_detect.c $(SRC)/deriche.c  $< -lvexsimd
+	$(VEX_DIR)/bin/cc $(CFLAGS) -fmm=$(MM_FILE) -DVEX -o $@ $(SRC)/pgm.c $(SRC)/alloc.c $(SRC)/edge_detect.c $(SRC)/deriche.c $< -lvexsimd
 
 report:
 	$(VEX_DIR)/bin/runreport tp_ase.log.* > report.html

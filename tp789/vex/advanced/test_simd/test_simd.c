@@ -32,7 +32,7 @@ int main(int argc, char **argv) {
 		 printf("c1=%d, %d, %d, %d\n", EXT_8(c1,3), EXT_8(c1,2), EXT_8(c1,1), EXT_8(c1,0)); 
 	}
 */
-	s1 = PACK_2x16(5, 65530);
+	s1 = PACK_2x16(-30000, 65530);
 	s2 = PACK_2x16(3, 7);
 	printf("s1=%d, %d\n", EXT_16(s1,1), EXT_16(s1,0));
 	printf("s2=%d, %d\n", EXT_16(s2,1), EXT_16(s2,0));
@@ -43,7 +43,6 @@ int main(int argc, char **argv) {
 	s2e0 = EXT_16(s2,0);
 	
 	r = ADD_2x16(s1, s2);
-	printf("r=%d, %d\n", EXT_16(r,1), EXT_16(r,0));
 	r = SUB_2x16(s1, s2);
 	r = MUL_2x16(s1, s2);
 	r = DIV_2x16(s1, s2);
@@ -54,7 +53,8 @@ int main(int argc, char **argv) {
 	r = SUBI_2x16(s1, 2);
 	r = MULI_2x16(s1, 3);
 	r = DIVI_2x16(s1, 4);
-	r = SHRI_2x16(s1, 1);
+	r = SHRI_2x16(s1, 7);
+	printf("r=%d, %d\n", EXT_16(r,1), EXT_16(r,0));
 	r = SHLI_2x16(s1, 3);
 
 	r = SFL2_2x16(3,2, s1, s2);
