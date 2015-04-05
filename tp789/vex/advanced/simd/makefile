@@ -1,4 +1,4 @@
-VEX_DIR ?= ~/vex-3.43
+VEX_DIR ?= /home/matthias/vex-3.43
 LIB_DIR = $(VEX_DIR)/lib
 INC_DIR = $(VEX_DIR)/include
 

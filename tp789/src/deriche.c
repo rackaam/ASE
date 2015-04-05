@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <common.h>
+#include <vex_simd.h>
+
 
 /* Main computational kernel. The whole function will be timed,
  including the call and return. */
@@ -131,6 +133,82 @@ L6:
 }
 
 /*  versions virgule fixe */
+
+short s_ay1[MAX_HEIGHT];
+short s_ay2[MAX_HEIGHT];
+short s_by1[MAX_WIDTH];
+short s_by2[MAX_WIDTH];
+short s_at[MAX_WIDTH][MAX_HEIGHT];
+
+void deriche_short(int width, int height) {
+	int i, j;
+	
+	short xm1, tm1, ym1, ym2;
+	short xp1, xp2;
+	short tp1, tp2;
+	short yp1, yp2;
+	short k;
+	short a1, a2, a3, a4, a5, a6, a7, a8;
+	short b1, b2, c1, c2;
+	short a3Xxp1, a1Xxp2, b1Xyp1, b2Xyp2;
+
+	k = a1 = a5 = (short) (128 * (-0.188682));
+	a2 = a6 = (short) (128 * (0.110209));
+	a3 = a7 = (short) (128 * (-0.183682));
+	a4 = a8 = (short) (128 * (0.114441));
+	b1 = (short) (128 * (0.840896));
+	b2 = (short) (128 * (-0.606531));
+	c1 = c2 = (short) (128);
+
+	for (i = 0; i < width; i++) {
+		ym1 = 0, ym2 = 0, xm1 = 0, yp1 = 0, yp2 = 0, xp1 = 0, xp2 = 0;
+		for (j = height - 1; j >= 0; j--) {
+			a3Xxp1 = a3 * xp1;
+			a1Xxp2 = a1 * xp2;
+			b1Xyp1 = (b1 * yp1) >> 7;
+			b2Xyp2 = (b2 * yp2) >> 7;
+			s_ay2[j] = a3Xxp1 + a1Xxp2 + b1Xyp1 + b2Xyp2;
+			xp2 = xp1;
+			xp1 = in[i][j];
+			yp2 = yp1;
+			yp1 = s_ay2[j];
+		}
+		for (j = 0; j < height; j++) {
+			short a1Xin = a1 * in[i][j];
+			short a2Xxm1 = a2 * xm1;
+			short b1Xym1 = (b1 * ym1) >> 7;
+			short b2Xym2 = (b2 * ym2) >> 7;
+			s_ay1[j] = a1Xin + a2Xxm1 + b1Xym1 + b2Xym2;
+			xm1 = in[i][j];
+			ym2 = ym1;
+			ym1 = s_ay1[j];
+			s_at[i][j] = (c1 * (s_ay1[j] + s_ay2[j])) >> 7;
+		}
+	}
+	
+	for (j = 0; j < height; j++) {
+		tm1 = 0, ym1 = 0, ym2 = 0, tp1 = 0, tp2 = 0, yp1 = 0, yp2 = 0;
+		for (i = width - 1; i >= 0; i--) {
+			s_by2[i] = (a7 * tp1 + a8 * tp2 + b1 * yp1 + b2 * yp2) >> 7 ;
+			tp2 = tp1;
+			tp1 = s_at[i][j];
+			yp2 = yp1;
+			yp1 = s_by2[i];
+		}
+		for (i = 0; i < width; i++) {
+			s_by1[i] = (a5 * s_at[i][j] + a6 * tm1 + b1 * ym1 + b2 * ym2) >> 7;
+			tm1 = s_at[i][j];
+			ym2 = ym1;
+			ym1 = s_by1[i];
+			out[i][j] = (c2 * (s_by1[i] + s_by2[i])) >> 14;
+			if (out[i][j] > 25) {
+				out[i][j] = 0;
+			} else {
+				out[i][j] = 255;
+			}
+		}
+	}
+}
 
 
 int ay1[MAX_HEIGHT];

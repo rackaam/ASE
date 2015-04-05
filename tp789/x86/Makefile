@@ -16,6 +16,8 @@ fixed: run_fixed
 fused: run_fused
 
 array: run_array
+
+short: run_short
 	
 deriche : $(OBJS) $(INCS) 
 	$(CC) $(CFLAGS) -o $(PROG) $(OBJS) -lm
@@ -43,6 +45,9 @@ run_fused: $(PROG)
 	
 run_array: $(PROG)
 	./$(PROG) ../data/satellite.pgm ./deriche-satellite-array.pgm fixed_array
+
+run_short: $(PROG)
+	./$(PROG) ../data/satellite.pgm ./deriche-satellite-short.pgm fixed_short
 
 clean:
 	rm obj/* $(PROG)

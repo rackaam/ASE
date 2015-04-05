@@ -1,4 +1,4 @@
-VEX_DIR ?= ~/vex-3.43
+VEX_DIR ?= /home/matthias/vex-3.43
 
 all: test_simd
 
