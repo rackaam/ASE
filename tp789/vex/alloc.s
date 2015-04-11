@@ -3,7 +3,7 @@
 .comment "Copyright (C) 1990-2010 Hewlett-Packard Company"
 .comment "VEX C compiler version 3.43 (20110131 release)"
 .comment ""
-.comment "-dir /home/matthias/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./vliw2.mm -DVEX -o edge_detect -lvexsimd"
+.comment "-dir /home/matthias/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./risc.mm -DVEX -o edge_detect -lvexsimd"
 .sversion 3.43
 .rta 2
 .section .bss
@@ -18,7 +18,6 @@
 mat_malloc::
 .trace 3
 	c0    add $r0.1 = $r0.1, (-0x40)
-	c0    shl $r0.2 = $r0.3, 2   ## bblock 0, line 45,  t2,  t30,  2(I32)
 ;;								## 0
 	c0    stw 0x10[$r0.1] = $l0.0  ## spill ## t16
 ;;								## 1
@@ -34,45 +33,51 @@ mat_malloc::
 ;;								## 6
 	c0    stw 0x28[$r0.1] = $r0.3  ## spill ## t30
 ;;								## 7
+	c0    shl $r0.3 = $r0.3, 2   ## bblock 0, line 45,  t2,  t30,  2(I32)
+;;								## 8
 .call malloc, caller, arg($r0.3:u32), ret($r0.3:u32)
 	c0    call $l0.0 = malloc   ## bblock 0, line 45,  raddr(malloc)(P32),  t2
-	c0    mov $r0.3 = $r0.2   ## t2
-;;								## 8
-	c0    mov $r0.59 = $r0.3   ## bblock 1, line 45,  t36,  t0
-	c0    stw 0x2c[$r0.1] = $r0.3  ## spill ## t0
 ;;								## 9
-	c0    ldw $r0.5 = 0x20[$r0.1]  ## restore ## t32
+	c0    stw 0x2c[$r0.1] = $r0.3  ## spill ## t0
 ;;								## 10
-	c0    ldw $r0.4 = 0x24[$r0.1]  ## restore ## t31
+	c0    ldw $r0.5 = 0x20[$r0.1]  ## restore ## t32
 ;;								## 11
-	c0    ldw $r0.3 = 0x28[$r0.1]  ## restore ## t30
-	      xnop 1
+	c0    ldw $r0.4 = 0x24[$r0.1]  ## restore ## t31
+;;								## 12
+	c0    ldw $r0.2 = 0x28[$r0.1]  ## restore ## t30
 ;;								## 13
-	c0    mpylu $r0.2 = $r0.4, $r0.5   ## bblock 1, line 52,  t50,  t31,  t32
-	c0    mpyhs $r0.4 = $r0.4, $r0.5   ## bblock 1, line 52,  t51,  t31,  t32
+	c0    mov $r0.59 = $r0.3   ## bblock 1, line 45,  t36,  t0
 ;;								## 14
-	c0    sub $r0.3 = $r0.0, $r0.3   ## bblock 1, line 0,  t38,  0(I32),  t30
+	c0    mpylu $r0.3 = $r0.4, $r0.5   ## bblock 1, line 52,  t50,  t31,  t32
 ;;								## 15
-	c0    add $r0.58 = $r0.2, $r0.4   ## bblock 1, line 52,  t10,  t50,  t51
-	c0    mov $r0.57 = $r0.3   ## bblock 1, line 0,  t37,  t38
+	c0    mpyhs $r0.4 = $r0.4, $r0.5   ## bblock 1, line 52,  t51,  t31,  t32
 ;;								## 16
+	c0    sub $r0.2 = $r0.0, $r0.2   ## bblock 1, line 0,  t38,  0(I32),  t30
+;;								## 17
+	c0    add $r0.58 = $r0.3, $r0.4   ## bblock 1, line 52,  t10,  t50,  t51
+;;								## 18
+	c0    mov $r0.57 = $r0.2   ## bblock 1, line 0,  t37,  t38
+;;								## 19
 .trace 1
 L0?3:
 	c0    cmplt $b0.0 = $r0.57, $r0.0   ## bblock 2, line 50,  t52(I1),  t37,  0(SI32)
+;;								## 0
 	c0    mov $r0.3 = $r0.58   ## t10
-	      xnop 1
 ;;								## 1
 	c0    brf $b0.0, L1?3   ## bblock 2, line 50,  t52(I1)
 ;;								## 2
 .call malloc, caller, arg($r0.3:u32), ret($r0.3:u32)
 	c0    call $l0.0 = malloc   ## bblock 4, line 52,  raddr(malloc)(P32),  t10
 ;;								## 3
-	c0    stw 0[$r0.59] = $r0.3   ## bblock 5, line 52, t36, t7
 	c0    add $r0.57 = $r0.57, 1   ## bblock 5, line 0,  t37,  t37,  1(I32)
 ;;								## 4
-	c0    add $r0.59 = $r0.59, 4   ## bblock 5, line 0,  t36,  t36,  4(I32)
-	c0    goto L0?3 ## goto
+	c0    stw 0[$r0.59] = $r0.3   ## bblock 5, line 52, t36, t7
 ;;								## 5
+	c0    add $r0.59 = $r0.59, 4   ## bblock 5, line 0,  t36,  t36,  4(I32)
+	      ## goto
+;;
+	c0    goto L0?3 ## goto
+;;								## 6
 .trace 4
 L1?3:
 	c0    ldw $l0.0 = 0x10[$r0.1]  ## restore ## t16

@@ -2,7 +2,7 @@
 /* "Copyright (C) 1990-2010 Hewlett-Packard Company" */
 /* "VEX C compiler version 3.43 (20110131 release)" */
 /* "" */
-/* "-dir /home/matthias/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./vliw2.mm -DVEX -o edge_detect -lvexsimd" */
+/* "-dir /home/matthias/vex-3.43 -I../include/ -ms -mas_g -mas_t -O2 -fmm=./risc.mm -DVEX -o edge_detect -lvexsimd" */
 
 /********************************************/
 /*         SYSTEM HEADER                    */
@@ -917,134 +917,206 @@ extern unsigned int isqrt( unsigned int arg0 )
   sim_icache_fetch(0 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __MOV(reg_r0_6, (unsigned int) -6); /* line 20 */
-} /* line 20 */
-  sim_icache_fetch(1 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(0);
+} /* line 19 */
+  sim_icache_fetch(1 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __MOV(reg_r0_5, 0); /* line 22 */
-   __MOV(reg_r0_4, 0); /* line 23 */
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_6, (unsigned int) -6); /* line 21 */
+} /* line 21 */
+  sim_icache_fetch(2 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_5, 0); /* line 23 */
 } /* line 23 */
   sim_icache_fetch(3 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __MOV(reg_r0_2, reg_r0_3); /* line 25 */
+   __MOV(reg_r0_4, 0); /* line 25 */
 } /* line 25 */
-l_L0X3: ;/* line 28 */
+  sim_icache_fetch(4 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_2, reg_r0_3); /* line 27 */
+} /* line 27 */
+l_L0X3: ;/* line 30 */
 __LABEL(l_L0X3);
-  sim_icache_fetch(4 + t_thisfile.offset, 2);
+  sim_icache_fetch(5 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __AND(reg_r0_3, reg_r0_2, (unsigned int) 192); /* line 29 */
-   __SHL(reg_r0_5, reg_r0_5, (unsigned int) 1); /* line 30 */
-} /* line 30 */
-  sim_icache_fetch(6 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __AND(reg_r0_3, reg_r0_2, (unsigned int) 192); /* line 31 */
+} /* line 31 */
+  sim_icache_fetch(6 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SHRU(reg_r0_3, reg_r0_3, (unsigned int) 6); /* line 32 */
-   __ZXTH(reg_r0_7, reg_r0_5); /* line 33 */
+   __INC_BUNDLE_CNT(1);
+   __SHRU(reg_r0_3, reg_r0_3, (unsigned int) 6); /* line 33 */
 } /* line 33 */
-  sim_icache_fetch(8 + t_thisfile.offset, 2);
+  sim_icache_fetch(7 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
+   __INC_BUNDLE_CNT(1);
    __SH2ADD(reg_r0_4, reg_r0_4, reg_r0_3); /* line 35 */
-   __SH1ADD(reg_r0_3, reg_r0_7, (unsigned int) 1); /* line 36 */
-} /* line 36 */
-  sim_icache_fetch(10 + t_thisfile.offset, 2);
+} /* line 35 */
+  sim_icache_fetch(8 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __CMPGEU(reg_b0_0, reg_r0_4, reg_r0_3); /* line 38 */
-   __ADD(reg_r0_5, reg_r0_5, (unsigned int) 1); /* line 39 */
+   __INC_BUNDLE_CNT(1);
+   __SHL(reg_r0_5, reg_r0_5, (unsigned int) 1); /* line 37 */
+} /* line 37 */
+  sim_icache_fetch(9 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __ZXTH(reg_r0_3, reg_r0_5); /* line 39 */
 } /* line 39 */
-  sim_icache_fetch(12 + t_thisfile.offset, 2);
+  sim_icache_fetch(10 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SUB(reg_r0_3, reg_r0_4, reg_r0_3); /* line 41 */
-   __ZXTH(reg_r0_5, reg_r0_5); /* line 42 */
-} /* line 42 */
-  sim_icache_fetch(14 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __SH1ADD(reg_r0_7, reg_r0_3, (unsigned int) 1); /* line 41 */
+} /* line 41 */
+  sim_icache_fetch(11 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SLCT(reg_r0_3, reg_b0_0, reg_r0_3, reg_r0_4); /* line 44 */
-   __SLCT(reg_r0_5, reg_b0_0, reg_r0_5, reg_r0_7); /* line 45 */
+   __INC_BUNDLE_CNT(1);
+   __CMPGEU(reg_b0_0, reg_r0_4, reg_r0_7); /* line 43 */
+} /* line 43 */
+  sim_icache_fetch(12 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_5, reg_r0_5, (unsigned int) 1); /* line 45 */
 } /* line 45 */
-  sim_icache_fetch(16 + t_thisfile.offset, 2);
+  sim_icache_fetch(13 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SHL(reg_r0_2, reg_r0_2, (unsigned int) 2); /* line 47 */
-   __SHL(reg_r0_5, reg_r0_5, (unsigned int) 1); /* line 48 */
-} /* line 48 */
-  sim_icache_fetch(18 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __ZXTH(reg_r0_5, reg_r0_5); /* line 47 */
+} /* line 47 */
+  sim_icache_fetch(14 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __AND(reg_r0_8, reg_r0_2, (unsigned int) 192); /* line 50 */
-   __ZXTH(reg_r0_7, reg_r0_5); /* line 51 */
+   __INC_BUNDLE_CNT(1);
+   __SLCT(reg_r0_5, reg_b0_0, reg_r0_5, reg_r0_3); /* line 49 */
+} /* line 49 */
+  sim_icache_fetch(15 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __SHL(reg_r0_5, reg_r0_5, (unsigned int) 1); /* line 51 */
 } /* line 51 */
-  sim_icache_fetch(20 + t_thisfile.offset, 2);
+  sim_icache_fetch(16 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SHRU(reg_r0_8, reg_r0_8, (unsigned int) 6); /* line 53 */
-   __SH1ADD(reg_r0_9, reg_r0_7, (unsigned int) 1); /* line 54 */
-} /* line 54 */
-  sim_icache_fetch(22 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __ZXTH(reg_r0_3, reg_r0_5); /* line 53 */
+} /* line 53 */
+  sim_icache_fetch(17 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SH2ADD(reg_r0_3, reg_r0_3, reg_r0_8); /* line 56 */
-   __ADD(reg_r0_5, reg_r0_5, (unsigned int) 1); /* line 57 */
+   __INC_BUNDLE_CNT(1);
+   __SH1ADD(reg_r0_8, reg_r0_3, (unsigned int) 1); /* line 55 */
+} /* line 55 */
+  sim_icache_fetch(18 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __SUB(reg_r0_7, reg_r0_4, reg_r0_7); /* line 57 */
 } /* line 57 */
-  sim_icache_fetch(24 + t_thisfile.offset, 2);
+  sim_icache_fetch(19 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __CMPGEU(reg_b0_0, reg_r0_3, reg_r0_9); /* line 59 */
-   __SUB(reg_r0_9, reg_r0_3, reg_r0_9); /* line 60 */
-} /* line 60 */
-  sim_icache_fetch(26 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __SLCT(reg_r0_7, reg_b0_0, reg_r0_7, reg_r0_4); /* line 59 */
+} /* line 59 */
+  sim_icache_fetch(20 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SLCT(reg_r0_9, reg_b0_0, reg_r0_9, reg_r0_3); /* line 62 */
-   __ZXTH(reg_r0_5, reg_r0_5); /* line 63 */
+   __INC_BUNDLE_CNT(1);
+   __SHL(reg_r0_2, reg_r0_2, (unsigned int) 2); /* line 61 */
+} /* line 61 */
+  sim_icache_fetch(21 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __AND(reg_r0_9, reg_r0_2, (unsigned int) 192); /* line 63 */
 } /* line 63 */
-  sim_icache_fetch(28 + t_thisfile.offset, 2);
+  sim_icache_fetch(22 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SHL(reg_r0_2, reg_r0_2, (unsigned int) 2); /* line 65 */
-   __SLCT(reg_r0_5, reg_b0_0, reg_r0_5, reg_r0_7); /* line 66 */
-} /* line 66 */
-  sim_icache_fetch(30 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __SHRU(reg_r0_9, reg_r0_9, (unsigned int) 6); /* line 65 */
+} /* line 65 */
+  sim_icache_fetch(23 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __CMPLT(reg_b0_0, reg_r0_6, 0); /* line 68 */
-   __AND(reg_r0_3, reg_r0_2, (unsigned int) 192); /* line 69 */
+   __INC_BUNDLE_CNT(1);
+   __SH2ADD(reg_r0_7, reg_r0_7, reg_r0_9); /* line 67 */
+} /* line 67 */
+  sim_icache_fetch(24 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __CMPGEU(reg_b0_0, reg_r0_7, reg_r0_8); /* line 69 */
 } /* line 69 */
-  sim_icache_fetch(32 + t_thisfile.offset, 2);
+  sim_icache_fetch(25 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SHRU(reg_r0_3, reg_r0_3, (unsigned int) 6); /* line 71 */
-   __SHL(reg_r0_7, reg_r0_5, (unsigned int) 1); /* line 72 */
-} /* line 72 */
-  sim_icache_fetch(34 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __SUB(reg_r0_8, reg_r0_7, reg_r0_8); /* line 71 */
+} /* line 71 */
+  sim_icache_fetch(26 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SH2ADD(reg_r0_9, reg_r0_9, reg_r0_3); /* line 74 */
+   __INC_BUNDLE_CNT(1);
+   __SLCT(reg_r0_8, reg_b0_0, reg_r0_8, reg_r0_7); /* line 73 */
+} /* line 73 */
+  sim_icache_fetch(27 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_5, reg_r0_5, (unsigned int) 1); /* line 75 */
+} /* line 75 */
+  sim_icache_fetch(28 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __ZXTH(reg_r0_5, reg_r0_5); /* line 77 */
+} /* line 77 */
+  sim_icache_fetch(29 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __SLCT(reg_r0_5, reg_b0_0, reg_r0_5, reg_r0_3); /* line 79 */
+} /* line 79 */
+  sim_icache_fetch(30 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __SHL(reg_r0_2, reg_r0_2, (unsigned int) 2); /* line 81 */
+} /* line 81 */
+  sim_icache_fetch(31 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __CMPLT(reg_b0_0, reg_r0_6, 0); /* line 83 */
+} /* line 83 */
+  sim_icache_fetch(32 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __AND(reg_r0_3, reg_r0_2, (unsigned int) 192); /* line 85 */
+} /* line 85 */
+  sim_icache_fetch(33 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
    if (!reg_b0_0) {    __BRANCHF(reg_b0_0);
       __INC_BTC_CNT();
       __INC_STALL_CNT();
@@ -1052,63 +1124,111 @@ __LABEL(l_L0X3);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 75 */
-  sim_icache_fetch(36 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __ZXTH(reg_r0_3, reg_r0_7); /* line 77 */
-   __ADD(reg_r0_7, reg_r0_7, (unsigned int) 1); /* line 78 */
-} /* line 78 */
-  sim_icache_fetch(38 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SH1ADD(reg_r0_8, reg_r0_3, (unsigned int) 1); /* line 80 */
-   __ZXTH(reg_r0_7, reg_r0_7); /* line 81 */
-} /* line 81 */
-  sim_icache_fetch(40 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __CMPGEU(reg_b0_0, reg_r0_9, reg_r0_8); /* line 83 */
-   __SUB(reg_r0_8, reg_r0_9, reg_r0_8); /* line 84 */
-} /* line 84 */
-  sim_icache_fetch(42 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SLCT(reg_r0_4, reg_b0_0, reg_r0_8, reg_r0_9); /* line 86 */
-   __SLCT(reg_r0_5, reg_b0_0, reg_r0_7, reg_r0_3); /* line 87 */
 } /* line 87 */
-  sim_icache_fetch(44 + t_thisfile.offset, 2);
+  sim_icache_fetch(34 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __SHL(reg_r0_2, reg_r0_2, (unsigned int) 2); /* line 89 */
-   __ADD(reg_r0_6, reg_r0_6, (unsigned int) 3); /* line 91 */
+   __INC_BUNDLE_CNT(1);
+   __SHRU(reg_r0_3, reg_r0_3, (unsigned int) 6); /* line 89 */
+} /* line 89 */
+  sim_icache_fetch(35 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __SH2ADD(reg_r0_8, reg_r0_8, reg_r0_3); /* line 91 */
 } /* line 91 */
+  sim_icache_fetch(36 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __SHL(reg_r0_5, reg_r0_5, (unsigned int) 1); /* line 93 */
+} /* line 93 */
+  sim_icache_fetch(37 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __ZXTH(reg_r0_3, reg_r0_5); /* line 95 */
+} /* line 95 */
+  sim_icache_fetch(38 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __SH1ADD(reg_r0_7, reg_r0_3, (unsigned int) 1); /* line 97 */
+} /* line 97 */
+  sim_icache_fetch(39 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __CMPGEU(reg_b0_0, reg_r0_8, reg_r0_7); /* line 99 */
+} /* line 99 */
+  sim_icache_fetch(40 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __SUB(reg_r0_7, reg_r0_8, reg_r0_7); /* line 101 */
+} /* line 101 */
+  sim_icache_fetch(41 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __SLCT(reg_r0_4, reg_b0_0, reg_r0_7, reg_r0_8); /* line 103 */
+} /* line 103 */
+  sim_icache_fetch(42 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_5, reg_r0_5, (unsigned int) 1); /* line 105 */
+} /* line 105 */
+  sim_icache_fetch(43 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __ZXTH(reg_r0_5, reg_r0_5); /* line 107 */
+} /* line 107 */
+  sim_icache_fetch(44 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __SLCT(reg_r0_5, reg_b0_0, reg_r0_5, reg_r0_3); /* line 109 */
+} /* line 109 */
+  sim_icache_fetch(45 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __SHL(reg_r0_2, reg_r0_2, (unsigned int) 2); /* line 111 */
+} /* line 111 */
   sim_icache_fetch(46 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_6, reg_r0_6, (unsigned int) 3); /* line 114 */
+} /* line 114 */
+  sim_icache_fetch(47 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
    __GOTO(l_L0X3);   __INC_BTU_CNT();
    __INC_STALL_CNT();
    goto l_L0X3;
-} /* line 93 */
-l_L1X3: ;/* line 96 */
+} /* line 116 */
+l_L1X3: ;/* line 119 */
 __LABEL(l_L1X3);
-  sim_icache_fetch(47 + t_thisfile.offset, 2);
+  sim_icache_fetch(48 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __MOV(reg_r0_3, reg_r0_5); /* line 99 */
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_3, reg_r0_5); /* line 120 */
+} /* line 120 */
+  sim_icache_fetch(49 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
    __RETURN(isqrt);   __INC_BTU_CNT();
    __INC_STALL_CNT();
    reg_r0_1 = reg_r0_1 + 0; /* pop frame */
    t_labelnum = reg_l0_0;
    goto labelfinder;
-} /* line 99 */
+} /* line 123 */
   reg_l0_0 = t_client_rpc;
   return reg_r0_3;
 
@@ -1144,37 +1264,47 @@ extern unsigned int __vex_main( unsigned int arg0, unsigned int arg1 )
 
 		/*  CODE */
 
-  sim_icache_fetch(49 + t_thisfile.offset, 2);
+  sim_icache_fetch(50 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __ADD(reg_r0_1, reg_r0_1, (unsigned int) -64); /* line 116 */
-   __MOV(reg_r0_2, 0); /* line 117 */
-} /* line 117 */
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_1, reg_r0_1, (unsigned int) -64); /* line 140 */
+} /* line 140 */
   sim_icache_fetch(51 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 24),0,4), reg_l0_0); /* line 119 */
-} /* line 119 */
+   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 24),0,4), reg_l0_0); /* line 142 */
+} /* line 142 */
   sim_icache_fetch(52 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 28),0,4), reg_r0_3); /* line 121 */
-} /* line 121 */
+   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 28),0,4), reg_r0_3); /* line 144 */
+} /* line 144 */
   sim_icache_fetch(53 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 32),0,4), reg_r0_4); /* line 123 */
-} /* line 123 */
-		 /* line 124 */
-  sim_icache_fetch(54 + t_thisfile.offset, 3);
+   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 32),0,4), reg_r0_4); /* line 146 */
+} /* line 146 */
+  sim_icache_fetch(54 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 127 */
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_2, 0); /* line 148 */
+} /* line 148 */
+  sim_icache_fetch(55 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 150 */
+} /* line 150 */
+		 /* line 151 */
+  sim_icache_fetch(56 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
    __INC_BTU_CNT();
    __INC_STALL_CNT();
    __CALL(sim_ta_disable);
@@ -1184,41 +1314,43 @@ extern unsigned int __vex_main( unsigned int arg0, unsigned int arg1 )
     t_FT *t_call = (t_FT*) sim_ta_disable;
     reg_r0_3 =     (*t_call)();
    }
-} /* line 127 */
-l_lr_4: ;/* line 127 */
+} /* line 153 */
+l_lr_4: ;/* line 153 */
 __LABEL(l_lr_4);
-  sim_icache_fetch(57 + t_thisfile.offset, 4);
+  sim_icache_fetch(58 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __LDW(reg_r0_2, mem_trace_ld((unsigned int) _impure_ptr,0,4)); /* line 129 */
-   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX1); /* line 130 */
-} /* line 130 */
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((unsigned int) _impure_ptr,0,4)); /* line 155 */
+} /* line 155 */
+  sim_icache_fetch(60 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_6, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 157 */
+} /* line 157 */
   sim_icache_fetch(61 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_6, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 132 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 133 */
-   __ADD_CYCLES(1);
-} /* line 133 */
+   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX1); /* line 159 */
+} /* line 159 */
   sim_icache_fetch(63 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_3, mem_trace_ld((reg_r0_2 + (unsigned int) 12),0,4)); /* line 135 */
-} /* line 135 */
+   __LDW(reg_r0_3, mem_trace_ld((reg_r0_2 + (unsigned int) 12),0,4)); /* line 161 */
+} /* line 161 */
   sim_icache_fetch(64 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_5, mem_trace_ld(reg_r0_6,0,4)); /* line 137 */
+   __LDW(reg_r0_5, mem_trace_ld(reg_r0_6,0,4)); /* line 163 */
    __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 138 */
+   __XNOP((unsigned int) 1); /* line 164 */
    __ADD_CYCLES(1);
-} /* line 138 */
-		 /* line 139 */
+} /* line 164 */
+		 /* line 165 */
   sim_icache_fetch(66 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
@@ -1232,45 +1364,43 @@ __LABEL(l_lr_4);
     t_FT *t_call = (t_FT*) fprintf;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4, reg_r0_5);
    }
-} /* line 141 */
-l_lr_6: ;/* line 141 */
+} /* line 167 */
+l_lr_6: ;/* line 167 */
 __LABEL(l_lr_6);
-  sim_icache_fetch(68 + t_thisfile.offset, 3);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX2); /* line 143 */
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 28),0,4)); /* line 144 */
-} /* line 144 */
-  sim_icache_fetch(71 + t_thisfile.offset, 2);
+  sim_icache_fetch(68 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_6, mem_trace_ld((unsigned int) _impure_ptr,0,4)); /* line 146 */
-} /* line 146 */
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 28),0,4)); /* line 169 */
+} /* line 169 */
+  sim_icache_fetch(69 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDWs(reg_r0_6, mem_trace_ld((unsigned int) _impure_ptr,0,4)); /* line 171 */
+} /* line 171 */
+  sim_icache_fetch(71 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 173 */
+} /* line 173 */
+  sim_icache_fetch(72 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __CMPLT(reg_b0_0, reg_r0_2, (unsigned int) 3); /* line 175 */
+} /* line 175 */
   sim_icache_fetch(73 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 148 */
-} /* line 148 */
+   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_6 + (unsigned int) 12),0,4)); /* line 177 */
+} /* line 177 */
   sim_icache_fetch(74 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __CMPLT(reg_b0_0, reg_r0_2, (unsigned int) 3); /* line 150 */
-} /* line 150 */
-  sim_icache_fetch(75 + t_thisfile.offset, 1);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_6 + (unsigned int) 12),0,4)); /* line 152 */
-} /* line 152 */
-  sim_icache_fetch(76 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __LDWs(reg_r0_5, mem_trace_ld(reg_r0_7,0,4)); /* line 154 */
    if (!reg_b0_0) {    __BRANCHF(reg_b0_0);
       __INC_BTC_CNT();
       __INC_STALL_CNT();
@@ -1278,14 +1408,21 @@ __LABEL(l_lr_6);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 155 */
-  sim_icache_fetch(78 + t_thisfile.offset, 1);
+} /* line 179 */
+  sim_icache_fetch(75 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(0);
-} /* line 156 */
-		 /* line 157 */
-  sim_icache_fetch(79 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_5, mem_trace_ld(reg_r0_7,0,4)); /* line 181 */
+} /* line 181 */
+  sim_icache_fetch(76 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX2); /* line 183 */
+} /* line 183 */
+		 /* line 184 */
+  sim_icache_fetch(78 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1298,15 +1435,20 @@ __LABEL(l_lr_6);
     t_FT *t_call = (t_FT*) fprintf;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4, reg_r0_5);
    }
-} /* line 159 */
-l_lr_8: ;/* line 159 */
+} /* line 186 */
+l_lr_8: ;/* line 186 */
 __LABEL(l_lr_8);
-		 /* line 160 */
-  sim_icache_fetch(81 + t_thisfile.offset, 3);
+  sim_icache_fetch(80 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __MOV(reg_r0_3, (unsigned int) 1); /* line 163 */
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_3, (unsigned int) 1); /* line 188 */
+} /* line 188 */
+		 /* line 189 */
+  sim_icache_fetch(81 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
    __INC_BTU_CNT();
    __INC_STALL_CNT();
    __CALL(exit);
@@ -1316,40 +1458,42 @@ __LABEL(l_lr_8);
     t_FT *t_call = (t_FT*) exit;
     (*t_call)(reg_r0_3);
    }
-} /* line 163 */
-l_lr_10: ;/* line 163 */
+} /* line 191 */
+l_lr_10: ;/* line 191 */
 __LABEL(l_lr_10);
-l_L3X3: ;/* line 165 */
+l_L3X3: ;/* line 193 */
 __LABEL(l_L3X3);
-  sim_icache_fetch(84 + t_thisfile.offset, 3);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX3); /* line 166 */
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 28),0,4)); /* line 167 */
-} /* line 167 */
-  sim_icache_fetch(87 + t_thisfile.offset, 2);
+  sim_icache_fetch(83 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_5, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 169 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 170 */
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 28),0,4)); /* line 194 */
+} /* line 194 */
+  sim_icache_fetch(84 + t_thisfile.offset, 1);
+{
    __ADD_CYCLES(1);
-} /* line 170 */
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_5, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 196 */
+} /* line 196 */
+  sim_icache_fetch(85 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX3); /* line 198 */
+} /* line 198 */
+  sim_icache_fetch(87 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 4); /* line 200 */
+} /* line 200 */
+  sim_icache_fetch(88 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_5 + (unsigned int) 12),0,4)); /* line 202 */
+} /* line 202 */
   sim_icache_fetch(89 + t_thisfile.offset, 1);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 4); /* line 172 */
-} /* line 172 */
-  sim_icache_fetch(90 + t_thisfile.offset, 1);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_5 + (unsigned int) 12),0,4)); /* line 174 */
-} /* line 174 */
-  sim_icache_fetch(91 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1360,9 +1504,9 @@ __LABEL(l_L3X3);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 176 */
-		 /* line 177 */
-  sim_icache_fetch(92 + t_thisfile.offset, 2);
+} /* line 204 */
+		 /* line 205 */
+  sim_icache_fetch(90 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1375,20 +1519,22 @@ __LABEL(l_L3X3);
     t_FT *t_call = (t_FT*) strcmp;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 179 */
-l_lr_13: ;/* line 179 */
+} /* line 207 */
+l_lr_13: ;/* line 207 */
 __LABEL(l_lr_13);
-  sim_icache_fetch(94 + t_thisfile.offset, 3);
+  sim_icache_fetch(92 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __CMPEQ(reg_b0_0, reg_r0_3, 0); /* line 181 */
-   __MOV(reg_r0_2, (unsigned int) 1); /* line 182 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 183 */
+   __INC_BUNDLE_CNT(1);
+   __CMPEQ(reg_b0_0, reg_r0_3, 0); /* line 209 */
+} /* line 209 */
+  sim_icache_fetch(93 + t_thisfile.offset, 1);
+{
    __ADD_CYCLES(1);
-} /* line 183 */
-  sim_icache_fetch(97 + t_thisfile.offset, 1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_2, (unsigned int) 1); /* line 211 */
+} /* line 211 */
+  sim_icache_fetch(94 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1399,56 +1545,72 @@ __LABEL(l_lr_13);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 185 */
-  sim_icache_fetch(98 + t_thisfile.offset, 2);
+} /* line 213 */
+  sim_icache_fetch(95 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 188 */
-   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 189 */
-} /* line 189 */
-  sim_icache_fetch(100 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 216 */
+} /* line 216 */
+  sim_icache_fetch(96 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 191 */
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 218 */
+} /* line 218 */
+  sim_icache_fetch(97 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 220 */
+} /* line 220 */
+  sim_icache_fetch(98 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 222 */
+} /* line 222 */
+  sim_icache_fetch(99 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
    __GOTO(l_L6X3);   __INC_BTU_CNT();
    __INC_STALL_CNT();
    goto l_L6X3;
-} /* line 192 */
-l_L8X3: ;/* line 195 */
+} /* line 224 */
+l_L8X3: ;/* line 227 */
 __LABEL(l_L8X3);
-  sim_icache_fetch(102 + t_thisfile.offset, 1);
+  sim_icache_fetch(100 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 196 */
-} /* line 196 */
-  sim_icache_fetch(103 + t_thisfile.offset, 1);
+   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 228 */
+} /* line 228 */
+  sim_icache_fetch(101 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 198 */
-} /* line 198 */
+   __LDWs(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 230 */
+} /* line 230 */
+  sim_icache_fetch(102 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 232 */
+   __INC_NOP_CNT((unsigned int) 2);
+   __XNOP((unsigned int) 2); /* line 233 */
+   __ADD_CYCLES(2);
+} /* line 233 */
   sim_icache_fetch(104 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 200 */
-   __INC_NOP_CNT((unsigned int) 2);
-   __XNOP((unsigned int) 2); /* line 201 */
-   __ADD_CYCLES(2);
-} /* line 201 */
-  sim_icache_fetch(106 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 2); /* line 203 */
+   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 2); /* line 235 */
    __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 204 */
+   __XNOP((unsigned int) 1); /* line 236 */
    __ADD_CYCLES(1);
-} /* line 204 */
-  sim_icache_fetch(108 + t_thisfile.offset, 1);
+} /* line 236 */
+  sim_icache_fetch(106 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1459,9 +1621,9 @@ __LABEL(l_L8X3);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 206 */
-		 /* line 207 */
-  sim_icache_fetch(109 + t_thisfile.offset, 2);
+} /* line 238 */
+		 /* line 239 */
+  sim_icache_fetch(107 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1474,50 +1636,50 @@ __LABEL(l_L8X3);
     t_FT *t_call = (t_FT*) deriche_slow;
     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 210 */
-l_lr_16: ;/* line 210 */
+} /* line 242 */
+l_lr_16: ;/* line 242 */
 __LABEL(l_lr_16);
-  sim_icache_fetch(111 + t_thisfile.offset, 1);
+  sim_icache_fetch(109 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
    __GOTO(l_L7X3);   __INC_BTU_CNT();
    __INC_STALL_CNT();
    goto l_L7X3;
-} /* line 212 */
-l_L9X3: ;/* line 215 */
+} /* line 244 */
+l_L9X3: ;/* line 247 */
 __LABEL(l_L9X3);
-  sim_icache_fetch(112 + t_thisfile.offset, 1);
+  sim_icache_fetch(110 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 216 */
-} /* line 216 */
-  sim_icache_fetch(113 + t_thisfile.offset, 1);
+   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 248 */
+} /* line 248 */
+  sim_icache_fetch(111 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 218 */
-} /* line 218 */
+   __LDWs(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 250 */
+} /* line 250 */
+  sim_icache_fetch(112 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 252 */
+   __INC_NOP_CNT((unsigned int) 2);
+   __XNOP((unsigned int) 2); /* line 253 */
+   __ADD_CYCLES(2);
+} /* line 253 */
   sim_icache_fetch(114 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 220 */
-   __INC_NOP_CNT((unsigned int) 2);
-   __XNOP((unsigned int) 2); /* line 221 */
-   __ADD_CYCLES(2);
-} /* line 221 */
-  sim_icache_fetch(116 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 3); /* line 223 */
+   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 3); /* line 255 */
    __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 224 */
+   __XNOP((unsigned int) 1); /* line 256 */
    __ADD_CYCLES(1);
-} /* line 224 */
-  sim_icache_fetch(118 + t_thisfile.offset, 1);
+} /* line 256 */
+  sim_icache_fetch(116 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1528,9 +1690,9 @@ __LABEL(l_L9X3);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 226 */
-		 /* line 227 */
-  sim_icache_fetch(119 + t_thisfile.offset, 2);
+} /* line 258 */
+		 /* line 259 */
+  sim_icache_fetch(117 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1543,50 +1705,50 @@ __LABEL(l_L9X3);
     t_FT *t_call = (t_FT*) deriche_fused;
     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 230 */
-l_lr_19: ;/* line 230 */
+} /* line 262 */
+l_lr_19: ;/* line 262 */
 __LABEL(l_lr_19);
-  sim_icache_fetch(121 + t_thisfile.offset, 1);
+  sim_icache_fetch(119 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
    __GOTO(l_L7X3);   __INC_BTU_CNT();
    __INC_STALL_CNT();
    goto l_L7X3;
-} /* line 232 */
-l_L10X3: ;/* line 235 */
+} /* line 264 */
+l_L10X3: ;/* line 267 */
 __LABEL(l_L10X3);
-  sim_icache_fetch(122 + t_thisfile.offset, 1);
+  sim_icache_fetch(120 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 236 */
-} /* line 236 */
-  sim_icache_fetch(123 + t_thisfile.offset, 1);
+   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 268 */
+} /* line 268 */
+  sim_icache_fetch(121 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 238 */
-} /* line 238 */
+   __LDWs(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 270 */
+} /* line 270 */
+  sim_icache_fetch(122 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 272 */
+   __INC_NOP_CNT((unsigned int) 2);
+   __XNOP((unsigned int) 2); /* line 273 */
+   __ADD_CYCLES(2);
+} /* line 273 */
   sim_icache_fetch(124 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 240 */
-   __INC_NOP_CNT((unsigned int) 2);
-   __XNOP((unsigned int) 2); /* line 241 */
-   __ADD_CYCLES(2);
-} /* line 241 */
-  sim_icache_fetch(126 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 4); /* line 243 */
+   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 4); /* line 275 */
    __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 244 */
+   __XNOP((unsigned int) 1); /* line 276 */
    __ADD_CYCLES(1);
-} /* line 244 */
-  sim_icache_fetch(128 + t_thisfile.offset, 1);
+} /* line 276 */
+  sim_icache_fetch(126 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1597,9 +1759,9 @@ __LABEL(l_L10X3);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 246 */
-		 /* line 247 */
-  sim_icache_fetch(129 + t_thisfile.offset, 2);
+} /* line 278 */
+		 /* line 279 */
+  sim_icache_fetch(127 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1612,50 +1774,50 @@ __LABEL(l_L10X3);
     t_FT *t_call = (t_FT*) deriche_array;
     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 250 */
-l_lr_22: ;/* line 250 */
+} /* line 282 */
+l_lr_22: ;/* line 282 */
 __LABEL(l_lr_22);
-  sim_icache_fetch(131 + t_thisfile.offset, 1);
+  sim_icache_fetch(129 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
    __GOTO(l_L7X3);   __INC_BTU_CNT();
    __INC_STALL_CNT();
    goto l_L7X3;
-} /* line 252 */
-l_L11X3: ;/* line 255 */
+} /* line 284 */
+l_L11X3: ;/* line 287 */
 __LABEL(l_L11X3);
-  sim_icache_fetch(132 + t_thisfile.offset, 1);
+  sim_icache_fetch(130 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 256 */
-} /* line 256 */
-  sim_icache_fetch(133 + t_thisfile.offset, 1);
+   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 288 */
+} /* line 288 */
+  sim_icache_fetch(131 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 258 */
-} /* line 258 */
+   __LDWs(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 290 */
+} /* line 290 */
+  sim_icache_fetch(132 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 292 */
+   __INC_NOP_CNT((unsigned int) 2);
+   __XNOP((unsigned int) 2); /* line 293 */
+   __ADD_CYCLES(2);
+} /* line 293 */
   sim_icache_fetch(134 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 260 */
-   __INC_NOP_CNT((unsigned int) 2);
-   __XNOP((unsigned int) 2); /* line 261 */
-   __ADD_CYCLES(2);
-} /* line 261 */
-  sim_icache_fetch(136 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 5); /* line 263 */
+   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 5); /* line 295 */
    __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 264 */
+   __XNOP((unsigned int) 1); /* line 296 */
    __ADD_CYCLES(1);
-} /* line 264 */
-  sim_icache_fetch(138 + t_thisfile.offset, 1);
+} /* line 296 */
+  sim_icache_fetch(136 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1666,9 +1828,9 @@ __LABEL(l_L11X3);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 266 */
-		 /* line 267 */
-  sim_icache_fetch(139 + t_thisfile.offset, 2);
+} /* line 298 */
+		 /* line 299 */
+  sim_icache_fetch(137 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1681,50 +1843,50 @@ __LABEL(l_L11X3);
     t_FT *t_call = (t_FT*) deriche_short;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 269 */
-l_lr_25: ;/* line 269 */
+} /* line 301 */
+l_lr_25: ;/* line 301 */
 __LABEL(l_lr_25);
-  sim_icache_fetch(141 + t_thisfile.offset, 1);
+  sim_icache_fetch(139 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
    __GOTO(l_L7X3);   __INC_BTU_CNT();
    __INC_STALL_CNT();
    goto l_L7X3;
-} /* line 271 */
-l_L12X3: ;/* line 274 */
+} /* line 303 */
+l_L12X3: ;/* line 306 */
 __LABEL(l_L12X3);
-  sim_icache_fetch(142 + t_thisfile.offset, 1);
+  sim_icache_fetch(140 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 275 */
-} /* line 275 */
-  sim_icache_fetch(143 + t_thisfile.offset, 1);
+   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 307 */
+} /* line 307 */
+  sim_icache_fetch(141 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 277 */
-} /* line 277 */
+   __LDWs(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 309 */
+} /* line 309 */
+  sim_icache_fetch(142 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 311 */
+   __INC_NOP_CNT((unsigned int) 2);
+   __XNOP((unsigned int) 2); /* line 312 */
+   __ADD_CYCLES(2);
+} /* line 312 */
   sim_icache_fetch(144 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 279 */
-   __INC_NOP_CNT((unsigned int) 2);
-   __XNOP((unsigned int) 2); /* line 280 */
-   __ADD_CYCLES(2);
-} /* line 280 */
-  sim_icache_fetch(146 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 6); /* line 282 */
+   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 6); /* line 314 */
    __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 283 */
+   __XNOP((unsigned int) 1); /* line 315 */
    __ADD_CYCLES(1);
-} /* line 283 */
-  sim_icache_fetch(148 + t_thisfile.offset, 1);
+} /* line 315 */
+  sim_icache_fetch(146 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1735,9 +1897,9 @@ __LABEL(l_L12X3);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 285 */
-		 /* line 286 */
-  sim_icache_fetch(149 + t_thisfile.offset, 2);
+} /* line 317 */
+		 /* line 318 */
+  sim_icache_fetch(147 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1750,52 +1912,54 @@ __LABEL(l_L12X3);
     t_FT *t_call = (t_FT*) deriche_simd;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 288 */
-l_lr_28: ;/* line 288 */
+} /* line 320 */
+l_lr_28: ;/* line 320 */
 __LABEL(l_lr_28);
-  sim_icache_fetch(151 + t_thisfile.offset, 1);
+  sim_icache_fetch(149 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
    __GOTO(l_L7X3);   __INC_BTU_CNT();
    __INC_STALL_CNT();
    goto l_L7X3;
-} /* line 290 */
-l_L14X3: ;/* line 293 */
+} /* line 322 */
+l_L14X3: ;/* line 325 */
 __LABEL(l_L14X3);
-  sim_icache_fetch(152 + t_thisfile.offset, 4);
+  sim_icache_fetch(150 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __LDW(reg_r0_2, mem_trace_ld((unsigned int) _impure_ptr,0,4)); /* line 294 */
-   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX9); /* line 295 */
-} /* line 295 */
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((unsigned int) _impure_ptr,0,4)); /* line 326 */
+} /* line 326 */
+  sim_icache_fetch(152 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_6, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 328 */
+} /* line 328 */
+  sim_icache_fetch(153 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX9); /* line 330 */
+} /* line 330 */
+  sim_icache_fetch(155 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_3, mem_trace_ld((reg_r0_2 + (unsigned int) 12),0,4)); /* line 332 */
+} /* line 332 */
   sim_icache_fetch(156 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 297 */
+   __LDW(reg_r0_5, mem_trace_ld((reg_r0_6 + (unsigned int) 12),0,4)); /* line 334 */
    __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 298 */
+   __XNOP((unsigned int) 1); /* line 335 */
    __ADD_CYCLES(1);
-} /* line 298 */
-  sim_icache_fetch(158 + t_thisfile.offset, 1);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_3, mem_trace_ld((reg_r0_2 + (unsigned int) 12),0,4)); /* line 300 */
-} /* line 300 */
-  sim_icache_fetch(159 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_5, mem_trace_ld((reg_r0_7 + (unsigned int) 12),0,4)); /* line 302 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 303 */
-   __ADD_CYCLES(1);
-} /* line 303 */
-		 /* line 304 */
-  sim_icache_fetch(161 + t_thisfile.offset, 2);
+} /* line 335 */
+		 /* line 336 */
+  sim_icache_fetch(158 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1808,15 +1972,20 @@ __LABEL(l_L14X3);
     t_FT *t_call = (t_FT*) fprintf;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4, reg_r0_5);
    }
-} /* line 306 */
-l_lr_31: ;/* line 306 */
+} /* line 338 */
+l_lr_31: ;/* line 338 */
 __LABEL(l_lr_31);
-		 /* line 307 */
-  sim_icache_fetch(163 + t_thisfile.offset, 3);
+  sim_icache_fetch(160 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __MOV(reg_r0_3, (unsigned int) 1); /* line 310 */
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_3, (unsigned int) 1); /* line 340 */
+} /* line 340 */
+		 /* line 341 */
+  sim_icache_fetch(161 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
    __INC_BTU_CNT();
    __INC_STALL_CNT();
    __CALL(exit);
@@ -1826,66 +1995,72 @@ __LABEL(l_lr_31);
     t_FT *t_call = (t_FT*) exit;
     (*t_call)(reg_r0_3);
    }
-} /* line 310 */
-l_lr_33: ;/* line 310 */
+} /* line 343 */
+l_lr_33: ;/* line 343 */
 __LABEL(l_lr_33);
-  sim_icache_fetch(166 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 312 */
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 313 */
-} /* line 313 */
-  sim_icache_fetch(168 + t_thisfile.offset, 4);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __ADD(reg_r0_5, reg_r0_1, (unsigned int) 16); /* line 315 */
-   __MOV(reg_r0_6, (unsigned int) in); /* line 316 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 317 */
-   __ADD_CYCLES(1);
-} /* line 317 */
-  sim_icache_fetch(172 + t_thisfile.offset, 2);
+  sim_icache_fetch(163 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_3, mem_trace_ld((reg_r0_2 + (unsigned int) 4),0,4)); /* line 319 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 320 */
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 345 */
+} /* line 345 */
+  sim_icache_fetch(164 + t_thisfile.offset, 1);
+{
    __ADD_CYCLES(1);
-} /* line 320 */
-  sim_icache_fetch(174 + t_thisfile.offset, 1);
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 347 */
+} /* line 347 */
+  sim_icache_fetch(165 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_5, reg_r0_1, (unsigned int) 16); /* line 349 */
+} /* line 349 */
+  sim_icache_fetch(166 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_3, mem_trace_ld((reg_r0_2 + (unsigned int) 4),0,4)); /* line 351 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 352 */
+   __ADD_CYCLES(1);
+} /* line 352 */
+  sim_icache_fetch(168 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
    __GOTO(l_L13X3);   __INC_BTU_CNT();
    __INC_STALL_CNT();
    goto l_L13X3;
-} /* line 322 */
-l_L5X3: ;/* line 325 */
+} /* line 354 */
+l_L5X3: ;/* line 357 */
 __LABEL(l_L5X3);
-  sim_icache_fetch(175 + t_thisfile.offset, 4);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX4); /* line 326 */
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 327 */
-   __INC_NOP_CNT((unsigned int) 2);
-   __XNOP((unsigned int) 2); /* line 328 */
-   __ADD_CYCLES(2);
-} /* line 328 */
-  sim_icache_fetch(179 + t_thisfile.offset, 2);
+  sim_icache_fetch(169 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_3, mem_trace_ld((reg_r0_2 + (unsigned int) 12),0,4)); /* line 330 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 331 */
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 358 */
+} /* line 358 */
+  sim_icache_fetch(170 + t_thisfile.offset, 3);
+{
    __ADD_CYCLES(1);
-} /* line 331 */
-		 /* line 332 */
-  sim_icache_fetch(181 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX4); /* line 360 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 361 */
+   __ADD_CYCLES(1);
+} /* line 361 */
+  sim_icache_fetch(173 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_3, mem_trace_ld((reg_r0_7 + (unsigned int) 12),0,4)); /* line 363 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 364 */
+   __ADD_CYCLES(1);
+} /* line 364 */
+		 /* line 365 */
+  sim_icache_fetch(175 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1898,27 +2073,25 @@ __LABEL(l_L5X3);
     t_FT *t_call = (t_FT*) strcmp;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 334 */
-l_lr_36: ;/* line 334 */
+} /* line 367 */
+l_lr_36: ;/* line 367 */
 __LABEL(l_lr_36);
-  sim_icache_fetch(183 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __CMPEQ(reg_b0_0, reg_r0_3, 0); /* line 336 */
-   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 337 */
-} /* line 337 */
-  sim_icache_fetch(185 + t_thisfile.offset, 1);
+  sim_icache_fetch(177 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __MOV(reg_r0_2, (unsigned int) 2); /* line 339 */
-} /* line 339 */
-  sim_icache_fetch(186 + t_thisfile.offset, 2);
+   __CMPEQ(reg_b0_0, reg_r0_3, 0); /* line 369 */
+} /* line 369 */
+  sim_icache_fetch(178 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 341 */
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 371 */
+} /* line 371 */
+  sim_icache_fetch(179 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
    if (!reg_b0_0) {    __BRANCHF(reg_b0_0);
       __INC_BTC_CNT();
       __INC_STALL_CNT();
@@ -1926,39 +2099,67 @@ __LABEL(l_lr_36);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 342 */
-  sim_icache_fetch(188 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 344 */
-   __GOTO(l_L6X3);   __INC_BTU_CNT();
-   __INC_STALL_CNT();
-   goto l_L6X3;
-} /* line 345 */
-l_L15X3: ;/* line 348 */
-__LABEL(l_L15X3);
-  sim_icache_fetch(190 + t_thisfile.offset, 4);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX5); /* line 349 */
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 350 */
-   __INC_NOP_CNT((unsigned int) 2);
-   __XNOP((unsigned int) 2); /* line 351 */
-   __ADD_CYCLES(2);
-} /* line 351 */
-  sim_icache_fetch(194 + t_thisfile.offset, 2);
+} /* line 373 */
+  sim_icache_fetch(180 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_3, mem_trace_ld((reg_r0_2 + (unsigned int) 12),0,4)); /* line 353 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 354 */
+   __MOV(reg_r0_2, (unsigned int) 2); /* line 375 */
+} /* line 375 */
+  sim_icache_fetch(181 + t_thisfile.offset, 1);
+{
    __ADD_CYCLES(1);
-} /* line 354 */
-		 /* line 355 */
-  sim_icache_fetch(196 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 377 */
+} /* line 377 */
+  sim_icache_fetch(182 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 379 */
+} /* line 379 */
+  sim_icache_fetch(183 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 381 */
+} /* line 381 */
+  sim_icache_fetch(184 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __GOTO(l_L6X3);   __INC_BTU_CNT();
+   __INC_STALL_CNT();
+   goto l_L6X3;
+} /* line 383 */
+l_L15X3: ;/* line 386 */
+__LABEL(l_L15X3);
+  sim_icache_fetch(185 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 387 */
+} /* line 387 */
+  sim_icache_fetch(186 + t_thisfile.offset, 3);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX5); /* line 389 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 390 */
+   __ADD_CYCLES(1);
+} /* line 390 */
+  sim_icache_fetch(189 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_3, mem_trace_ld((reg_r0_7 + (unsigned int) 12),0,4)); /* line 392 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 393 */
+   __ADD_CYCLES(1);
+} /* line 393 */
+		 /* line 394 */
+  sim_icache_fetch(191 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -1971,27 +2172,25 @@ __LABEL(l_L15X3);
     t_FT *t_call = (t_FT*) strcmp;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 357 */
-l_lr_39: ;/* line 357 */
+} /* line 396 */
+l_lr_39: ;/* line 396 */
 __LABEL(l_lr_39);
-  sim_icache_fetch(198 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __CMPEQ(reg_b0_0, reg_r0_3, 0); /* line 359 */
-   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 360 */
-} /* line 360 */
-  sim_icache_fetch(200 + t_thisfile.offset, 1);
+  sim_icache_fetch(193 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __MOV(reg_r0_2, (unsigned int) 3); /* line 362 */
-} /* line 362 */
-  sim_icache_fetch(201 + t_thisfile.offset, 2);
+   __CMPEQ(reg_b0_0, reg_r0_3, 0); /* line 398 */
+} /* line 398 */
+  sim_icache_fetch(194 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 364 */
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 400 */
+} /* line 400 */
+  sim_icache_fetch(195 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
    if (!reg_b0_0) {    __BRANCHF(reg_b0_0);
       __INC_BTC_CNT();
       __INC_STALL_CNT();
@@ -1999,39 +2198,67 @@ __LABEL(l_lr_39);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 365 */
-  sim_icache_fetch(203 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 367 */
-   __GOTO(l_L6X3);   __INC_BTU_CNT();
-   __INC_STALL_CNT();
-   goto l_L6X3;
-} /* line 368 */
-l_L16X3: ;/* line 371 */
-__LABEL(l_L16X3);
-  sim_icache_fetch(205 + t_thisfile.offset, 4);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX6); /* line 372 */
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 373 */
-   __INC_NOP_CNT((unsigned int) 2);
-   __XNOP((unsigned int) 2); /* line 374 */
-   __ADD_CYCLES(2);
-} /* line 374 */
-  sim_icache_fetch(209 + t_thisfile.offset, 2);
+} /* line 402 */
+  sim_icache_fetch(196 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_3, mem_trace_ld((reg_r0_2 + (unsigned int) 12),0,4)); /* line 376 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 377 */
+   __MOV(reg_r0_2, (unsigned int) 3); /* line 404 */
+} /* line 404 */
+  sim_icache_fetch(197 + t_thisfile.offset, 1);
+{
    __ADD_CYCLES(1);
-} /* line 377 */
-		 /* line 378 */
-  sim_icache_fetch(211 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 406 */
+} /* line 406 */
+  sim_icache_fetch(198 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 408 */
+} /* line 408 */
+  sim_icache_fetch(199 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 410 */
+} /* line 410 */
+  sim_icache_fetch(200 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __GOTO(l_L6X3);   __INC_BTU_CNT();
+   __INC_STALL_CNT();
+   goto l_L6X3;
+} /* line 412 */
+l_L16X3: ;/* line 415 */
+__LABEL(l_L16X3);
+  sim_icache_fetch(201 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 416 */
+} /* line 416 */
+  sim_icache_fetch(202 + t_thisfile.offset, 3);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX6); /* line 418 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 419 */
+   __ADD_CYCLES(1);
+} /* line 419 */
+  sim_icache_fetch(205 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_3, mem_trace_ld((reg_r0_7 + (unsigned int) 12),0,4)); /* line 421 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 422 */
+   __ADD_CYCLES(1);
+} /* line 422 */
+		 /* line 423 */
+  sim_icache_fetch(207 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -2044,27 +2271,25 @@ __LABEL(l_L16X3);
     t_FT *t_call = (t_FT*) strcmp;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 380 */
-l_lr_42: ;/* line 380 */
+} /* line 425 */
+l_lr_42: ;/* line 425 */
 __LABEL(l_lr_42);
-  sim_icache_fetch(213 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __CMPEQ(reg_b0_0, reg_r0_3, 0); /* line 382 */
-   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 383 */
-} /* line 383 */
-  sim_icache_fetch(215 + t_thisfile.offset, 1);
+  sim_icache_fetch(209 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __MOV(reg_r0_2, (unsigned int) 4); /* line 385 */
-} /* line 385 */
-  sim_icache_fetch(216 + t_thisfile.offset, 2);
+   __CMPEQ(reg_b0_0, reg_r0_3, 0); /* line 427 */
+} /* line 427 */
+  sim_icache_fetch(210 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 387 */
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 429 */
+} /* line 429 */
+  sim_icache_fetch(211 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
    if (!reg_b0_0) {    __BRANCHF(reg_b0_0);
       __INC_BTC_CNT();
       __INC_STALL_CNT();
@@ -2072,39 +2297,67 @@ __LABEL(l_lr_42);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 388 */
-  sim_icache_fetch(218 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 390 */
-   __GOTO(l_L6X3);   __INC_BTU_CNT();
-   __INC_STALL_CNT();
-   goto l_L6X3;
-} /* line 391 */
-l_L17X3: ;/* line 394 */
-__LABEL(l_L17X3);
-  sim_icache_fetch(220 + t_thisfile.offset, 4);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX7); /* line 395 */
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 396 */
-   __INC_NOP_CNT((unsigned int) 2);
-   __XNOP((unsigned int) 2); /* line 397 */
-   __ADD_CYCLES(2);
-} /* line 397 */
-  sim_icache_fetch(224 + t_thisfile.offset, 2);
+} /* line 431 */
+  sim_icache_fetch(212 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_3, mem_trace_ld((reg_r0_2 + (unsigned int) 12),0,4)); /* line 399 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 400 */
+   __MOV(reg_r0_2, (unsigned int) 4); /* line 433 */
+} /* line 433 */
+  sim_icache_fetch(213 + t_thisfile.offset, 1);
+{
    __ADD_CYCLES(1);
-} /* line 400 */
-		 /* line 401 */
-  sim_icache_fetch(226 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 435 */
+} /* line 435 */
+  sim_icache_fetch(214 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 437 */
+} /* line 437 */
+  sim_icache_fetch(215 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 439 */
+} /* line 439 */
+  sim_icache_fetch(216 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __GOTO(l_L6X3);   __INC_BTU_CNT();
+   __INC_STALL_CNT();
+   goto l_L6X3;
+} /* line 441 */
+l_L17X3: ;/* line 444 */
+__LABEL(l_L17X3);
+  sim_icache_fetch(217 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 445 */
+} /* line 445 */
+  sim_icache_fetch(218 + t_thisfile.offset, 3);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX7); /* line 447 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 448 */
+   __ADD_CYCLES(1);
+} /* line 448 */
+  sim_icache_fetch(221 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_3, mem_trace_ld((reg_r0_7 + (unsigned int) 12),0,4)); /* line 450 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 451 */
+   __ADD_CYCLES(1);
+} /* line 451 */
+		 /* line 452 */
+  sim_icache_fetch(223 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -2117,27 +2370,25 @@ __LABEL(l_L17X3);
     t_FT *t_call = (t_FT*) strcmp;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 403 */
-l_lr_45: ;/* line 403 */
+} /* line 454 */
+l_lr_45: ;/* line 454 */
 __LABEL(l_lr_45);
-  sim_icache_fetch(228 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __CMPEQ(reg_b0_0, reg_r0_3, 0); /* line 405 */
-   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 406 */
-} /* line 406 */
-  sim_icache_fetch(230 + t_thisfile.offset, 1);
+  sim_icache_fetch(225 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __MOV(reg_r0_2, (unsigned int) 5); /* line 408 */
-} /* line 408 */
-  sim_icache_fetch(231 + t_thisfile.offset, 2);
+   __CMPEQ(reg_b0_0, reg_r0_3, 0); /* line 456 */
+} /* line 456 */
+  sim_icache_fetch(226 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 410 */
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 458 */
+} /* line 458 */
+  sim_icache_fetch(227 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
    if (!reg_b0_0) {    __BRANCHF(reg_b0_0);
       __INC_BTC_CNT();
       __INC_STALL_CNT();
@@ -2145,39 +2396,67 @@ __LABEL(l_lr_45);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 411 */
-  sim_icache_fetch(233 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 413 */
-   __GOTO(l_L6X3);   __INC_BTU_CNT();
-   __INC_STALL_CNT();
-   goto l_L6X3;
-} /* line 414 */
-l_L18X3: ;/* line 417 */
-__LABEL(l_L18X3);
-  sim_icache_fetch(235 + t_thisfile.offset, 4);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX8); /* line 418 */
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 419 */
-   __INC_NOP_CNT((unsigned int) 2);
-   __XNOP((unsigned int) 2); /* line 420 */
-   __ADD_CYCLES(2);
-} /* line 420 */
-  sim_icache_fetch(239 + t_thisfile.offset, 2);
+} /* line 460 */
+  sim_icache_fetch(228 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_3, mem_trace_ld((reg_r0_2 + (unsigned int) 12),0,4)); /* line 422 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 423 */
+   __MOV(reg_r0_2, (unsigned int) 5); /* line 462 */
+} /* line 462 */
+  sim_icache_fetch(229 + t_thisfile.offset, 1);
+{
    __ADD_CYCLES(1);
-} /* line 423 */
-		 /* line 424 */
-  sim_icache_fetch(241 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 464 */
+} /* line 464 */
+  sim_icache_fetch(230 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 466 */
+} /* line 466 */
+  sim_icache_fetch(231 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 468 */
+} /* line 468 */
+  sim_icache_fetch(232 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __GOTO(l_L6X3);   __INC_BTU_CNT();
+   __INC_STALL_CNT();
+   goto l_L6X3;
+} /* line 470 */
+l_L18X3: ;/* line 473 */
+__LABEL(l_L18X3);
+  sim_icache_fetch(233 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 474 */
+} /* line 474 */
+  sim_icache_fetch(234 + t_thisfile.offset, 3);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX8); /* line 476 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 477 */
+   __ADD_CYCLES(1);
+} /* line 477 */
+  sim_icache_fetch(237 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_3, mem_trace_ld((reg_r0_7 + (unsigned int) 12),0,4)); /* line 479 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 480 */
+   __ADD_CYCLES(1);
+} /* line 480 */
+		 /* line 481 */
+  sim_icache_fetch(239 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -2190,77 +2469,94 @@ __LABEL(l_L18X3);
     t_FT *t_call = (t_FT*) strcmp;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 426 */
-l_lr_48: ;/* line 426 */
+} /* line 483 */
+l_lr_48: ;/* line 483 */
 __LABEL(l_lr_48);
-  sim_icache_fetch(243 + t_thisfile.offset, 2);
+  sim_icache_fetch(241 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __CMPNE(reg_b0_0, reg_r0_3, 0); /* line 428 */
-   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 429 */
-} /* line 429 */
+   __INC_BUNDLE_CNT(1);
+   __CMPNE(reg_b0_0, reg_r0_3, 0); /* line 485 */
+} /* line 485 */
+  sim_icache_fetch(242 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __SLCT(reg_r0_2, reg_b0_0, 0, (unsigned int) 6); /* line 487 */
+} /* line 487 */
+  sim_icache_fetch(243 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 489 */
+} /* line 489 */
+  sim_icache_fetch(244 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 491 */
+} /* line 491 */
   sim_icache_fetch(245 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __SLCT(reg_r0_2, reg_b0_0, 0, (unsigned int) 6); /* line 431 */
-} /* line 431 */
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 493 */
+} /* line 493 */
   sim_icache_fetch(246 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __STW(mem_trace_st((reg_r0_1 + (unsigned int) 36),0,4), reg_r0_2); /* line 433 */
-} /* line 433 */
-  sim_icache_fetch(247 + t_thisfile.offset, 2);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 495 */
+} /* line 495 */
+  sim_icache_fetch(247 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 435 */
+   __INC_BUNDLE_CNT(1);
    __GOTO(l_L6X3);   __INC_BTU_CNT();
    __INC_STALL_CNT();
    goto l_L6X3;
-} /* line 436 */
-l_L4X3: ;/* line 439 */
+} /* line 497 */
+l_L4X3: ;/* line 500 */
 __LABEL(l_L4X3);
-  sim_icache_fetch(249 + t_thisfile.offset, 2);
+  sim_icache_fetch(248 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 440 */
-   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 441 */
-} /* line 441 */
-l_L6X3: ;/* line 443 */
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 501 */
+} /* line 501 */
+  sim_icache_fetch(249 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 503 */
+} /* line 503 */
+  sim_icache_fetch(250 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __ADD(reg_r0_4, reg_r0_1, (unsigned int) 20); /* line 505 */
+} /* line 505 */
+l_L6X3: ;/* line 507 */
 __LABEL(l_L6X3);
-  sim_icache_fetch(251 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __ADD(reg_r0_5, reg_r0_1, (unsigned int) 16); /* line 444 */
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 445 */
-} /* line 445 */
-  sim_icache_fetch(253 + t_thisfile.offset, 2);
+  sim_icache_fetch(251 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __MOV(reg_r0_6, (unsigned int) in); /* line 447 */
-} /* line 447 */
-  sim_icache_fetch(255 + t_thisfile.offset, 1);
+   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_7 + (unsigned int) 4),0,4)); /* line 508 */
+} /* line 508 */
+  sim_icache_fetch(252 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_7 + (unsigned int) 4),0,4)); /* line 449 */
-} /* line 449 */
-  sim_icache_fetch(256 + t_thisfile.offset, 2);
+   __CMPEQ(reg_b0_0, reg_r0_2, 0); /* line 510 */
+} /* line 510 */
+  sim_icache_fetch(253 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __CMPEQ(reg_b0_0, reg_r0_2, 0); /* line 451 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 452 */
-   __ADD_CYCLES(1);
-} /* line 452 */
-  sim_icache_fetch(258 + t_thisfile.offset, 1);
+   __ADD(reg_r0_5, reg_r0_1, (unsigned int) 16); /* line 512 */
+} /* line 512 */
+  sim_icache_fetch(254 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -2271,11 +2567,17 @@ __LABEL(l_L6X3);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 454 */
-l_L13X3: ;/* line 456 */
+} /* line 514 */
+l_L13X3: ;/* line 516 */
 __LABEL(l_L13X3);
-		 /* line 456 */
-  sim_icache_fetch(259 + t_thisfile.offset, 2);
+  sim_icache_fetch(255 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_6, (unsigned int) in); /* line 517 */
+} /* line 517 */
+		 /* line 518 */
+  sim_icache_fetch(257 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -2288,30 +2590,35 @@ __LABEL(l_L13X3);
     t_FT *t_call = (t_FT*) load_pgm;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4, reg_r0_5, reg_r0_6);
    }
-} /* line 458 */
-l_lr_53: ;/* line 458 */
+} /* line 520 */
+l_lr_53: ;/* line 520 */
 __LABEL(l_lr_53);
-  sim_icache_fetch(261 + t_thisfile.offset, 5);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __LDW(reg_r0_5, mem_trace_ld((unsigned int) _impure_ptr,0,4)); /* line 460 */
-   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX10); /* line 461 */
-   __INC_NOP_CNT((unsigned int) 2);
-   __XNOP((unsigned int) 2); /* line 462 */
-   __ADD_CYCLES(2);
-} /* line 462 */
-  sim_icache_fetch(266 + t_thisfile.offset, 2);
+  sim_icache_fetch(259 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_3, mem_trace_ld((reg_r0_5 + (unsigned int) 8),0,4)); /* line 464 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 465 */
+   __LDW(reg_r0_5, mem_trace_ld((unsigned int) _impure_ptr,0,4)); /* line 522 */
+} /* line 522 */
+  sim_icache_fetch(261 + t_thisfile.offset, 3);
+{
    __ADD_CYCLES(1);
-} /* line 465 */
-		 /* line 466 */
-  sim_icache_fetch(268 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_4, (unsigned int) _X1STRINGPACKETX10); /* line 524 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 525 */
+   __ADD_CYCLES(1);
+} /* line 525 */
+  sim_icache_fetch(264 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_3, mem_trace_ld((reg_r0_5 + (unsigned int) 8),0,4)); /* line 527 */
+   __INC_NOP_CNT((unsigned int) 1);
+   __XNOP((unsigned int) 1); /* line 528 */
+   __ADD_CYCLES(1);
+} /* line 528 */
+		 /* line 529 */
+  sim_icache_fetch(266 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -2324,11 +2631,11 @@ __LABEL(l_lr_53);
     t_FT *t_call = (t_FT*) fprintf;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 468 */
-l_lr_55: ;/* line 468 */
+} /* line 531 */
+l_lr_55: ;/* line 531 */
 __LABEL(l_lr_55);
-		 /* line 469 */
-  sim_icache_fetch(270 + t_thisfile.offset, 2);
+		 /* line 532 */
+  sim_icache_fetch(268 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -2341,37 +2648,37 @@ __LABEL(l_lr_55);
     t_FT *t_call = (t_FT*) sim_ta_enable;
     reg_r0_3 =     (*t_call)();
    }
-} /* line 471 */
-l_lr_57: ;/* line 471 */
+} /* line 534 */
+l_lr_57: ;/* line 534 */
 __LABEL(l_lr_57);
+  sim_icache_fetch(270 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 536 */
+} /* line 536 */
+  sim_icache_fetch(271 + t_thisfile.offset, 1);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 538 */
+} /* line 538 */
   sim_icache_fetch(272 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_2, mem_trace_ld((reg_r0_1 + (unsigned int) 36),0,4)); /* line 473 */
-} /* line 473 */
-  sim_icache_fetch(273 + t_thisfile.offset, 1);
+   __LDWs(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 540 */
+} /* line 540 */
+  sim_icache_fetch(273 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_3, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 475 */
-} /* line 475 */
-  sim_icache_fetch(274 + t_thisfile.offset, 1);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __LDWs(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 477 */
-} /* line 477 */
-  sim_icache_fetch(275 + t_thisfile.offset, 2);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(1);
-   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 1); /* line 479 */
+   __CMPEQ(reg_b0_0, reg_r0_2, (unsigned int) 1); /* line 542 */
    __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 480 */
+   __XNOP((unsigned int) 1); /* line 543 */
    __ADD_CYCLES(1);
-} /* line 480 */
-  sim_icache_fetch(277 + t_thisfile.offset, 1);
+} /* line 543 */
+  sim_icache_fetch(275 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -2382,9 +2689,9 @@ __LABEL(l_lr_57);
    } else {
       __INC_BNT_CNT();
    }
-} /* line 482 */
-		 /* line 483 */
-  sim_icache_fetch(278 + t_thisfile.offset, 2);
+} /* line 545 */
+		 /* line 546 */
+  sim_icache_fetch(276 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -2397,13 +2704,13 @@ __LABEL(l_lr_57);
     t_FT *t_call = (t_FT*) deriche_float;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4);
    }
-} /* line 485 */
-l_lr_59: ;/* line 485 */
+} /* line 548 */
+l_lr_59: ;/* line 548 */
 __LABEL(l_lr_59);
-l_L7X3: ;/* line 487 */
+l_L7X3: ;/* line 550 */
 __LABEL(l_L7X3);
-		 /* line 487 */
-  sim_icache_fetch(280 + t_thisfile.offset, 2);
+		 /* line 550 */
+  sim_icache_fetch(278 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -2416,39 +2723,41 @@ __LABEL(l_L7X3);
     t_FT *t_call = (t_FT*) sim_ta_finish;
     reg_r0_3 =     (*t_call)();
    }
-} /* line 489 */
-l_lr_62: ;/* line 489 */
+} /* line 552 */
+l_lr_62: ;/* line 552 */
 __LABEL(l_lr_62);
-  sim_icache_fetch(282 + t_thisfile.offset, 3);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __MOV(reg_r0_6, (unsigned int) out); /* line 491 */
-   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 492 */
-} /* line 492 */
-  sim_icache_fetch(285 + t_thisfile.offset, 1);
+  sim_icache_fetch(280 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 494 */
-} /* line 494 */
-  sim_icache_fetch(286 + t_thisfile.offset, 1);
+   __LDW(reg_r0_7, mem_trace_ld((reg_r0_1 + (unsigned int) 32),0,4)); /* line 554 */
+} /* line 554 */
+  sim_icache_fetch(281 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_5, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 496 */
-} /* line 496 */
-  sim_icache_fetch(287 + t_thisfile.offset, 2);
+   __LDW(reg_r0_4, mem_trace_ld((reg_r0_1 + (unsigned int) 20),0,4)); /* line 556 */
+} /* line 556 */
+  sim_icache_fetch(282 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
-   __LDW(reg_r0_3, mem_trace_ld((reg_r0_7 + (unsigned int) 8),0,4)); /* line 498 */
-   __INC_NOP_CNT((unsigned int) 1);
-   __XNOP((unsigned int) 1); /* line 499 */
+   __LDW(reg_r0_5, mem_trace_ld((reg_r0_1 + (unsigned int) 16),0,4)); /* line 558 */
+} /* line 558 */
+  sim_icache_fetch(283 + t_thisfile.offset, 1);
+{
    __ADD_CYCLES(1);
-} /* line 499 */
-		 /* line 500 */
-  sim_icache_fetch(289 + t_thisfile.offset, 2);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_r0_3, mem_trace_ld((reg_r0_7 + (unsigned int) 8),0,4)); /* line 560 */
+} /* line 560 */
+  sim_icache_fetch(284 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_6, (unsigned int) out); /* line 562 */
+} /* line 562 */
+		 /* line 563 */
+  sim_icache_fetch(286 + t_thisfile.offset, 2);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -2461,20 +2770,25 @@ __LABEL(l_lr_62);
     t_FT *t_call = (t_FT*) save_pgm;
     reg_r0_3 =     (*t_call)(reg_r0_3, reg_r0_4, reg_r0_5, reg_r0_6);
    }
-} /* line 502 */
-l_lr_64: ;/* line 502 */
+} /* line 565 */
+l_lr_64: ;/* line 565 */
 __LABEL(l_lr_64);
-  sim_icache_fetch(291 + t_thisfile.offset, 3);
+  sim_icache_fetch(288 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(2);
-   __LDW(reg_l0_0, mem_trace_ld((reg_r0_1 + (unsigned int) 24),0,4)); /* line 504 */
-   __MOV(reg_r0_3, 0); /* line 505 */
-   __INC_NOP_CNT((unsigned int) 3);
-   __XNOP((unsigned int) 3); /* line 506 */
-   __ADD_CYCLES(3);
-} /* line 506 */
-  sim_icache_fetch(294 + t_thisfile.offset, 1);
+   __INC_BUNDLE_CNT(1);
+   __LDW(reg_l0_0, mem_trace_ld((reg_r0_1 + (unsigned int) 24),0,4)); /* line 567 */
+} /* line 567 */
+  sim_icache_fetch(289 + t_thisfile.offset, 2);
+{
+   __ADD_CYCLES(1);
+   __INC_BUNDLE_CNT(1);
+   __MOV(reg_r0_3, 0); /* line 569 */
+   __INC_NOP_CNT((unsigned int) 2);
+   __XNOP((unsigned int) 2); /* line 570 */
+   __ADD_CYCLES(2);
+} /* line 570 */
+  sim_icache_fetch(291 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
@@ -2483,22 +2797,17 @@ __LABEL(l_lr_64);
    reg_r0_1 = reg_r0_1 + (unsigned int) 64; /* pop frame */
    t_labelnum = reg_l0_0;
    goto labelfinder;
-} /* line 509 */
-l_L2X3: ;/* line 512 */
+} /* line 573 */
+l_L2X3: ;/* line 576 */
 __LABEL(l_L2X3);
-  sim_icache_fetch(295 + t_thisfile.offset, 1);
-{
-   __ADD_CYCLES(1);
-   __INC_BUNDLE_CNT(0);
-} /* line 512 */
-  sim_icache_fetch(296 + t_thisfile.offset, 1);
+  sim_icache_fetch(292 + t_thisfile.offset, 1);
 {
    __ADD_CYCLES(1);
    __INC_BUNDLE_CNT(1);
    __GOTO(l_L3X3);   __INC_BTU_CNT();
    __INC_STALL_CNT();
    goto l_L3X3;
-} /* line 514 */
+} /* line 577 */
   reg_l0_0 = t_client_rpc;
   return reg_r0_3;
 
